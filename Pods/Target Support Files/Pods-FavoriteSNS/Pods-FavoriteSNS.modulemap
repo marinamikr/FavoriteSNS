@@ -1,0 +1,6 @@
+framework module Pods_FavoriteSNS {
+  umbrella header "Pods-FavoriteSNS-umbrella.h"
+
+  export *
+  module * { export * }
+}
