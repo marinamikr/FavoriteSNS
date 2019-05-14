@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class MenuItemViewController: UIViewController {
 
@@ -17,30 +18,64 @@ class MenuItemViewController: UIViewController {
     @IBOutlet weak var menuTableVIew: UITableView!
 
     var userDefaults:UserDefaults = UserDefaults.standard
-    var array:[String] = ["自分の投稿","MyQRコード","QRコード読み取り","設定"]
-    var imageArray:[String] = ["MyDiary.png","QRcode.png","friend.png","Setting.png"]
+    var array:[String] = ["自分の投稿","MyQRコード","QRコード読み取り","グループ一覧","設定"]
     var dalegate : CustomDelegate!
 
 
 
     override func viewDidLoad() {
-//        super.viewDidLoad()
-//        self.table.register(UINib(nibName: "CustomDrawerTableViewCell", bundle: nil), forCellReuseIdentifier: "customDrawerTableViewCell")
-//        table.dataSource = self
-//        table.delegate = self
+        super.viewDidLoad()
+        self.menuTableVIew.register(UINib(nibName: "MenuItemTableViewCell", bundle: nil), forCellReuseIdentifier: "menuItemTableViewCell")
+        menuTableVIew.dataSource = self
+        menuTableVIew.delegate = self
         
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        if (self.userDefaults.string(forKey: "UserName") != nil) {
-//            let realm = try! Realm()
-//            let result = realm.objects(UserModel.self).first
-//            var iconImage = UIImage(data: result?.icon  as! Data)
-//            userIcon.image = iconImage
-//            userName.text = result?.nickName
-//        }
+        if (self.userDefaults.string(forKey: "UserName") != nil) {
+            let realm = try! Realm()
+            let result = realm.objects(User.self).first
+            var iconImage = UIImage(data: result?.userIcon as! Data)
+            iconImageView.image = iconImage
+            nameLabel.text = result?.userName
+        }
     }
 
 
+}
+
+extension MenuItemViewController :UITableViewDataSource, UITableViewDelegate {
+  
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return array.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = self.menuTableVIew.dequeueReusableCell(withIdentifier: "menuItemTableViewCell") as? MenuItemTableViewCell
+        cell?.label.text = array[indexPath.row]
+        return cell!
+    }
+    //セルが押された時に呼ばれるデリゲートメソッド
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // indexPath.rowを使う
+        switch indexPath.row {
+        case 0:
+            dalegate.toMyPost()
+        case 1:
+            dalegate.toCamera()
+        case 2:
+             dalegate.toQrcode()
+        case 3:
+            dalegate.toSetting()
+        case 4:
+            dalegate.toGroup()
+        default: break
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 50
+    }
 }

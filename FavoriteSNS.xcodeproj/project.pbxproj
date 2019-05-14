@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		402A625E228AC129002D2DD8 /* MyPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402A625D228AC129002D2DD8 /* MyPostViewController.swift */; };
+		402A6260228AC15C002D2DD8 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402A625F228AC15C002D2DD8 /* CameraViewController.swift */; };
+		402A6262228AC16D002D2DD8 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402A6261228AC16D002D2DD8 /* SettingViewController.swift */; };
+		402A6264228AC181002D2DD8 /* QrcodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402A6263228AC181002D2DD8 /* QrcodeViewController.swift */; };
+		402A6266228AC190002D2DD8 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402A6265228AC190002D2DD8 /* GroupViewController.swift */; };
+		402A626A228AD37C002D2DD8 /* ChooseGroupeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402A6269228AD37C002D2DD8 /* ChooseGroupeViewController.swift */; };
+		402A626C228ADA1E002D2DD8 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402A626B228ADA1E002D2DD8 /* Friend.swift */; };
 		406D518D22486FAD0051086E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406D518C22486FAD0051086E /* AppDelegate.swift */; };
 		406D519222486FAD0051086E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 406D519022486FAD0051086E /* Main.storyboard */; };
 		406D519422486FAE0051086E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 406D519322486FAE0051086E /* Assets.xcassets */; };
@@ -56,6 +63,13 @@
 /* Begin PBXFileReference section */
 		2E7ADF7DABFC240C6CA45CAA /* Pods-FavoriteSNS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FavoriteSNS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FavoriteSNS/Pods-FavoriteSNS.debug.xcconfig"; sourceTree = "<group>"; };
 		3DB3D5F8A21BABFE255C0BC8 /* Pods_FavoriteSNS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FavoriteSNS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		402A625D228AC129002D2DD8 /* MyPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostViewController.swift; sourceTree = "<group>"; };
+		402A625F228AC15C002D2DD8 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		402A6261228AC16D002D2DD8 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		402A6263228AC181002D2DD8 /* QrcodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrcodeViewController.swift; sourceTree = "<group>"; };
+		402A6265228AC190002D2DD8 /* GroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
+		402A6269228AD37C002D2DD8 /* ChooseGroupeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseGroupeViewController.swift; sourceTree = "<group>"; };
+		402A626B228ADA1E002D2DD8 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		406D518922486FAD0051086E /* FavoriteSNS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FavoriteSNS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		406D518C22486FAD0051086E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		406D519122486FAD0051086E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -186,6 +200,12 @@
 				40BC7F642249CDB1005EC53C /* MakeContentsViewController.swift */,
 				40BC7F71224B5ED2005EC53C /* MenuItemViewController.swift */,
 				40BC7F73224B5FE6005EC53C /* QRViewController.swift */,
+				402A625D228AC129002D2DD8 /* MyPostViewController.swift */,
+				402A625F228AC15C002D2DD8 /* CameraViewController.swift */,
+				402A6261228AC16D002D2DD8 /* SettingViewController.swift */,
+				402A6263228AC181002D2DD8 /* QrcodeViewController.swift */,
+				402A6265228AC190002D2DD8 /* GroupViewController.swift */,
+				402A6269228AD37C002D2DD8 /* ChooseGroupeViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -211,6 +231,7 @@
 			children = (
 				40BC7F622249BBDB005EC53C /* User.swift */,
 				40BC7F6D224B1DC6005EC53C /* Post.swift */,
+				402A626B228ADA1E002D2DD8 /* Friend.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -462,18 +483,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				40BC7F5D2249B6CF005EC53C /* MakeGroupViewController.swift in Sources */,
+				402A625E228AC129002D2DD8 /* MyPostViewController.swift in Sources */,
 				40BC7F48224873B0005EC53C /* TopViewController.swift in Sources */,
 				40BC7F81224B62E6005EC53C /* CustomDelegate.swift in Sources */,
 				40BC7F6B224B15E7005EC53C /* FriendPostTableViewCell.swift in Sources */,
+				402A6262228AC16D002D2DD8 /* SettingViewController.swift in Sources */,
 				40BC7F532248B07D005EC53C /* Util.swift in Sources */,
 				406D518D22486FAD0051086E /* AppDelegate.swift in Sources */,
+				402A6264228AC181002D2DD8 /* QrcodeViewController.swift in Sources */,
 				40BC7F72224B5ED2005EC53C /* MenuItemViewController.swift in Sources */,
 				40BC7F652249CDB1005EC53C /* MakeContentsViewController.swift in Sources */,
 				40BC7F5B2248CAEF005EC53C /* TimeLineViewController.swift in Sources */,
 				40BC7F562248B493005EC53C /* Extension.swift in Sources */,
+				402A6266228AC190002D2DD8 /* GroupViewController.swift in Sources */,
 				40BC7F74224B5FE6005EC53C /* QRViewController.swift in Sources */,
+				402A626C228ADA1E002D2DD8 /* Friend.swift in Sources */,
 				40BC7F7D224B6197005EC53C /* MenuItemTableViewCell.swift in Sources */,
+				402A6260228AC15C002D2DD8 /* CameraViewController.swift in Sources */,
 				40BC7F632249BBDB005EC53C /* User.swift in Sources */,
+				402A626A228AD37C002D2DD8 /* ChooseGroupeViewController.swift in Sources */,
 				40BC7F6E224B1DC6005EC53C /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

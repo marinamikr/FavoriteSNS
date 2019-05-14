@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import KYDrawerController
+
 
 class TimeLineViewController: UIViewController {
     
@@ -111,4 +113,39 @@ extension TimeLineViewController: UITableViewDataSource,UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 500
     }
+}
+
+extension TimeLineViewController: CustomDelegate {
+    func toCamera() {
+        let elDrawer = self.navigationController?.parent as! KYDrawerController
+        elDrawer.setDrawerState(KYDrawerController.DrawerState.closed, animated: true)
+        performSegue(withIdentifier: "toCameraViewController", sender: nil)
+    }
+    
+    func toQrcode() {
+        let elDrawer = self.navigationController?.parent as! KYDrawerController
+        elDrawer.setDrawerState(KYDrawerController.DrawerState.closed, animated: true)
+        performSegue(withIdentifier: "toQrcodeViewController", sender: nil)
+    }
+    
+    func toSetting() {
+        let elDrawer = self.navigationController?.parent as! KYDrawerController
+        elDrawer.setDrawerState(KYDrawerController.DrawerState.closed, animated: true)
+        performSegue(withIdentifier: "toSettingViewController", sender: nil)
+    }
+    
+    func toGroup() {
+        let elDrawer = self.navigationController?.parent as! KYDrawerController
+        elDrawer.setDrawerState(KYDrawerController.DrawerState.closed, animated: true)
+        performSegue(withIdentifier: "toGroupViewController", sender: nil)
+    }
+    
+    
+    func toMyPost() {
+        let elDrawer = self.navigationController?.parent as! KYDrawerController
+        elDrawer.setDrawerState(KYDrawerController.DrawerState.closed, animated: true)
+        performSegue(withIdentifier: "toMyPostViewController", sender: nil)
+    }
+    
+   
 }

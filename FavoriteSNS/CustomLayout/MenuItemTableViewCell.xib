@@ -19,23 +19,23 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="72.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q0m-NM-lZh">
-                        <rect key="frame" x="73" y="0.0" width="247" height="74"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q0m-NM-lZh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="72.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O41-nJ-Kmh">
-                        <rect key="frame" x="0.0" y="0.0" width="73.5" height="73.5"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </imageView>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="Q0m-NM-lZh" secondAttribute="bottom" id="EZI-9C-s4Y"/>
+                    <constraint firstAttribute="trailing" secondItem="Q0m-NM-lZh" secondAttribute="trailing" id="PaA-9O-9hM"/>
+                    <constraint firstItem="Q0m-NM-lZh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="XkB-jw-3cD"/>
+                    <constraint firstItem="Q0m-NM-lZh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="mFN-uM-oUl"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="icon" destination="O41-nJ-Kmh" id="g1a-JH-MJD"/>
-                <outlet property="label" destination="Q0m-NM-lZh" id="k9C-Uk-OOe"/>
+                <outlet property="label" destination="Q0m-NM-lZh" id="Lbu-Za-S7S"/>
             </connections>
             <point key="canvasLocation" x="137.59999999999999" y="166.8665667166417"/>
         </tableViewCell>

@@ -8,17 +8,22 @@
 
 import UIKit
 import RealmSwift
+import Firebase
 
 class MakeGroupViewController: UIViewController {
 
     var userName: String!
     var iconImage: UIImage!
     
+    // インスタンス変数
+    var DBRef:DatabaseReference!
+    
     @IBOutlet weak var groupName: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
- 
+        //インスタンスを作成
+        DBRef = Database.database().reference()
     }
     
     @IBAction func saveButton(_ sender: Any) {
@@ -34,7 +39,14 @@ class MakeGroupViewController: UIViewController {
         try! realm.write {
             realm.add(saveData)
         }
+        
+        uploadGroupName(groupName: groupName.text!)
 
     }
-    
+    func uploadGroupName(groupName: String) {
+        let groupArray = [groupName]
+        let ref = Database.database().reference()
+        ref.child(Util.getUUID()).child("userData").child("group").setValue(groupArray)
+    }
+   
 }

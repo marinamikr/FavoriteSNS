@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="z5k-VL-OX7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -73,7 +73,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1932" y="855.66502463054189"/>
+            <point key="canvasLocation" x="1356" y="955"/>
         </scene>
         <!--Time Line View Controller-->
         <scene sceneID="Y2A-no-buk">
@@ -106,11 +106,151 @@
                     <connections>
                         <outlet property="timeLineTableView" destination="tHE-SQ-9t3" id="ilG-SX-wS7"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="toTopViewController" id="NYF-1W-KyA"/>
+                        <segue destination="3tS-Q3-MN1" kind="show" identifier="toMyPostViewController" id="b6y-TS-rQv"/>
+                        <segue destination="E7S-2c-7fe" kind="show" identifier="toQRViewController" id="8qd-lt-pqV"/>
+                        <segue destination="BNI-OW-gK2" kind="show" identifier="toSettingViewController" id="lEE-8g-56S"/>
+                        <segue destination="1ht-SC-BMx" kind="show" identifier="toGroupViewController" id="C56-e8-ssS"/>
+                        <segue destination="mWF-CF-Est" kind="show" identifier="toCameraViewController" id="T72-3Y-n78"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="04R-Cz-a96" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1133.5999999999999" y="133.74384236453201"/>
+            <point key="canvasLocation" x="3033" y="375"/>
+        </scene>
+        <!--My Post View Controller-->
+        <scene sceneID="8bD-OG-QHC">
+            <objects>
+                <viewController id="3tS-Q3-MN1" customClass="MyPostViewController" customModule="FavoriteSNS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xNR-dA-HLQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="tQt-mQ-cvg"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xxI-MP-lOk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4010" y="-234"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="MPe-lY-pYu">
+            <objects>
+                <viewController id="E7S-2c-7fe" customClass="QRViewController" customModule="FavoriteSNS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qBY-w4-VNk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Hc-p1-b6Y">
+                                <rect key="frame" x="67" y="286" width="240" height="240"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="7WS-Jp-y2z"/>
+                    </view>
+                    <connections>
+                        <outlet property="qrImage" destination="5Hc-p1-b6Y" id="Ku0-A5-VWi"/>
+                        <segue destination="DMb-dJ-Znt" kind="show" identifier="toChooseGroupeViewController" id="83P-mq-wqj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="64V-KB-5hs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5048.8000000000002" y="504.67980295566502"/>
+        </scene>
+        <!--Choose Groupe View Controller-->
+        <scene sceneID="VXh-KQ-kPL">
+            <objects>
+                <viewController id="DMb-dJ-Znt" customClass="ChooseGroupeViewController" customModule="FavoriteSNS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8u3-gz-TO7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OON-82-YxV">
+                                <rect key="frame" x="145" y="132" width="84" height="84"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KMR-Xf-3C3">
+                                <rect key="frame" x="146" y="224" width="82" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="グループを選択" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V7G-VQ-y8L">
+                                <rect key="frame" x="16" y="420" width="122" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PoB-0U-ISb">
+                                <rect key="frame" x="170" y="368" width="189" height="125"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B9l-ci-gKG">
+                                <rect key="frame" x="167" y="616" width="41" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="follow"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="cJb-QG-Xr7"/>
+                    </view>
+                    <connections>
+                        <outlet property="followButton" destination="B9l-ci-gKG" id="ddj-VK-rE7"/>
+                        <outlet property="groupPickerView" destination="PoB-0U-ISb" id="h5D-ZN-wFl"/>
+                        <outlet property="iconImage" destination="OON-82-YxV" id="vi8-pE-Tn1"/>
+                        <outlet property="userName" destination="KMR-Xf-3C3" id="fTm-q8-bWp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aJf-Xb-bli" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6114" y="498"/>
+        </scene>
+        <!--Group View Controller-->
+        <scene sceneID="7KZ-jk-n6I">
+            <objects>
+                <viewController id="1ht-SC-BMx" customClass="GroupViewController" customModule="FavoriteSNS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RjQ-6I-k45">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="bLu-8M-4Es"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BXe-dg-5MH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3202" y="1175"/>
+        </scene>
+        <!--Camera View Controller-->
+        <scene sceneID="OGp-Kw-A6Z">
+            <objects>
+                <viewController id="mWF-CF-Est" customClass="CameraViewController" customModule="FavoriteSNS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6yN-LA-2NH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="8Y0-LT-VzK"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vky-gU-spT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3042" y="-308"/>
+        </scene>
+        <!--Setting View Controller-->
+        <scene sceneID="CAE-yt-RS2">
+            <objects>
+                <viewController id="BNI-OW-gK2" customClass="SettingViewController" customModule="FavoriteSNS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Lzn-qA-gZ4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="rGz-T2-E6G"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FqV-dc-Fss" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5271" y="-234"/>
         </scene>
         <!--Make Contents View Controller-->
         <scene sceneID="cev-Ey-IyU">
@@ -172,7 +312,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6UG-38-NgE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1820" y="133.74384236453201"/>
+            <point key="canvasLocation" x="1649" y="55"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vxl-hh-8qJ">
@@ -396,7 +536,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kPs-kn-YIc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2774" y="856"/>
+            <point key="canvasLocation" x="1982" y="884"/>
         </scene>
     </scenes>
     <resources>
@@ -404,6 +544,6 @@
         <image name="setting sun.JPG" width="2048" height="1365"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="raY-RR-f2Z"/>
+        <segue reference="Gki-qC-Cvr"/>
     </inferredMetricsTieBreakers>
 </document>

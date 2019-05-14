@@ -9,12 +9,17 @@
 import UIKit
 
 class QRViewController: UIViewController {
-
+    
+    @IBOutlet weak var qrImage: UIImageView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        qrImage.image = makeQRCodeImage(text: Util.getUUID())
+        self.navigationItem.title = "MyQRコード"
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Mamelon", size: 20)]
     }
+    
     
     
     func makeQRCodeImage(text:String) -> UIImage? {

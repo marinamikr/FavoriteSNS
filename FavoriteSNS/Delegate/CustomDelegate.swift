@@ -10,11 +10,9 @@ import Foundation
 
 protocol CustomDelegate {
 func toMyPost() -> Void
-func toQ() -> Void
-func tocamera() -> Void
-func toqrcode() -> Void
-func tosetting() -> Void
-func toTimeLine() -> Void
-func toTutorial() -> Void
+func toCamera() -> Void
+func toQrcode() -> Void
+func toSetting() -> Void
+func toGroup() -> Void
 
 }
