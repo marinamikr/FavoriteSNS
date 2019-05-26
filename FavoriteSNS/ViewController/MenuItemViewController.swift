@@ -10,19 +10,19 @@ import UIKit
 import RealmSwift
 
 class MenuItemViewController: UIViewController {
-
+    
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var followLabel: UILabel!
     @IBOutlet weak var followerLabel: UILabel!
     @IBOutlet weak var menuTableVIew: UITableView!
-
+    
     var userDefaults:UserDefaults = UserDefaults.standard
     var array:[String] = ["自分の投稿","MyQRコード","QRコード読み取り","グループ一覧","設定"]
     var dalegate : CustomDelegate!
-
-
-
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.menuTableVIew.register(UINib(nibName: "MenuItemTableViewCell", bundle: nil), forCellReuseIdentifier: "menuItemTableViewCell")
@@ -30,7 +30,7 @@ class MenuItemViewController: UIViewController {
         menuTableVIew.delegate = self
         
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if (self.userDefaults.string(forKey: "UserName") != nil) {
@@ -41,12 +41,12 @@ class MenuItemViewController: UIViewController {
             nameLabel.text = result?.userName
         }
     }
-
-
+    
+    
 }
 
 extension MenuItemViewController :UITableViewDataSource, UITableViewDelegate {
-  
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return array.count
     }
@@ -64,9 +64,9 @@ extension MenuItemViewController :UITableViewDataSource, UITableViewDelegate {
         case 0:
             dalegate.toMyPost()
         case 1:
-            dalegate.toCamera()
+            dalegate.toQrcode()
         case 2:
-             dalegate.toQrcode()
+            dalegate.toCamera()
         case 3:
             dalegate.toSetting()
         case 4:
@@ -76,6 +76,6 @@ extension MenuItemViewController :UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 50
+        return 100
     }
 }

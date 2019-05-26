@@ -22,6 +22,7 @@ class TopViewController: UIViewController  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        userNameText.delegate = self
         //インスタンスを作成
         DBRef = Database.database().reference()
     }
@@ -81,6 +82,17 @@ class TopViewController: UIViewController  {
             MakeGroupViewController.userName = self.userNameText.text
             MakeGroupViewController.iconImage = self.iconImageView.image
         }
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // キーボードを閉じる
+        userNameText.resignFirstResponder()
+        return true
+    }
+    
+}
+extension TopViewController :UITextFieldDelegate {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
 }
 

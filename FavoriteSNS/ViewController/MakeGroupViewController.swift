@@ -22,6 +22,7 @@ class MakeGroupViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        groupName.delegate = self
         //インスタンスを作成
         DBRef = Database.database().reference()
     }
@@ -49,4 +50,15 @@ class MakeGroupViewController: UIViewController {
         ref.child(Util.getUUID()).child("userData").child("group").setValue(groupArray)
     }
    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // キーボードを閉じる
+        groupName.resignFirstResponder()
+        return true
+    }
+    
+}
+extension MakeGroupViewController :UITextFieldDelegate {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 }

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="z5k-VL-OX7">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -107,7 +107,7 @@
                         <outlet property="timeLineTableView" destination="tHE-SQ-9t3" id="ilG-SX-wS7"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="toTopViewController" id="NYF-1W-KyA"/>
                         <segue destination="3tS-Q3-MN1" kind="show" identifier="toMyPostViewController" id="b6y-TS-rQv"/>
-                        <segue destination="E7S-2c-7fe" kind="show" identifier="toQRViewController" id="8qd-lt-pqV"/>
+                        <segue destination="E7S-2c-7fe" kind="show" identifier="toQrcodeViewController" id="8qd-lt-pqV"/>
                         <segue destination="BNI-OW-gK2" kind="show" identifier="toSettingViewController" id="lEE-8g-56S"/>
                         <segue destination="1ht-SC-BMx" kind="show" identifier="toGroupViewController" id="C56-e8-ssS"/>
                         <segue destination="mWF-CF-Est" kind="show" identifier="toCameraViewController" id="T72-3Y-n78"/>
@@ -130,7 +130,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xxI-MP-lOk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4010" y="-234"/>
+            <point key="canvasLocation" x="5049" y="-257"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="MPe-lY-pYu">
@@ -150,12 +150,11 @@
                     </view>
                     <connections>
                         <outlet property="qrImage" destination="5Hc-p1-b6Y" id="Ku0-A5-VWi"/>
-                        <segue destination="DMb-dJ-Znt" kind="show" identifier="toChooseGroupeViewController" id="83P-mq-wqj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="64V-KB-5hs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5048.8000000000002" y="504.67980295566502"/>
+            <point key="canvasLocation" x="4924" y="955"/>
         </scene>
         <!--Choose Groupe View Controller-->
         <scene sceneID="VXh-KQ-kPL">
@@ -191,13 +190,15 @@
                                 <rect key="frame" x="167" y="616" width="41" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="follow"/>
+                                <connections>
+                                    <action selector="followButton:" destination="DMb-dJ-Znt" eventType="touchUpInside" id="10g-lp-bK0"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="cJb-QG-Xr7"/>
                     </view>
                     <connections>
-                        <outlet property="followButton" destination="B9l-ci-gKG" id="ddj-VK-rE7"/>
                         <outlet property="groupPickerView" destination="PoB-0U-ISb" id="h5D-ZN-wFl"/>
                         <outlet property="iconImage" destination="OON-82-YxV" id="vi8-pE-Tn1"/>
                         <outlet property="userName" destination="KMR-Xf-3C3" id="fTm-q8-bWp"/>
@@ -205,7 +206,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aJf-Xb-bli" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6114" y="498"/>
+            <point key="canvasLocation" x="6116" y="-853"/>
         </scene>
         <!--Group View Controller-->
         <scene sceneID="7KZ-jk-n6I">
@@ -229,13 +230,23 @@
                     <view key="view" contentMode="scaleToFill" id="6yN-LA-2NH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IST-hT-f08">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="8Y0-LT-VzK"/>
                     </view>
+                    <connections>
+                        <segue destination="DMb-dJ-Znt" kind="show" identifier="toChooseGroupeViewController" id="bis-MT-xd8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vky-gU-spT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3042" y="-308"/>
+            <point key="canvasLocation" x="4444" y="-942.11822660098528"/>
         </scene>
         <!--Setting View Controller-->
         <scene sceneID="CAE-yt-RS2">
@@ -250,7 +261,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FqV-dc-Fss" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5271" y="-234"/>
+            <point key="canvasLocation" x="5558" y="398"/>
         </scene>
         <!--Make Contents View Controller-->
         <scene sceneID="cev-Ey-IyU">

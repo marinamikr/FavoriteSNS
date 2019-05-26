@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import RealmSwift
 
 class ChooseGroupeViewController: UIViewController {
     
@@ -19,7 +20,8 @@ class ChooseGroupeViewController: UIViewController {
     @IBOutlet weak var iconImage: UIImageView!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var groupPickerView: UIPickerView!
-    @IBOutlet weak var followButton: UIButton!
+    
+   
     
     var friendData: Friend = Friend()
     
@@ -40,7 +42,12 @@ class ChooseGroupeViewController: UIViewController {
             let postDict = snapshot.value as! [String : AnyObject]
             self.friendData.userName = postDict["name"] as! String
             self.friendData.userIconURL = postDict["iconURL"] as! String
-            self.friendData.groupNameArray = postDict["group"] as! [String]
+            let array = postDict["group"] as! [String]
+            let groupNameArray = List<String>()
+            for item in array{
+                groupNameArray.append(item)
+            }
+            self.friendData.groupNameArray = groupNameArray
             self.reloadView()
         })
     }
@@ -51,15 +58,22 @@ class ChooseGroupeViewController: UIViewController {
         self.groupPickerView.reloadAllComponents()
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    @IBAction func followButton(_ sender: Any) {
+        let tmpGroupNameArray = List<String>()
+        for item in friendData.groupNameArray{
+            tmpGroupNameArray.append(item)
+        }
+        friendData.groupNameArray.removeAll()
+        friendData.groupNameArray.append(tmpGroupNameArray[groupPickerView.selectedRow(inComponent: 0)])
+        friendData.uuid = uuid
+        let realm = try! Realm()
+
+        try! realm.write {
+            realm.add(friendData)
+        }
+        navigationController?.popToRootViewController(animated: true)
+    }
+    
     
 }
 

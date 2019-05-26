@@ -31,7 +31,8 @@ class MakeContentsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        contentsTextView.delegate = self as! UITextViewDelegate
+
         //インスタンスを作成
         DBRef = Database.database().reference()
         
@@ -82,6 +83,12 @@ class MakeContentsViewController: UIViewController {
             self.present(pickerView, animated: true)
         }
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // キーボードを閉じる
+        contentsTextView.resignFirstResponder()
+        return true
+    }
 }
 extension MakeContentsViewController : UIImagePickerControllerDelegate ,UINavigationControllerDelegate {
     
@@ -112,4 +119,9 @@ extension MakeContentsViewController : UIPickerViewDelegate, UIPickerViewDataSou
         return realmGroupNameArray[row]
     }
     
+}
+extension MakeContentsViewController :UITextViewDelegate {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 }

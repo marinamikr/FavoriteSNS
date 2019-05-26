@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import KYDrawerController
+import RealmSwift
 
 
 class TimeLineViewController: UIViewController {
@@ -25,6 +26,9 @@ class TimeLineViewController: UIViewController {
     var ref:DatabaseReference!
     
     var handler: UInt = 0
+    
+    let realm = try! Realm()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,39 +50,44 @@ class TimeLineViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        let elDrawer = self.navigationController?.parent as! KYDrawerController
+        (elDrawer.drawerViewController as! MenuItemViewController).dalegate = self
         getUserContents()
     }
     
     func getUserContents(){
         
-        let ref = Database.database().reference()
-        handler = ref.child("6A430676-35CE-4340-85AA-E7046C8DB061").child("post").child("lit").observe(.value, with: {snapshot  in
-            for child in snapshot.children {
-                let postDict = (child as! DataSnapshot).value as! [String:Any]
-                ref.child("6A430676-35CE-4340-85AA-E7046C8DB061").child("userData").observe(.value, with: {snapshot  in
-                    let userDict = snapshot.value as! [String:Any]
-                    let post = Post()
-                    post.setPictureURL(pictureURL: (postDict["imageURL"] as! String))
-                    post.setContents(contents: (postDict["contents"] as! String))
-                    post.setLikes(likes: (postDict["likes"] as! Int))
-                    post.setRepry(repry: (postDict["repry"] as! String))
-                    post.setStar(star: (postDict["star"] as! Int))
-                    post.setUserName(userName: (userDict["name"] as! String))
-                    post.setIconURL(iconURL: (userDict["iconURL"] as! String))
-                    print(post)
-                    self.postArray.append(post)
-                    self.timeLineTableView.reloadData()
-                })
-                
-            }
+        let friendResalt = realm.objects(Friend.self)
+        for friendData in friendResalt {
+            let ref = Database.database().reference()
+            handler = ref.child(friendData.uuid).child("post").child(friendData.groupNameArray.first!).observe(.value, with: {snapshot  in
+                for child in snapshot.children {
+                    let postDict = (child as! DataSnapshot).value as! [String:Any]
+                    ref.child(friendData.uuid).child("userData").observe(.value, with: {snapshot  in
+                        let userDict = snapshot.value as! [String:Any]
+                        let post = Post()
+                        post.setPictureURL(pictureURL: (postDict["imageURL"] as! String))
+                        post.setContents(contents: (postDict["contents"] as! String))
+                        post.setLikes(likes: (postDict["likes"] as! Int))
+                        post.setRepry(repry: (postDict["repry"] as! String))
+                        post.setStar(star: (postDict["star"] as! Int))
+                        post.setUserName(userName: (userDict["name"] as! String))
+                        post.setIconURL(iconURL: (userDict["iconURL"] as! String))
+                        print(post)
+                        self.postArray.append(post)
+                        self.timeLineTableView.reloadData()
+                    })
+                    
+                }
+            })
             
-           
             
-//            self.ref.child("7BAD6550-B7F2-44DC-9F45-83410B9BA1CD").child("userData").removeAllObservers()
             
-//            self.ref.child("7BAD6550-B7F2-44DC-9F45-83410B9BA1CD").child("post").child("school").removeObserver(withHandle: self.handler)
+            //            self.ref.child("7BAD6550-B7F2-44DC-9F45-83410B9BA1CD").child("userData").removeAllObservers()
             
-        })
+            //            self.ref.child("7BAD6550-B7F2-44DC-9F45-83410B9BA1CD").child("post").child("school").removeObserver(withHandle: self.handler)
+            
+        }
         
     }
 }
@@ -147,5 +156,5 @@ extension TimeLineViewController: CustomDelegate {
         performSegue(withIdentifier: "toMyPostViewController", sender: nil)
     }
     
-   
+    
 }
