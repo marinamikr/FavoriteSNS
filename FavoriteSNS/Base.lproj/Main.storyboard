@@ -276,18 +276,18 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="tob-Gy-dlQ">
-                                <rect key="frame" x="55" y="134" width="265" height="148"/>
+                                <rect key="frame" x="55" y="166" width="265" height="148"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9mg-Yj-cV8">
-                                <rect key="frame" x="55" y="290" width="265" height="265"/>
+                                <rect key="frame" x="55" y="331" width="265" height="265"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k1m-SO-KpO">
-                                <rect key="frame" x="16" y="731" width="77" height="81"/>
+                                <rect key="frame" x="16" y="750" width="77" height="62"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="画像を追加">
                                     <color key="titleColor" red="1" green="0.0" blue="0.69889190831456816" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -297,7 +297,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UZd-jl-bBF">
-                                <rect key="frame" x="283" y="736" width="76" height="70"/>
+                                <rect key="frame" x="283" y="757" width="76" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="投稿">
                                     <color key="titleColor" red="1" green="0.0" blue="0.69889190830000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -308,9 +308,29 @@
                                 </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rhp-TQ-ZsO">
-                                <rect key="frame" x="45" y="566" width="284" height="157"/>
+                                <rect key="frame" x="45" y="592" width="284" height="157"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="star.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="CmQ-Mc-9xA">
+                                <rect key="frame" x="112" y="109" width="49" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="star.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Gpk-sL-0mj">
+                                <rect key="frame" x="169" y="109" width="49" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="star.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="TSe-Mo-u2s">
+                                <rect key="frame" x="226" y="109" width="49" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="star.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="zSJ-S6-sbG">
+                                <rect key="frame" x="283" y="109" width="49" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="star.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="LUS-LC-0TL">
+                                <rect key="frame" x="55" y="109" width="49" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="CD6-rf-SIR"/>
@@ -319,11 +339,16 @@
                         <outlet property="contentsTextView" destination="tob-Gy-dlQ" id="NP9-UL-uV4"/>
                         <outlet property="groupPickerView" destination="rhp-TQ-ZsO" id="MdR-bf-OsP"/>
                         <outlet property="pictureImageView" destination="9mg-Yj-cV8" id="HA6-Sg-bLV"/>
+                        <outlet property="star1" destination="LUS-LC-0TL" id="og4-kl-771"/>
+                        <outlet property="star2" destination="CmQ-Mc-9xA" id="joh-9v-z8S"/>
+                        <outlet property="star3" destination="Gpk-sL-0mj" id="eml-X1-iiq"/>
+                        <outlet property="star4" destination="TSe-Mo-u2s" id="MdJ-xa-rBO"/>
+                        <outlet property="star5" destination="zSJ-S6-sbG" id="iYa-jd-lJf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6UG-38-NgE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1649" y="55"/>
+            <point key="canvasLocation" x="1648.8" y="54.679802955665025"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vxl-hh-8qJ">
@@ -553,8 +578,9 @@
     <resources>
         <image name="TimeLine.png" width="1125" height="2436"/>
         <image name="setting sun.JPG" width="2048" height="1365"/>
+        <image name="star.jpg" width="300" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Gki-qC-Cvr"/>
+        <segue reference="raY-RR-f2Z"/>
     </inferredMetricsTieBreakers>
 </document>

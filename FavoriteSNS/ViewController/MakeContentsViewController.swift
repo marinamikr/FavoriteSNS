@@ -18,20 +18,31 @@ class MakeContentsViewController: UIViewController {
     
     @IBOutlet weak var groupPickerView: UIPickerView!
     
+    @IBOutlet weak var star1: UIImageView!
+    
+    @IBOutlet weak var star2: UIImageView!
+    
+    @IBOutlet weak var star3: UIImageView!
+    
+    @IBOutlet weak var star4: UIImageView!
+    
+    @IBOutlet weak var star5: UIImageView!
+    
+    
     var selectedImage:UIImage!
     
     var realm :Realm!
     var realmGroupNameArray:List<String>!
     var like = Int()
     var repry = String()
-    var star = Int()
+    var starIndex: Int = 0
     
     // インスタンス変数
     var DBRef:DatabaseReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        contentsTextView.delegate = self as! UITextViewDelegate
+        contentsTextView.delegate = self
 
         //インスタンスを作成
         DBRef = Database.database().reference()
@@ -42,7 +53,18 @@ class MakeContentsViewController: UIViewController {
         groupPickerView.delegate = self
         groupPickerView.dataSource = self
         groupPickerView.showsSelectionIndicator = true
+        
+        star1.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(MakeContentsViewController.imageViewTapped1(_:))))
+        
+        star2.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(MakeContentsViewController.imageViewTapped2(_:))))
+        
+        star3.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(MakeContentsViewController.imageViewTapped3(_:))))
+        
+        star4.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(MakeContentsViewController.imageViewTapped4(_:))))
+        
+        star5.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(MakeContentsViewController.imageViewTapped5(_:))))
     }
+    
     
     
     func uploadContents(text: String,pic: UIImage){
@@ -58,7 +80,7 @@ class MakeContentsViewController: UIViewController {
             // strageに画像をアップロード
             riversRef.putData(data, metadata: nil, completion: { metaData, error in
                 let downloadURL: String = (metaData?.downloadURL()?.absoluteString)!
-                let data = ["contents": self.contentsTextView.text,"imageURL": downloadURL,"likes": self.like,"repry": self.repry,"star": self.star] as [String : Any]
+                let data = ["contents": self.contentsTextView.text,"imageURL": downloadURL,"likes": self.like,"repry": self.repry,"star": self.starIndex] as [String : Any]
                 let ref = Database.database().reference()
                 
                 ref.child(Util.getUUID()).child("post").child(self.realmGroupNameArray![self.groupPickerView.selectedRow(inComponent: 0)]).childByAutoId().setValue(data)
@@ -84,12 +106,58 @@ class MakeContentsViewController: UIViewController {
         }
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        // キーボードを閉じる
-        contentsTextView.resignFirstResponder()
-        return true
-    }
+  
 }
+
+extension MakeContentsViewController {
+  
+    @objc func imageViewTapped1(_ sender: UITapGestureRecognizer) {
+        star1.image = UIImage(named: "pinkhearts.png")
+        star2.image = UIImage(named: "star.jpg")
+        star3.image = UIImage(named: "star.jpg")
+        star4.image = UIImage(named: "star.jpg")
+        star5.image = UIImage(named: "star.jpg")
+        starIndex = 1
+    }
+    
+    @objc func imageViewTapped2(_ sender: UITapGestureRecognizer) {
+        star1.image = UIImage(named: "pinkhearts.png")
+        star2.image = UIImage(named: "pinkhearts.png")
+        star3.image = UIImage(named: "star.jpg")
+        star4.image = UIImage(named: "star.jpg")
+        star5.image = UIImage(named: "star.jpg")
+        starIndex = 2
+    }
+    
+    @objc func imageViewTapped3(_ sender: UITapGestureRecognizer) {
+        star1.image = UIImage(named: "pinkhearts.png")
+        star2.image = UIImage(named: "pinkhearts.png")
+        star3.image = UIImage(named: "pinkhearts.png")
+        star4.image = UIImage(named: "star.jpg")
+        star5.image = UIImage(named: "star.jpg")
+        starIndex = 3
+    }
+    
+    @objc func imageViewTapped4(_ sender: UITapGestureRecognizer) {
+        star1.image = UIImage(named: "pinkhearts.png")
+        star2.image = UIImage(named: "pinkhearts.png")
+        star3.image = UIImage(named: "pinkhearts.png")
+        star4.image = UIImage(named: "pinkhearts.png")
+        star5.image = UIImage(named: "star.jpg")
+        starIndex = 4
+    }
+    
+    @objc func imageViewTapped5(_ sender: UITapGestureRecognizer) {
+        star1.image = UIImage(named: "pinkhearts.png")
+        star2.image = UIImage(named: "pinkhearts.png")
+        star3.image = UIImage(named: "pinkhearts.png")
+        star4.image = UIImage(named: "pinkhearts.png")
+        star5.image = UIImage(named: "pinkhearts.png")
+        starIndex = 5
+    }
+    
+}
+
 extension MakeContentsViewController : UIImagePickerControllerDelegate ,UINavigationControllerDelegate {
     
     // 写真を選んだ後に呼ばれる処理
@@ -124,4 +192,16 @@ extension MakeContentsViewController :UITextViewDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
+    // hides text views
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        
+        print("反応してる？")
+        if (text == "\n") {
+            //あなたのテキストフィールド
+            contentsTextView.resignFirstResponder()
+            return false
+        }
+        return true
+    }
+    
 }

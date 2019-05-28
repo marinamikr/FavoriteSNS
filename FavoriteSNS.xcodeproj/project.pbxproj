@@ -20,6 +20,7 @@
 		406D519722486FAE0051086E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 406D519522486FAE0051086E /* LaunchScreen.storyboard */; };
 		406D51A222486FAE0051086E /* FavoriteSNSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406D51A122486FAE0051086E /* FavoriteSNSTests.swift */; };
 		406D51AD22486FAE0051086E /* FavoriteSNSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406D51AC22486FAE0051086E /* FavoriteSNSUITests.swift */; };
+		4074E382229D4D7B0027BDD4 /* star.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4074E381229D4D7B0027BDD4 /* star.jpg */; };
 		40BC7F48224873B0005EC53C /* TopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BC7F47224873B0005EC53C /* TopViewController.swift */; };
 		40BC7F532248B07D005EC53C /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BC7F522248B07D005EC53C /* Util.swift */; };
 		40BC7F562248B493005EC53C /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BC7F552248B493005EC53C /* Extension.swift */; };
@@ -82,6 +83,7 @@
 		406D51A822486FAE0051086E /* FavoriteSNSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FavoriteSNSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		406D51AC22486FAE0051086E /* FavoriteSNSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSNSUITests.swift; sourceTree = "<group>"; };
 		406D51AE22486FAE0051086E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4074E381229D4D7B0027BDD4 /* star.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = star.jpg; sourceTree = "<group>"; };
 		40BC7F47224873B0005EC53C /* TopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewController.swift; sourceTree = "<group>"; };
 		40BC7F522248B07D005EC53C /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		40BC7F552248B493005EC53C /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 				40BC7F82224C50DF005EC53C /* TimeLine.png */,
 				40BC7F85224C51B6005EC53C /* TopView.png */,
 				40BC7F87224C54E3005EC53C /* pinkhearts.png */,
+				4074E381229D4D7B0027BDD4 /* star.jpg */,
 			);
 			path = Image;
 			sourceTree = "<group>";
@@ -398,6 +401,7 @@
 				40BC7F86224C51B6005EC53C /* TopView.png in Resources */,
 				40BC7F7E224B6197005EC53C /* MenuItemTableViewCell.xib in Resources */,
 				406D519422486FAE0051086E /* Assets.xcassets in Resources */,
+				4074E382229D4D7B0027BDD4 /* star.jpg in Resources */,
 				406D519222486FAD0051086E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

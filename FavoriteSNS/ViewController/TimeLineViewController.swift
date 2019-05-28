@@ -29,6 +29,8 @@ class TimeLineViewController: UIViewController {
     
     let realm = try! Realm()
     
+   
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,7 +75,11 @@ class TimeLineViewController: UIViewController {
                         post.setStar(star: (postDict["star"] as! Int))
                         post.setUserName(userName: (userDict["name"] as! String))
                         post.setIconURL(iconURL: (userDict["iconURL"] as! String))
-                        print(post)
+                        post.setUUID(uuid: friendData.uuid)
+                        post.setGroupName(groupName: friendData.groupNameArray.first!)
+                        post.setAutoID(autoID: (child as! DataSnapshot).key)
+                        print(postDict)
+                        print((child as! DataSnapshot).key)
                         self.postArray.append(post)
                         self.timeLineTableView.reloadData()
                     })
@@ -106,6 +112,7 @@ extension TimeLineViewController: UITableViewDataSource,UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = timeLineTableView.dequeueReusableCell(withIdentifier: "friendPostTableViewCell", for: indexPath) as! FriendPostTableViewCell
         let post = postArray[indexPath.row]
+        cell.setPostModel(post: post)
         cell.setContents(contentsData: post.getContents())
         cell.setImage(imageData: post.getPictureURL())
         cell.setUserName(nameData: post.getUserName())
@@ -113,6 +120,9 @@ extension TimeLineViewController: UITableViewDataSource,UITableViewDelegate {
         cell.setLikeLabel(likeData: post.getLikes())
         cell.setRepryLabel(repryData: post.getRepry())
         cell.setStarLabel(starData: post.getStar())
+        cell.setheartImage(imageName: "pinkhearts.png")
+        
+        
         
         
         
@@ -120,7 +130,7 @@ extension TimeLineViewController: UITableViewDataSource,UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 500
+        return 580
     }
 }
 

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class FriendPostTableViewCell: UITableViewCell {
     
@@ -24,19 +25,34 @@ class FriendPostTableViewCell: UITableViewCell {
     
     @IBOutlet weak var repryLabel: UILabel!
     
+    @IBOutlet weak var heartImageView: UIImageView!
+    
     var URL = String()
     
     var imageURL = String()
     
+    var postModel: Post = Post()
+    
+    // インスタンス変数
+    var DBRef:DatabaseReference!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        //インスタンスを作成
+        DBRef = Database.database().reference()
     }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
+    
+    func setPostModel(post: Post) {
+        self.postModel = post
+    }
+    
     func setImage(imageData: String) {
         self.imageURL = imageData
         pictureImageView.loadImage(urlString: imageData)
@@ -44,6 +60,8 @@ class FriendPostTableViewCell: UITableViewCell {
     
     func setContents(contentsData: String) {
         contentsTextView.text = contentsData
+        contentsTextView.isUserInteractionEnabled = true
+        contentsTextView.isEditable = false
     }
     
     func setUserName(nameData: String) {
@@ -51,7 +69,7 @@ class FriendPostTableViewCell: UITableViewCell {
     }
     
     func setIconImage(iconURL: String) {
-         self.URL = iconURL
+        self.URL = iconURL
         iconImageView.loadImage(urlString: iconURL)
     }
     
@@ -65,5 +83,25 @@ class FriendPostTableViewCell: UITableViewCell {
     
     func setRepryLabel(repryData: String) {
         repryLabel.text = repryData
+    }
+    
+    func setheartImage(imageName: String) {
+        heartImageView.image = UIImage(named: imageName)
+        heartImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(FriendPostTableViewCell.imageViewTapped(_:))))
+    }
+    
+    
+    
+    
+    // 画像がタップされたら呼ばれる
+    @objc func imageViewTapped(_ sender: UITapGestureRecognizer) {
+        postModel.setLikes(likes: postModel.getLikes() + 1)
+        uploadLikes(like: postModel.getLikes())
+        print(postModel.getLikes())
+    }
+    
+    func uploadLikes(like: Int){
+        let ref = Database.database().reference()
+        ref.child(postModel.getUUID()).child("post").child(postModel.getGroupName()).child(postModel.getAutoID()).child("likes").setValue(like)
     }
 }

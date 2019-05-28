@@ -16,6 +16,9 @@ class Post: NSObject {
     private var star: Int = 0
     private var userName: String = ""
     private var iconURL: String = ""
+    private var uuid: String = ""
+    private var groupName: String = ""
+    private var autoID: String = ""
     
     func setPictureURL(pictureURL:String){
         self.pictureURL = pictureURL
@@ -71,5 +74,29 @@ class Post: NSObject {
     
     func getIconURL() -> String {
         return self.iconURL
+    }
+    
+    func setUUID(uuid: String){
+        self.uuid = uuid
+    }
+    
+    func getUUID() -> String {
+        return self.uuid
+    }
+    
+    func setGroupName(groupName: String) {
+        self.groupName = groupName
+    }
+    
+    func getGroupName() -> String {
+        return self.groupName
+    }
+    
+    func setAutoID(autoID: String) {
+        self.autoID = autoID
+    }
+    
+    func getAutoID() -> String {
+        return self.autoID
     }
 }
