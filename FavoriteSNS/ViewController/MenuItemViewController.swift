@@ -68,9 +68,9 @@ extension MenuItemViewController :UITableViewDataSource, UITableViewDelegate {
         case 2:
             dalegate.toCamera()
         case 3:
-            dalegate.toSetting()
-        case 4:
             dalegate.toGroup()
+        case 4:
+             dalegate.toSetting()
         default: break
         }
     }

@@ -89,7 +89,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
             if metadataObj.stringValue != nil {
                 let id = metadataObj.stringValue
                  self.captureSession.stopRunning()
-                self.performSegue(withIdentifier: "toChooseGroupeViewController", sender: id) // sender で指定したものを渡せる
+                self.performSegue(withIdentifier: "toChooseGroupViewController", sender: id) // sender で指定したものを渡せる
             }
             
            
@@ -99,9 +99,9 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toChooseGroupeViewController" {
-            let chooseGroupeViewController = segue.destination as! ChooseGroupeViewController
-            chooseGroupeViewController.uuid = sender as! String
+        if segue.identifier == "toChooseGroupViewController" {
+            let chooseGroupViewController = segue.destination as! ChooseGroupViewController
+            chooseGroupViewController.uuid = sender as! String
         }
     }
 }

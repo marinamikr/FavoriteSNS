@@ -112,47 +112,47 @@ class MakeContentsViewController: UIViewController {
 extension MakeContentsViewController {
   
     @objc func imageViewTapped1(_ sender: UITapGestureRecognizer) {
-        star1.image = UIImage(named: "pinkhearts.png")
-        star2.image = UIImage(named: "star.jpg")
-        star3.image = UIImage(named: "star.jpg")
-        star4.image = UIImage(named: "star.jpg")
-        star5.image = UIImage(named: "star.jpg")
+        star1.image = UIImage(named: "yellowStar.png")
+        star2.image = UIImage(named: "star.png")
+        star3.image = UIImage(named: "star.png")
+        star4.image = UIImage(named: "star.png")
+        star5.image = UIImage(named: "star.png")
         starIndex = 1
     }
     
     @objc func imageViewTapped2(_ sender: UITapGestureRecognizer) {
-        star1.image = UIImage(named: "pinkhearts.png")
-        star2.image = UIImage(named: "pinkhearts.png")
-        star3.image = UIImage(named: "star.jpg")
-        star4.image = UIImage(named: "star.jpg")
-        star5.image = UIImage(named: "star.jpg")
+        star1.image = UIImage(named: "yellowStar.png")
+        star2.image = UIImage(named: "yellowStar.png")
+        star3.image = UIImage(named: "star.png")
+        star4.image = UIImage(named: "star.png")
+        star5.image = UIImage(named: "star.png")
         starIndex = 2
     }
     
     @objc func imageViewTapped3(_ sender: UITapGestureRecognizer) {
-        star1.image = UIImage(named: "pinkhearts.png")
-        star2.image = UIImage(named: "pinkhearts.png")
-        star3.image = UIImage(named: "pinkhearts.png")
-        star4.image = UIImage(named: "star.jpg")
-        star5.image = UIImage(named: "star.jpg")
+        star1.image = UIImage(named: "yellowStar.png")
+        star2.image = UIImage(named: "yellowStar.png")
+        star3.image = UIImage(named: "yellowStar.png")
+        star4.image = UIImage(named: "star.png")
+        star5.image = UIImage(named: "star.png")
         starIndex = 3
     }
     
     @objc func imageViewTapped4(_ sender: UITapGestureRecognizer) {
-        star1.image = UIImage(named: "pinkhearts.png")
-        star2.image = UIImage(named: "pinkhearts.png")
-        star3.image = UIImage(named: "pinkhearts.png")
-        star4.image = UIImage(named: "pinkhearts.png")
-        star5.image = UIImage(named: "star.jpg")
+        star1.image = UIImage(named: "yellowStar.png")
+        star2.image = UIImage(named: "yellowStar.png")
+        star3.image = UIImage(named: "yellowStar.png")
+        star4.image = UIImage(named: "yellowStar.png")
+        star5.image = UIImage(named: "star.png")
         starIndex = 4
     }
     
     @objc func imageViewTapped5(_ sender: UITapGestureRecognizer) {
-        star1.image = UIImage(named: "pinkhearts.png")
-        star2.image = UIImage(named: "pinkhearts.png")
-        star3.image = UIImage(named: "pinkhearts.png")
-        star4.image = UIImage(named: "pinkhearts.png")
-        star5.image = UIImage(named: "pinkhearts.png")
+        star1.image = UIImage(named: "yellowStar.png")
+        star2.image = UIImage(named: "yellowStar.png")
+        star3.image = UIImage(named: "yellowStar.png")
+        star4.image = UIImage(named: "yellowStar.png")
+        star5.image = UIImage(named: "yellowStar.png")
         starIndex = 5
     }
     

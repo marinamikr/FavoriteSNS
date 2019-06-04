@@ -1,5 +1,5 @@
 //
-//  ChooseGroupeViewController.swift
+//  ChooseGroupViewController.swift
 //  FavoriteSNS
 //
 //  Created by 原田摩利奈 on 2019/05/14.
@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import RealmSwift
 
-class ChooseGroupeViewController: UIViewController {
+class ChooseGroupViewController: UIViewController {
     
     // インスタンス変数
     var DBRef:DatabaseReference!
@@ -77,7 +77,7 @@ class ChooseGroupeViewController: UIViewController {
     
 }
 
-extension ChooseGroupeViewController : UIPickerViewDelegate, UIPickerViewDataSource {
+extension ChooseGroupViewController : UIPickerViewDelegate, UIPickerViewDataSource {
     
     // ドラムロールの列数
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

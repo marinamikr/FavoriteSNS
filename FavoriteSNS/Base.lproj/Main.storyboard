@@ -124,9 +124,19 @@
                     <view key="view" contentMode="scaleToFill" id="xNR-dA-HLQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BFs-G1-2Ob">
+                                <rect key="frame" x="0.0" y="44" width="375" height="768"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="tQt-mQ-cvg"/>
                     </view>
+                    <connections>
+                        <outlet property="myPostTableView" destination="BFs-G1-2Ob" id="vrV-b9-XlD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xxI-MP-lOk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -156,10 +166,10 @@
             </objects>
             <point key="canvasLocation" x="4924" y="955"/>
         </scene>
-        <!--Choose Groupe View Controller-->
+        <!--Choose Group View Controller-->
         <scene sceneID="VXh-KQ-kPL">
             <objects>
-                <viewController id="DMb-dJ-Znt" customClass="ChooseGroupeViewController" customModule="FavoriteSNS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="DMb-dJ-Znt" customClass="ChooseGroupViewController" customModule="FavoriteSNS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8u3-gz-TO7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -191,7 +201,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="follow"/>
                                 <connections>
-                                    <action selector="followButton:" destination="DMb-dJ-Znt" eventType="touchUpInside" id="10g-lp-bK0"/>
+                                    <action selector="followButton:" destination="DMb-dJ-Znt" eventType="touchUpInside" id="UOw-ZW-Cmq"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -199,9 +209,9 @@
                         <viewLayoutGuide key="safeArea" id="cJb-QG-Xr7"/>
                     </view>
                     <connections>
-                        <outlet property="groupPickerView" destination="PoB-0U-ISb" id="h5D-ZN-wFl"/>
-                        <outlet property="iconImage" destination="OON-82-YxV" id="vi8-pE-Tn1"/>
-                        <outlet property="userName" destination="KMR-Xf-3C3" id="fTm-q8-bWp"/>
+                        <outlet property="groupPickerView" destination="PoB-0U-ISb" id="oUV-yV-WHE"/>
+                        <outlet property="iconImage" destination="OON-82-YxV" id="hcT-9I-XBM"/>
+                        <outlet property="userName" destination="KMR-Xf-3C3" id="fW1-uY-PcE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aJf-Xb-bli" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -241,7 +251,7 @@
                         <viewLayoutGuide key="safeArea" id="8Y0-LT-VzK"/>
                     </view>
                     <connections>
-                        <segue destination="DMb-dJ-Znt" kind="show" identifier="toChooseGroupeViewController" id="bis-MT-xd8"/>
+                        <segue destination="DMb-dJ-Znt" kind="show" identifier="toChooseGroupViewController" id="bis-MT-xd8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vky-gU-spT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -255,13 +265,49 @@
                     <view key="view" contentMode="scaleToFill" id="Lzn-qA-gZ4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Bwk-fY-cLE">
+                                <rect key="frame" x="0.0" y="44" width="375" height="768"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="rGz-T2-E6G"/>
                     </view>
+                    <connections>
+                        <outlet property="settingTableView" destination="Bwk-fY-cLE" id="b4n-bw-AeN"/>
+                        <segue destination="wW2-uF-gYt" kind="show" identifier="toAddGroupViewController" id="AAW-C8-tcD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FqV-dc-Fss" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5558" y="398"/>
+            <point key="canvasLocation" x="5557.6000000000004" y="397.53694581280791"/>
+        </scene>
+        <!--Add Group View Controller-->
+        <scene sceneID="Pge-Rb-mYo">
+            <objects>
+                <viewController id="wW2-uF-gYt" customClass="AddGroupViewController" customModule="FavoriteSNS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Gyu-VB-qrt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VeL-oa-h3w">
+                                <rect key="frame" x="0.0" y="44" width="375" height="768"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="cTq-ae-ezw"/>
+                    </view>
+                    <connections>
+                        <outlet property="allGroupTableView" destination="VeL-oa-h3w" id="FEf-Dl-1sd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="suh-Dw-7yg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6336.8000000000002" y="406.4039408866995"/>
         </scene>
         <!--Make Contents View Controller-->
         <scene sceneID="cev-Ey-IyU">
