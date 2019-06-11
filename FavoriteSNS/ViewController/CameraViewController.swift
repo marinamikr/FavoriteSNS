@@ -87,9 +87,10 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
             qrCodeFrameView?.frame = barCodeObject!.bounds
             
             if metadataObj.stringValue != nil {
-                let id = metadataObj.stringValue
-                 self.captureSession.stopRunning()
-                self.performSegue(withIdentifier: "toChooseGroupViewController", sender: id) // sender で指定したものを渡せる
+                let text = metadataObj.stringValue
+                let dataArray = text?.components(separatedBy: ",")
+                self.captureSession.stopRunning()
+                self.performSegue(withIdentifier: "toChooseGroupViewController", sender: dataArray) // sender で指定したものを渡せる
             }
             
            
@@ -101,7 +102,8 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toChooseGroupViewController" {
             let chooseGroupViewController = segue.destination as! ChooseGroupViewController
-            chooseGroupViewController.uuid = sender as! String
+            chooseGroupViewController.uuid = (sender as! [String])[0]
+            chooseGroupViewController.groupName = (sender as! [String])[1]
         }
     }
 }

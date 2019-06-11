@@ -8,11 +8,15 @@
 
 import UIKit
 import RealmSwift
+import Firebase
 
 class AddGroupViewController: UIViewController {
+    
+    var DBRef:DatabaseReference!
 
     @IBOutlet weak var allGroupTableView: UITableView!
-    var groupNameArray = List<String>()
+    var groupNameArray:[String] = []
+    
     let realm = try! Realm()
 
     
@@ -20,14 +24,18 @@ class AddGroupViewController: UIViewController {
         super.viewDidLoad()
         allGroupTableView.delegate = self
         allGroupTableView.dataSource = self
+        DBRef = Database.database().reference()
+
         
-        let userResalt = realm.objects(User.self)
-        groupNameArray = userResalt.first!.groupNameArray
+        DBRef.child(Util.getUUID()).child("userData").child("group").observe(.value, with: {snapshot  in
+            self.groupNameArray = snapshot.value as! [String]
+            self.allGroupTableView.reloadData()
+        })
+        
+        
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "+", style: UIBarButtonItem.Style.plain, target: self, action:#selector(self.addGroup))
 
-        
-        
         //Identifierを設定する
         self.allGroupTableView.register(UINib(nibName: "AddGroupCustomCell", bundle: nil), forCellReuseIdentifier: "addGroupCustomCell")
     }
@@ -45,13 +53,9 @@ class AddGroupViewController: UIViewController {
                 
                 // アラートに含まれるすべてのテキストフィールドを調べる
                 for textField in textFields {
-                    print(textField.text!)
-                    let userResalt = self.realm.objects(User.self)
-                    self.groupNameArray = userResalt.first!.groupNameArray
-                    try! self.realm.write {
-                        self.groupNameArray.append(textField.text!)
-                    }
-                  
+                    self.groupNameArray.append(textField.text!)
+                    self.DBRef.child(Util.getUUID()).child("userData").child("group").setValue(self.groupNameArray)
+                    self.allGroupTableView.reloadData()
                 }
             }
         })

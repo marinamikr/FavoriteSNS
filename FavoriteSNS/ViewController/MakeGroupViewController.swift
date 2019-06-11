@@ -15,6 +15,8 @@ class MakeGroupViewController: UIViewController {
     var userName: String!
     var iconImage: UIImage!
     
+    
+    
     // インスタンス変数
     var DBRef:DatabaseReference!
     
@@ -25,9 +27,11 @@ class MakeGroupViewController: UIViewController {
         groupName.delegate = self
         //インスタンスを作成
         DBRef = Database.database().reference()
+    
     }
     
     @IBAction func saveButton(_ sender: Any) {
+        uploadGroupName(groupName: groupName.text!)
         let realm = try! Realm()
         let picData: NSData? = iconImage!.jpegData(compressionQuality: 0.8) as! NSData
         var list : List<String>
@@ -36,15 +40,13 @@ class MakeGroupViewController: UIViewController {
         saveData.userName = userName
         saveData.userIcon = iconImage.jpegData(compressionQuality: 0.8)
         saveData.groupNameArray.append(groupName.text!)
-        
+
         try! realm.write {
             realm.add(saveData)
         }
-        
-        uploadGroupName(groupName: groupName.text!)
-
     }
     func uploadGroupName(groupName: String) {
+        print("upload")
         let groupArray = [groupName]
         let ref = Database.database().reference()
         ref.child(Util.getUUID()).child("userData").child("group").setValue(groupArray)
@@ -57,6 +59,7 @@ class MakeGroupViewController: UIViewController {
     }
     
 }
+
 extension MakeGroupViewController :UITextFieldDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)

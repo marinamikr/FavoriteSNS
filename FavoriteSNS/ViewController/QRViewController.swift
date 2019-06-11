@@ -7,28 +7,46 @@
 //
 
 import UIKit
+import Firebase
 
 class QRViewController: UIViewController {
     
+    // インスタンス変数
+    var DBRef:DatabaseReference!
+    
     @IBOutlet weak var qrImage: UIImageView!
     
+    @IBOutlet weak var chooseGroupPickerView: UIPickerView!
+    
+    var groupArray: [String]! = []
+    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        qrImage.image = makeQRCodeImage(text: Util.getUUID())
-        self.navigationItem.title = "MyQRコード"
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Mamelon", size: 20)]
+        //インスタンスを作成
+        DBRef = Database.database().reference()
+        getUserData()
+        // ピッカー設定
+        chooseGroupPickerView.delegate = self
+        chooseGroupPickerView.dataSource = self
+        chooseGroupPickerView.showsSelectionIndicator = true
+        
+//        qrImage.image = makeQRCodeImage(text: Util.getUUID())
+//        self.navigationItem.title = "MyQRコード"
+//        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Mamelon", size: 20)]
     }
     
     
     
-    func makeQRCodeImage(text:String) -> UIImage? {
+    func makeQRCodeImage(text:String, group:String) -> UIImage? {
         guard let ciFilter = CIFilter(name: "CIQRCodeGenerator") else {
             return nil
         }
         ciFilter.setDefaults()
+        let textData = text + "," + group
         // QRコードを設定
-        ciFilter.setValue(text.data(using: String.Encoding.utf8), forKey: "inputMessage")
+        ciFilter.setValue(textData.data(using: String.Encoding.utf8), forKey: "inputMessage")
         // 誤り訂正レベルを設定
         ciFilter.setValue("M", forKey: "inputCorrectionLevel")
         if let outputImage = ciFilter.outputImage {
@@ -39,6 +57,44 @@ class QRViewController: UIViewController {
         }
         return nil
     }
+    
+    func getUserData() {
+        DBRef.child(Util.getUUID()).child("userData").child("group").observe(.value, with: {snapshot  in
+            self.groupArray = snapshot.value as! [String]
+            self.chooseGroupPickerView.reloadComponent(0)
+           self.qrImage.image = self.makeQRCodeImage(text: Util.getUUID(), group: self.groupArray[0])
+        })
+    }
+            
 
+
+}
+
+extension QRViewController : UIPickerViewDelegate, UIPickerViewDataSource {
+
+    // ドラムロールの列数
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+
+    // ドラムロールの行数
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+
+        return groupArray.count
+    }
+
+    // ドラムロールの各タイトル
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return groupArray[row]
+    }
+    
+    // UIPickerViewのRowが選択された時の挙動
+    func pickerView(_ pickerView: UIPickerView,
+                    didSelectRow row: Int,
+                    inComponent component: Int) {
+        
+        qrImage.image =  self.makeQRCodeImage(text: Util.getUUID(), group: self.groupArray[row])
+        
+    }
 
 }

@@ -32,7 +32,7 @@ class MakeContentsViewController: UIViewController {
     var selectedImage:UIImage!
     
     var realm :Realm!
-    var realmGroupNameArray:List<String>!
+    var groupNameArray: [String] = []
     var like = Int()
     var repry = String()
     var starIndex: Int = 0
@@ -46,9 +46,12 @@ class MakeContentsViewController: UIViewController {
 
         //インスタンスを作成
         DBRef = Database.database().reference()
+        DBRef.child(Util.getUUID()).child("userData").child("group").observe(.value, with: {snapshot  in
+            self.groupNameArray = snapshot.value as! [String]
+            self.groupPickerView.reloadAllComponents()
+        })
         
-        realm = try! Realm()
-        realmGroupNameArray = realm.objects(User.self).first!.groupNameArray
+        
         // ピッカー設定
         groupPickerView.delegate = self
         groupPickerView.dataSource = self
@@ -83,7 +86,7 @@ class MakeContentsViewController: UIViewController {
                 let data = ["contents": self.contentsTextView.text,"imageURL": downloadURL,"likes": self.like,"repry": self.repry,"star": self.starIndex] as [String : Any]
                 let ref = Database.database().reference()
                 
-                ref.child(Util.getUUID()).child("post").child(self.realmGroupNameArray![self.groupPickerView.selectedRow(inComponent: 0)]).childByAutoId().setValue(data)
+                ref.child(Util.getUUID()).child("post").child(self.groupNameArray[self.groupPickerView.selectedRow(inComponent: 0)]).childByAutoId().setValue(data)
             })
         }
     }
@@ -179,12 +182,12 @@ extension MakeContentsViewController : UIPickerViewDelegate, UIPickerViewDataSou
     
     // ドラムロールの行数
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return realmGroupNameArray.count
+        return groupNameArray.count
     }
     
     // ドラムロールの各タイトル
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return realmGroupNameArray[row]
+        return groupNameArray[row]
     }
     
 }

@@ -16,83 +16,44 @@ class ChooseGroupViewController: UIViewController {
     var DBRef:DatabaseReference!
     
     var uuid :String! = ""
+    var groupName :String! = ""
+    var userName:String!
+    var userIconURL :String!
     
     @IBOutlet weak var iconImage: UIImageView!
-    @IBOutlet weak var userName: UILabel!
-    @IBOutlet weak var groupPickerView: UIPickerView!
-    
-   
-    
-    var friendData: Friend = Friend()
-    
+    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var groupNameLabel: UILabel!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //インスタンスを作成
         DBRef = Database.database().reference()
-        getUserData(uuid: uuid)
-        // ピッカー設定
-        groupPickerView.delegate = self
-        groupPickerView.dataSource = self
-        groupPickerView.showsSelectionIndicator = true
+        getUserData(uuid: uuid, groupName: groupName)
+    
     }
-    func getUserData(uuid: String) {
+    func getUserData(uuid: String, groupName: String) {
         DBRef.child(uuid).child("userData").observe(.value, with: {snapshot  in
             let postDict = snapshot.value as! [String : AnyObject]
-            self.friendData.userName = postDict["name"] as! String
-            self.friendData.userIconURL = postDict["iconURL"] as! String
-            let array = postDict["group"] as! [String]
-            let groupNameArray = List<String>()
-            for item in array{
-                groupNameArray.append(item)
-            }
-            self.friendData.groupNameArray = groupNameArray
-            self.reloadView()
+            self.userName  = postDict["name"] as! String
+            self.userIconURL = postDict["iconURL"] as! String
+            self.reloadView(userName: self.userName, userIconURL: self.userIconURL, groupName: self.groupName)
         })
     }
     
-    func reloadView()  {
-        self.userName.text = self.friendData.userName
-        self.iconImage.loadImage(urlString: self.friendData.userIconURL)
-        self.groupPickerView.reloadAllComponents()
+    func reloadView(userName:String, userIconURL:String, groupName:String)  {
+        self.userNameLabel.text = userName
+        self.iconImage.loadImage(urlString: userIconURL)
+        self.groupNameLabel.text = groupName
     }
     
     @IBAction func followButton(_ sender: Any) {
-        let tmpGroupNameArray = List<String>()
-        for item in friendData.groupNameArray{
-            tmpGroupNameArray.append(item)
-        }
-        friendData.groupNameArray.removeAll()
-        friendData.groupNameArray.append(tmpGroupNameArray[groupPickerView.selectedRow(inComponent: 0)])
-        friendData.uuid = uuid
-        let realm = try! Realm()
-
-        try! realm.write {
-            realm.add(friendData)
-        }
+        let myData = ["uuid":uuid,"groupName": groupName] as [String : Any]
+        let friendData = ["uuid":Util.getUUID(),"groupName": groupName] as [String : Any]
+        DBRef.child(Util.getUUID()).child("userData").child("follow").childByAutoId().setValue(myData)
+        DBRef.child(uuid).child("userData").child("follower").childByAutoId().setValue(friendData)
         navigationController?.popToRootViewController(animated: true)
     }
     
-    
-}
-
-extension ChooseGroupViewController : UIPickerViewDelegate, UIPickerViewDataSource {
-    
-    // ドラムロールの列数
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    // ドラムロールの行数
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        
-        return friendData.groupNameArray.count
-    }
-    
-    // ドラムロールの各タイトル
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return friendData.groupNameArray[row]
-    }
     
 }

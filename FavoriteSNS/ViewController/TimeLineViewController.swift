@@ -59,48 +59,42 @@ class TimeLineViewController: UIViewController {
     
     func getUserContents(){
         
-        let friendResalt = realm.objects(Friend.self)
-        for friendData in friendResalt {
-            let ref = Database.database().reference()
-            handler = ref.child(friendData.uuid).child("post").child(friendData.groupNameArray.first!).observe(.value, with: {snapshot  in
-                for child in snapshot.children {
-                    let postDict = (child as! DataSnapshot).value as! [String:Any]
-                    ref.child(friendData.uuid).child("userData").observe(.value, with: {snapshot  in
-                        let userDict = snapshot.value as! [String:Any]
-                        let post = Post()
-                        post.setPictureURL(pictureURL: (postDict["imageURL"] as! String))
-                        post.setContents(contents: (postDict["contents"] as! String))
-                        post.setLikes(likes: (postDict["likes"] as! Int))
-                        post.setRepry(repry: (postDict["repry"] as! String))
-                        post.setStar(star: (postDict["star"] as! Int))
-                        post.setUserName(userName: (userDict["name"] as! String))
-                        post.setIconURL(iconURL: (userDict["iconURL"] as! String))
-                        post.setUUID(uuid: friendData.uuid)
-                        post.setGroupName(groupName: friendData.groupNameArray.first!)
-                        post.setAutoID(autoID: (child as! DataSnapshot).key)
-                        print(postDict)
-                        print((child as! DataSnapshot).key)
-                        self.postArray.append(post)
-                        self.timeLineTableView.reloadData()
-                    })
-                    
-                }
-            })
-            
-            
-            
-            //            self.ref.child("7BAD6550-B7F2-44DC-9F45-83410B9BA1CD").child("userData").removeAllObservers()
-            
-            //            self.ref.child("7BAD6550-B7F2-44DC-9F45-83410B9BA1CD").child("post").child("school").removeObserver(withHandle: self.handler)
-            
-        }
-        
+        let ref = Database.database().reference()
+
+        ref.child(Util.getUUID()).child("userData").child("follow").observe(.value, with: {snapshot  in
+            for followUser in snapshot.children {
+                let followUserDict = (followUser as! DataSnapshot).value as! [String:Any]
+                let friendID = followUserDict["uuid"] as! String
+                let friendGroupName = followUserDict["groupName"] as! String
+                self.handler = ref.child(friendID).child("post").child(friendGroupName).observe(.value, with: {snapshot  in
+                    for child in snapshot.children {
+                        let postDict = (child as! DataSnapshot).value as! [String:Any]
+                        ref.child(friendID).child("userData").observe(.value, with: {snapshot  in
+                            let userDict = snapshot.value as! [String:Any]
+                            let post = Post()
+                            post.setPictureURL(pictureURL: (postDict["imageURL"] as! String))
+                            post.setContents(contents: (postDict["contents"] as! String))
+                            post.setLikes(likes: (postDict["likes"] as! Int))
+                            post.setRepry(repry: (postDict["repry"] as! String))
+                            post.setStar(star: (postDict["star"] as! Int))
+                            post.setUserName(userName: (userDict["name"] as! String))
+                            post.setIconURL(iconURL: (userDict["iconURL"] as! String))
+                            post.setUUID(uuid: friendID)
+                            post.setGroupName(groupName:friendGroupName)
+                            post.setAutoID(autoID: (child as! DataSnapshot).key)
+                            print(postDict)
+                            print((child as! DataSnapshot).key)
+                            self.postArray.append(post)
+                            self.timeLineTableView.reloadData()
+                        })
+
+                    }
+                })
+            }
+        })
     }
 }
 
-func setContents() {
-    
-}
 
 extension TimeLineViewController: UITableViewDataSource,UITableViewDelegate {
     //cellの数
