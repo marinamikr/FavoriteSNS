@@ -1,17 +1,17 @@
 //
-//  TimeLineViewController.swift
-//  FavoriteSNS
+// TimeLineViewController.swift
+// FavoriteSNS
 //
-//  Created by 原田摩利奈 on 2019/03/25.
-//  Copyright © 2019 原田摩利奈. All rights reserved.
+// Created by 原田摩利奈 on 2019/03/25.
+// Copyright © 2019 原田摩利奈. All rights reserved.
 //
-
+​
 import UIKit
 import Firebase
 import KYDrawerController
 import RealmSwift
-
-
+​
+​
 class TimeLineViewController: UIViewController {
     
     
@@ -25,11 +25,13 @@ class TimeLineViewController: UIViewController {
     
     var ref:DatabaseReference!
     
-    var handler: UInt = 0
+    var followHandler: UInt = 0
+    var friendHandler: UInt = 0
+    var postHandler: UInt = 0
     
     let realm = try! Realm()
     
-   
+    
     
     
     override func viewDidLoad() {
@@ -58,18 +60,19 @@ class TimeLineViewController: UIViewController {
     }
     
     func getUserContents(){
+        postArray.removeAll()
         
         let ref = Database.database().reference()
-
-        ref.child(Util.getUUID()).child("userData").child("follow").observe(.value, with: {snapshot  in
+        ​​
+        self.followHandler = ref.child(Util.getUUID()).child("userData").child("follow").observe(.value, with: {snapshot in
             for followUser in snapshot.children {
                 let followUserDict = (followUser as! DataSnapshot).value as! [String:Any]
                 let friendID = followUserDict["uuid"] as! String
                 let friendGroupName = followUserDict["groupName"] as! String
-                self.handler = ref.child(friendID).child("post").child(friendGroupName).observe(.value, with: {snapshot  in
+                self.friendHandler = ref.child(friendID).child("post").child(friendGroupName).observe(.value, with: {snapshot in
                     for child in snapshot.children {
                         let postDict = (child as! DataSnapshot).value as! [String:Any]
-                        ref.child(friendID).child("userData").observe(.value, with: {snapshot  in
+                        self.postHandler = ref.child(friendID).child("userData").observe(.value, with: {snapshot in
                             let userDict = snapshot.value as! [String:Any]
                             let post = Post()
                             post.setPictureURL(pictureURL: (postDict["imageURL"] as! String))
@@ -86,16 +89,22 @@ class TimeLineViewController: UIViewController {
                             print((child as! DataSnapshot).key)
                             self.postArray.append(post)
                             self.timeLineTableView.reloadData()
+                            ref.child(friendID).child("userData").removeObserver(withHandle: self.postHandler)
                         })
-
+                        
+                        ​​
                     }
+                    
+                    ref.child(friendID).child("post").child(friendGroupName).removeObserver(withHandle: self.friendHandler)
+                    
                 })
             }
+            ref.child(Util.getUUID()).child("userData").child("follow").removeObserver(withHandle: self.followHandler)
         })
     }
 }
-
-
+​
+​
 extension TimeLineViewController: UITableViewDataSource,UITableViewDelegate {
     //cellの数
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -127,7 +136,7 @@ extension TimeLineViewController: UITableViewDataSource,UITableViewDelegate {
         return 580
     }
 }
-
+​
 extension TimeLineViewController: CustomDelegate {
     func toCamera() {
         let elDrawer = self.navigationController?.parent as! KYDrawerController
