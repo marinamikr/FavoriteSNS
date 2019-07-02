@@ -7,12 +7,11 @@
 //
 
 import Foundation
-import RealmSwift
 
-class Friend: Object {
-    @objc dynamic var userName: String = ""
-    @objc dynamic var userIconURL: String!
-     @objc dynamic var uuid: String = ""
-    var groupNameArray: List<String> = List<String>()
+class Friend: NSObject {
+    var userName: String = ""
+    var userIconURL: String!
+    var uuid: String = ""
+    var group:String = ""
 }
 

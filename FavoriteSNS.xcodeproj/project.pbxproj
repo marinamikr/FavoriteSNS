@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		402A625E228AC129002D2DD8 /* MyPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402A625D228AC129002D2DD8 /* MyPostViewController.swift */; };
+		1F11E96B22C23AAF006AACA1 /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F11E96922C23AAF006AACA1 /* FriendTableViewCell.swift */; };
+		1F11E96C22C23AAF006AACA1 /* FriendTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F11E96A22C23AAF006AACA1 /* FriendTableViewCell.xib */; };
+		1F11E96E22C23B30006AACA1 /* FriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F11E96D22C23B30006AACA1 /* FriendListViewController.swift */; };
+		402A625E228AC129002D2DD8 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402A625D228AC129002D2DD8 /* PostViewController.swift */; };
 		402A6260228AC15C002D2DD8 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402A625F228AC15C002D2DD8 /* CameraViewController.swift */; };
 		402A6262228AC16D002D2DD8 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402A6261228AC16D002D2DD8 /* SettingViewController.swift */; };
 		402A6264228AC181002D2DD8 /* QrcodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402A6263228AC181002D2DD8 /* QrcodeViewController.swift */; };
@@ -25,8 +28,8 @@
 		406D51AD22486FAE0051086E /* FavoriteSNSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406D51AC22486FAE0051086E /* FavoriteSNSUITests.swift */; };
 		4074E38522A663200027BDD4 /* yellowStar.png in Resources */ = {isa = PBXBuildFile; fileRef = 4074E38322A663200027BDD4 /* yellowStar.png */; };
 		4074E38622A663200027BDD4 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 4074E38422A663200027BDD4 /* star.png */; };
-		4074E38922A66B6B0027BDD4 /* MyPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4074E38722A66B6B0027BDD4 /* MyPostTableViewCell.swift */; };
-		4074E38A22A66B6B0027BDD4 /* MyPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4074E38822A66B6B0027BDD4 /* MyPostTableViewCell.xib */; };
+		4074E38922A66B6B0027BDD4 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4074E38722A66B6B0027BDD4 /* PostTableViewCell.swift */; };
+		4074E38A22A66B6B0027BDD4 /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4074E38822A66B6B0027BDD4 /* PostTableViewCell.xib */; };
 		4074E38F22A6766B0027BDD4 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4074E38D22A6766B0027BDD4 /* CustomCell.swift */; };
 		4074E39022A6766B0027BDD4 /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4074E38E22A6766B0027BDD4 /* CustomCell.xib */; };
 		40BC7F48224873B0005EC53C /* TopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BC7F47224873B0005EC53C /* TopViewController.swift */; };
@@ -70,9 +73,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F11E96922C23AAF006AACA1 /* FriendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
+		1F11E96A22C23AAF006AACA1 /* FriendTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendTableViewCell.xib; sourceTree = "<group>"; };
+		1F11E96D22C23B30006AACA1 /* FriendListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListViewController.swift; sourceTree = "<group>"; };
 		2E7ADF7DABFC240C6CA45CAA /* Pods-FavoriteSNS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FavoriteSNS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FavoriteSNS/Pods-FavoriteSNS.debug.xcconfig"; sourceTree = "<group>"; };
 		3DB3D5F8A21BABFE255C0BC8 /* Pods_FavoriteSNS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FavoriteSNS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		402A625D228AC129002D2DD8 /* MyPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostViewController.swift; sourceTree = "<group>"; };
+		402A625D228AC129002D2DD8 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		402A625F228AC15C002D2DD8 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		402A6261228AC16D002D2DD8 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		402A6263228AC181002D2DD8 /* QrcodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrcodeViewController.swift; sourceTree = "<group>"; };
@@ -96,8 +102,8 @@
 		406D51AE22486FAE0051086E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4074E38322A663200027BDD4 /* yellowStar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellowStar.png; sourceTree = "<group>"; };
 		4074E38422A663200027BDD4 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
-		4074E38722A66B6B0027BDD4 /* MyPostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostTableViewCell.swift; sourceTree = "<group>"; };
-		4074E38822A66B6B0027BDD4 /* MyPostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyPostTableViewCell.xib; sourceTree = "<group>"; };
+		4074E38722A66B6B0027BDD4 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		4074E38822A66B6B0027BDD4 /* PostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
 		4074E38D22A6766B0027BDD4 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		4074E38E22A6766B0027BDD4 /* CustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
 		40BC7F47224873B0005EC53C /* TopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewController.swift; sourceTree = "<group>"; };
@@ -218,13 +224,14 @@
 				40BC7F642249CDB1005EC53C /* MakeContentsViewController.swift */,
 				40BC7F71224B5ED2005EC53C /* MenuItemViewController.swift */,
 				40BC7F73224B5FE6005EC53C /* QRViewController.swift */,
-				402A625D228AC129002D2DD8 /* MyPostViewController.swift */,
+				402A625D228AC129002D2DD8 /* PostViewController.swift */,
 				402A625F228AC15C002D2DD8 /* CameraViewController.swift */,
 				402A6263228AC181002D2DD8 /* QrcodeViewController.swift */,
 				402A6265228AC190002D2DD8 /* GroupViewController.swift */,
 				402A6269228AD37C002D2DD8 /* ChooseGroupViewController.swift */,
 				402A6261228AC16D002D2DD8 /* SettingViewController.swift */,
 				4058E25922A67E04009553E9 /* AddGroupViewController.swift */,
+				1F11E96D22C23B30006AACA1 /* FriendListViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -262,12 +269,14 @@
 				40BC7F6A224B15E7005EC53C /* FriendPostTableViewCell.xib */,
 				40BC7F7B224B6197005EC53C /* MenuItemTableViewCell.swift */,
 				40BC7F7C224B6197005EC53C /* MenuItemTableViewCell.xib */,
-				4074E38722A66B6B0027BDD4 /* MyPostTableViewCell.swift */,
-				4074E38822A66B6B0027BDD4 /* MyPostTableViewCell.xib */,
+				4074E38722A66B6B0027BDD4 /* PostTableViewCell.swift */,
+				4074E38822A66B6B0027BDD4 /* PostTableViewCell.xib */,
 				4074E38D22A6766B0027BDD4 /* CustomCell.swift */,
 				4074E38E22A6766B0027BDD4 /* CustomCell.xib */,
 				4058E26D22A685F6009553E9 /* AddGroupCustomCell.swift */,
 				4058E26E22A685F6009553E9 /* AddGroupCustomCell.xib */,
+				1F11E96922C23AAF006AACA1 /* FriendTableViewCell.swift */,
+				1F11E96A22C23AAF006AACA1 /* FriendTableViewCell.xib */,
 			);
 			path = CustomLayout;
 			sourceTree = "<group>";
@@ -419,8 +428,9 @@
 				40BC7F6C224B15E7005EC53C /* FriendPostTableViewCell.xib in Resources */,
 				40BC7F83224C50DF005EC53C /* TimeLine.png in Resources */,
 				4074E39022A6766B0027BDD4 /* CustomCell.xib in Resources */,
+				1F11E96C22C23AAF006AACA1 /* FriendTableViewCell.xib in Resources */,
 				AAF6BCEE224C5EDF007290D0 /* GoogleService-Info.plist in Resources */,
-				4074E38A22A66B6B0027BDD4 /* MyPostTableViewCell.xib in Resources */,
+				4074E38A22A66B6B0027BDD4 /* PostTableViewCell.xib in Resources */,
 				4074E38522A663200027BDD4 /* yellowStar.png in Resources */,
 				4058E27022A685F6009553E9 /* AddGroupCustomCell.xib in Resources */,
 				406D519722486FAE0051086E /* LaunchScreen.storyboard in Resources */,
@@ -517,13 +527,15 @@
 				4074E38F22A6766B0027BDD4 /* CustomCell.swift in Sources */,
 				40BC7F5D2249B6CF005EC53C /* MakeGroupViewController.swift in Sources */,
 				4058E25A22A67E04009553E9 /* AddGroupViewController.swift in Sources */,
-				402A625E228AC129002D2DD8 /* MyPostViewController.swift in Sources */,
+				402A625E228AC129002D2DD8 /* PostViewController.swift in Sources */,
 				40BC7F48224873B0005EC53C /* TopViewController.swift in Sources */,
 				40BC7F81224B62E6005EC53C /* CustomDelegate.swift in Sources */,
 				40BC7F6B224B15E7005EC53C /* FriendPostTableViewCell.swift in Sources */,
+				1F11E96B22C23AAF006AACA1 /* FriendTableViewCell.swift in Sources */,
 				402A6262228AC16D002D2DD8 /* SettingViewController.swift in Sources */,
 				40BC7F532248B07D005EC53C /* Util.swift in Sources */,
 				406D518D22486FAD0051086E /* AppDelegate.swift in Sources */,
+				1F11E96E22C23B30006AACA1 /* FriendListViewController.swift in Sources */,
 				402A6264228AC181002D2DD8 /* QrcodeViewController.swift in Sources */,
 				40BC7F72224B5ED2005EC53C /* MenuItemViewController.swift in Sources */,
 				40BC7F652249CDB1005EC53C /* MakeContentsViewController.swift in Sources */,
@@ -535,7 +547,7 @@
 				40BC7F7D224B6197005EC53C /* MenuItemTableViewCell.swift in Sources */,
 				402A6260228AC15C002D2DD8 /* CameraViewController.swift in Sources */,
 				40BC7F632249BBDB005EC53C /* User.swift in Sources */,
-				4074E38922A66B6B0027BDD4 /* MyPostTableViewCell.swift in Sources */,
+				4074E38922A66B6B0027BDD4 /* PostTableViewCell.swift in Sources */,
 				4058E26F22A685F6009553E9 /* AddGroupCustomCell.swift in Sources */,
 				402A626A228AD37C002D2DD8 /* ChooseGroupViewController.swift in Sources */,
 				40BC7F6E224B1DC6005EC53C /* Post.swift in Sources */,

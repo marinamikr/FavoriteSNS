@@ -14,7 +14,7 @@ class MakeGroupViewController: UIViewController {
 
     var userName: String!
     var iconImage: UIImage!
-    
+    let userDefaults = UserDefaults.standard
     
     
     // インスタンス変数
@@ -32,25 +32,23 @@ class MakeGroupViewController: UIViewController {
     
     @IBAction func saveButton(_ sender: Any) {
         uploadGroupName(groupName: groupName.text!)
-        let realm = try! Realm()
-        let picData: NSData? = iconImage!.jpegData(compressionQuality: 0.8) as! NSData
-        var list : List<String>
-        
-        let saveData = User()
-        saveData.userName = userName
-        saveData.userIcon = iconImage.jpegData(compressionQuality: 0.8)
-        saveData.groupNameArray.append(groupName.text!)
-
-        try! realm.write {
-            realm.add(saveData)
-        }
     }
+    
     func uploadGroupName(groupName: String) {
         print("upload")
         let groupArray = [groupName]
         let ref = Database.database().reference()
         ref.child(Util.getUUID()).child("userData").child("group").setValue(groupArray)
+        
+        userDefaults.set(true, forKey: "isFirst")
+        userDefaults.synchronize()
+        
+        ref.child(Util.getUUID()).child("userData").child("group").observe(.value, with: {snapshot  in
+           self.navigationController?.popToRootViewController(animated: true)
+        })
+        
     }
+    
    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // キーボードを閉じる

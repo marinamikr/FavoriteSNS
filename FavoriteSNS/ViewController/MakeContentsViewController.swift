@@ -43,7 +43,7 @@ class MakeContentsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         contentsTextView.delegate = self
-
+        
         //インスタンスを作成
         DBRef = Database.database().reference()
         DBRef.child(Util.getUUID()).child("userData").child("group").observe(.value, with: {snapshot  in
@@ -85,8 +85,10 @@ class MakeContentsViewController: UIViewController {
                 let downloadURL: String = (metaData?.downloadURL()?.absoluteString)!
                 let data = ["contents": self.contentsTextView.text,"imageURL": downloadURL,"likes": self.like,"repry": self.repry,"star": self.starIndex] as [String : Any]
                 let ref = Database.database().reference()
-                
                 ref.child(Util.getUUID()).child("post").child(self.groupNameArray[self.groupPickerView.selectedRow(inComponent: 0)]).childByAutoId().setValue(data)
+                ref.child(Util.getUUID()).child("post").child(self.groupNameArray[self.groupPickerView.selectedRow(inComponent: 0)]).observe(.value, with: {snapshot  in
+                    self.navigationController?.popToRootViewController(animated: true)
+                })
             })
         }
     }
@@ -109,11 +111,11 @@ class MakeContentsViewController: UIViewController {
         }
     }
     
-  
+    
 }
 
 extension MakeContentsViewController {
-  
+    
     @objc func imageViewTapped1(_ sender: UITapGestureRecognizer) {
         star1.image = UIImage(named: "yellowStar.png")
         star2.image = UIImage(named: "star.png")

@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class MyPostTableViewCell: UITableViewCell {
+class PostTableViewCell: UITableViewCell {
 
     @IBOutlet weak var iconImageView: UIImageView!
     

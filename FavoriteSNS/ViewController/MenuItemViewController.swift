@@ -29,6 +29,9 @@ class MenuItemViewController: UIViewController {
         menuTableVIew.dataSource = self
         menuTableVIew.delegate = self
         
+        
+        followLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(MenuItemViewController.tappedLabel(_:))))
+        followerLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(MenuItemViewController.tappedLabel(_:))))
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,6 +45,9 @@ class MenuItemViewController: UIViewController {
         }
     }
     
+    @objc func tappedLabel(_ sender:UITapGestureRecognizer) {
+        dalegate.toFriend()
+    }
     
 }
 

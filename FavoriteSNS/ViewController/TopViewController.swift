@@ -14,7 +14,6 @@ class TopViewController: UIViewController  {
     
     @IBOutlet weak var userNameText: UITextField!
     @IBOutlet weak var iconImageView: UIImageView!
-    let userDefaults = UserDefaults.standard
     var selectedImage:UIImage!
     
     // インスタンス変数
@@ -66,8 +65,7 @@ class TopViewController: UIViewController  {
     
     @IBAction func startButton(_ sender: AnyObject) {
         uploadIcon(name: userNameText.text!, pic: iconImageView.image!)
-        userDefaults.set(true, forKey: "isFirst")
-        userDefaults.synchronize()
+        
         //        // 一つ前のViewControllerに戻る
         //        navigationController?.popViewController(animated: true)
         performSegue(withIdentifier: "toMakeGroupViewController", sender: nil)

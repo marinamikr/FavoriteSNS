@@ -5,13 +5,10 @@
 // Created by 原田摩利奈 on 2019/03/25.
 // Copyright © 2019 原田摩利奈. All rights reserved.
 //
-​
 import UIKit
 import Firebase
 import KYDrawerController
 import RealmSwift
-​
-​
 class TimeLineViewController: UIViewController {
     
     
@@ -32,6 +29,7 @@ class TimeLineViewController: UIViewController {
     let realm = try! Realm()
     
     
+    var isFirst: Bool = false
     
     
     override func viewDidLoad() {
@@ -41,10 +39,7 @@ class TimeLineViewController: UIViewController {
         DBRef = Database.database().reference()
         
         userDefaults.register(defaults: ["isFirst":false])
-        let isFirst: Bool = userDefaults.bool(forKey: "isFirst")
-        if !isFirst {
-            performSegue(withIdentifier: "toTopViewController",sender: nil)
-        }
+        
         // Do any additional setup after loading the view.
         timeLineTableView.dataSource = self
         timeLineTableView.delegate = self
@@ -56,14 +51,20 @@ class TimeLineViewController: UIViewController {
         super.viewWillAppear(animated)
         let elDrawer = self.navigationController?.parent as! KYDrawerController
         (elDrawer.drawerViewController as! MenuItemViewController).dalegate = self
-        getUserContents()
+        
+        isFirst = userDefaults.bool(forKey: "isFirst")
+        if !isFirst {
+            performSegue(withIdentifier: "toTopViewController",sender: nil)
+        }else{
+            getUserContents()
+        }
     }
     
     func getUserContents(){
         postArray.removeAll()
         
         let ref = Database.database().reference()
-        ​​
+        
         self.followHandler = ref.child(Util.getUUID()).child("userData").child("follow").observe(.value, with: {snapshot in
             for followUser in snapshot.children {
                 let followUserDict = (followUser as! DataSnapshot).value as! [String:Any]
@@ -92,7 +93,6 @@ class TimeLineViewController: UIViewController {
                             ref.child(friendID).child("userData").removeObserver(withHandle: self.postHandler)
                         })
                         
-                        ​​
                     }
                     
                     ref.child(friendID).child("post").child(friendGroupName).removeObserver(withHandle: self.friendHandler)
@@ -103,8 +103,7 @@ class TimeLineViewController: UIViewController {
         })
     }
 }
-​
-​
+
 extension TimeLineViewController: UITableViewDataSource,UITableViewDelegate {
     //cellの数
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -114,36 +113,32 @@ extension TimeLineViewController: UITableViewDataSource,UITableViewDelegate {
     //cellの内容
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = timeLineTableView.dequeueReusableCell(withIdentifier: "friendPostTableViewCell", for: indexPath) as! FriendPostTableViewCell
-        let post = postArray[indexPath.row]
-        cell.setPostModel(post: post)
-        cell.setContents(contentsData: post.getContents())
-        cell.setImage(imageData: post.getPictureURL())
-        cell.setUserName(nameData: post.getUserName())
-        cell.setIconImage(iconURL: post.getIconURL())
-        cell.setLikeLabel(likeData: post.getLikes())
-        cell.setRepryLabel(repryData: post.getRepry())
-        cell.setStarLabel(starData: post.getStar())
-        cell.setheartImage(imageName: "pinkhearts.png")
-        
-        
-        
-        
+        if indexPath.row < postArray.count{
+            let post = postArray[indexPath.row]
+            cell.setPostModel(post: post)
+            cell.setContents(contentsData: post.getContents())
+            cell.setImage(imageData: post.getPictureURL())
+            cell.setUserName(nameData: post.getUserName())
+            cell.setIconImage(iconURL: post.getIconURL())
+            cell.setLikeLabel(likeData: post.getLikes())
+            cell.setRepryLabel(repryData: post.getRepry())
+            cell.setStarLabel(starData: post.getStar())
+            cell.setheartImage(imageName: "pinkhearts.png")
+            
+        }
         
         return cell
     }
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 580
     }
 }
-​
 extension TimeLineViewController: CustomDelegate {
     func toCamera() {
         let elDrawer = self.navigationController?.parent as! KYDrawerController
         elDrawer.setDrawerState(KYDrawerController.DrawerState.closed, animated: true)
         performSegue(withIdentifier: "toCameraViewController", sender: nil)
     }
-    
     func toQrcode() {
         let elDrawer = self.navigationController?.parent as! KYDrawerController
         elDrawer.setDrawerState(KYDrawerController.DrawerState.closed, animated: true)
@@ -166,7 +161,13 @@ extension TimeLineViewController: CustomDelegate {
     func toMyPost() {
         let elDrawer = self.navigationController?.parent as! KYDrawerController
         elDrawer.setDrawerState(KYDrawerController.DrawerState.closed, animated: true)
-        performSegue(withIdentifier: "toMyPostViewController", sender: nil)
+        performSegue(withIdentifier: "toPostViewController", sender: nil)
+    }
+    
+    func toFriend() {
+        let elDrawer = self.navigationController?.parent as! KYDrawerController
+        elDrawer.setDrawerState(KYDrawerController.DrawerState.closed, animated: true)
+        performSegue(withIdentifier: "toFriendListViewController", sender: nil)
     }
     
     
