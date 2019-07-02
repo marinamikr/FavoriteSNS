@@ -51,37 +51,44 @@ class FriendPostTableViewCell: UITableViewCell {
     
     func setPostModel(post: Post) {
         self.postModel = post
+        setContents(contentsData: post.getContents())
+        setImage(imageData: post.getPictureURL())
+        setUserName(nameData: post.getUserName())
+        setIconImage(iconURL: post.getIconURL())
+        setLikeLabel(likeData: post.getLikes())
+        setRepryLabel(repryData: post.getRepry())
+        setStarLabel(starData: post.getStar())
     }
     
-    func setImage(imageData: String) {
+    private func setImage(imageData: String) {
         self.imageURL = imageData
         pictureImageView.loadImage(urlString: imageData)
     }
     
-    func setContents(contentsData: String) {
+    private func setContents(contentsData: String) {
         contentsTextView.text = contentsData
         contentsTextView.isUserInteractionEnabled = true
         contentsTextView.isEditable = false
     }
     
-    func setUserName(nameData: String) {
+    private func setUserName(nameData: String) {
         userNameLabel.text = nameData
     }
     
-    func setIconImage(iconURL: String) {
+    private func setIconImage(iconURL: String) {
         self.URL = iconURL
         iconImageView.loadImage(urlString: iconURL)
     }
     
-    func setLikeLabel(likeData: Int) {
+    private func setLikeLabel(likeData: Int) {
         likeLabel.text = String(likeData)
     }
     
-    func setStarLabel(starData: Int) {
+   private func setStarLabel(starData: Int) {
         starLabel.text = String(starData)
     }
     
-    func setRepryLabel(repryData: String) {
+    private func setRepryLabel(repryData: String) {
         repryLabel.text = repryData
     }
     
@@ -91,16 +98,14 @@ class FriendPostTableViewCell: UITableViewCell {
     }
     
     
-    
-    
     // 画像がタップされたら呼ばれる
     @objc func imageViewTapped(_ sender: UITapGestureRecognizer) {
         postModel.setLikes(likes: postModel.getLikes() + 1)
+        setLikeLabel(likeData: postModel.getLikes())
         uploadLikes(like: postModel.getLikes())
-        print(postModel.getLikes())
     }
     
-    func uploadLikes(like: Int){
+    private func uploadLikes(like: Int){
         let ref = Database.database().reference()
         ref.child(postModel.getUUID()).child("post").child(postModel.getGroupName()).child(postModel.getAutoID()).child("likes").setValue(like)
     }

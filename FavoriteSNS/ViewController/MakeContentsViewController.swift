@@ -70,20 +70,22 @@ class MakeContentsViewController: UIViewController {
     
     
     
-    func uploadContents(text: String,pic: UIImage){
+    func uploadContents(){
         // strageの一番トップのReferenceを指定
         let storage = Storage.storage()
         // let storageRef = storage.reference(forURL: "gs://calender-4a2d3.appspot.com")
         let storageRef = storage.reference(forURL: "gs://favoritesns3.appspot.com/")
         
         //変数dataにpicをNSDataにしたものを指定
-        if let data = Util.resizeImage(src: pic, max: 500)?.jpegData(compressionQuality: 0.8) {
+        if let data = Util.resizeImage(src: pictureImageView.image!, max: 500)?.jpegData(compressionQuality: 0.8) {
             // トップReferenceの一つ下の固有IDの枝を指定
             let riversRef = storageRef.child(Util.getUUID()).child(String.getRandomStringWithLength(length: 60))
             // strageに画像をアップロード
             riversRef.putData(data, metadata: nil, completion: { metaData, error in
                 let downloadURL: String = (metaData?.downloadURL()?.absoluteString)!
-                let data = ["contents": self.contentsTextView.text,"imageURL": downloadURL,"likes": self.like,"repry": self.repry,"star": self.starIndex] as [String : Any]
+                let dateManeger = DateManager()
+                var time = dateManeger.stringFromDate(date: Date())
+                let data = ["contents": self.contentsTextView.text,"imageURL": downloadURL,"likes": self.like,"repry": self.repry,"star": self.starIndex,"time": time] as [String : Any]
                 let ref = Database.database().reference()
                 ref.child(Util.getUUID()).child("post").child(self.groupNameArray[self.groupPickerView.selectedRow(inComponent: 0)]).childByAutoId().setValue(data)
                 ref.child(Util.getUUID()).child("post").child(self.groupNameArray[self.groupPickerView.selectedRow(inComponent: 0)]).observe(.value, with: {snapshot  in
@@ -92,9 +94,22 @@ class MakeContentsViewController: UIViewController {
             })
         }
     }
+    func makeAleart(title: String, message: String, okText: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        let okayButton = UIAlertAction(title: okText, style: UIAlertAction.Style.cancel, handler: nil)
+        alert.addAction(okayButton)
+        
+        present(alert, animated: true, completion: nil)
+    }
     
     @IBAction func saveButton(_ sender: Any) {
-        uploadContents(text: contentsTextView.text, pic: pictureImageView.image!)
+        if self.starIndex >= 1 && self.contentsTextView.text != "" && self.pictureImageView.image != nil{
+            uploadContents()
+        }else{
+            makeAleart(title: "全て入力してください", message: "全て入力してください", okText: "OK")
+        }
+        
+        
     }
     @IBAction func chooseButton(_ sender: Any) {
         // カメラロールが利用可能か？

@@ -28,8 +28,11 @@ class TimeLineViewController: UIViewController {
     
     let realm = try! Realm()
     
+    let dateManeger = DateManager()
     
     var isFirst: Bool = false
+    
+    fileprivate let refreshCtl = UIRefreshControl()
     
     
     override func viewDidLoad() {
@@ -43,6 +46,8 @@ class TimeLineViewController: UIViewController {
         // Do any additional setup after loading the view.
         timeLineTableView.dataSource = self
         timeLineTableView.delegate = self
+        timeLineTableView.refreshControl = refreshCtl
+        refreshCtl.addTarget(self, action: #selector(TimeLineViewController.refresh(sender:)), for: .valueChanged)
         //Identifierを設定する
         self.timeLineTableView.register(UINib(nibName: "FriendPostTableViewCell", bundle: nil), forCellReuseIdentifier: "friendPostTableViewCell")
     }
@@ -75,6 +80,7 @@ class TimeLineViewController: UIViewController {
                         let postDict = (child as! DataSnapshot).value as! [String:Any]
                         self.postHandler = ref.child(friendID).child("userData").observe(.value, with: {snapshot in
                             let userDict = snapshot.value as! [String:Any]
+                        
                             let post = Post()
                             post.setPictureURL(pictureURL: (postDict["imageURL"] as! String))
                             post.setContents(contents: (postDict["contents"] as! String))
@@ -86,10 +92,10 @@ class TimeLineViewController: UIViewController {
                             post.setUUID(uuid: friendID)
                             post.setGroupName(groupName:friendGroupName)
                             post.setAutoID(autoID: (child as! DataSnapshot).key)
-                            print(postDict)
+                            post.setTime(time: self.dateManeger.dateFromString(string: (postDict["time"] as! String)))
                             print((child as! DataSnapshot).key)
                             self.postArray.append(post)
-                            self.timeLineTableView.reloadData()
+                            self.reload()
                             ref.child(friendID).child("userData").removeObserver(withHandle: self.postHandler)
                         })
                         
@@ -101,6 +107,19 @@ class TimeLineViewController: UIViewController {
             }
             ref.child(Util.getUUID()).child("userData").child("follow").removeObserver(withHandle: self.followHandler)
         })
+    }
+    
+    func reload(){
+        postArray = postArray.sorted(by: { (a, b) -> Bool in
+            return a.getTime() > b.getTime()
+        })
+        self.timeLineTableView.reloadData()
+    }
+    
+    @objc func refresh(sender: UIRefreshControl) {
+        postArray.removeAll()
+        getUserContents()
+        refreshCtl.endRefreshing()
     }
 }
 
@@ -116,15 +135,7 @@ extension TimeLineViewController: UITableViewDataSource,UITableViewDelegate {
         if indexPath.row < postArray.count{
             let post = postArray[indexPath.row]
             cell.setPostModel(post: post)
-            cell.setContents(contentsData: post.getContents())
-            cell.setImage(imageData: post.getPictureURL())
-            cell.setUserName(nameData: post.getUserName())
-            cell.setIconImage(iconURL: post.getIconURL())
-            cell.setLikeLabel(likeData: post.getLikes())
-            cell.setRepryLabel(repryData: post.getRepry())
-            cell.setStarLabel(starData: post.getStar())
             cell.setheartImage(imageName: "pinkhearts.png")
-            
         }
         
         return cell

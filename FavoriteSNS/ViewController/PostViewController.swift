@@ -29,6 +29,10 @@ class PostViewController: UIViewController {
     
     var uuid :String =  Util.getUUID()
     
+    let dateManeger = DateManager()
+    
+    fileprivate let refreshCtl = UIRefreshControl()
+
     
     
     override func viewDidLoad() {
@@ -40,8 +44,11 @@ class PostViewController: UIViewController {
         // Do any additional setup after loading the view.
         postTableView.dataSource = self
         postTableView.delegate = self
+        postTableView.refreshControl = refreshCtl
+        refreshCtl.addTarget(self, action: #selector(PostViewController.refresh(sender:)), for: .valueChanged)
         //Identifierを設定する
         self.postTableView.register(UINib(nibName: "PostTableViewCell", bundle: nil), forCellReuseIdentifier: "postTableViewCell")
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -68,11 +75,12 @@ class PostViewController: UIViewController {
                             post.setStar(star: (postDict["star"] as! Int))
                             post.setUserName(userName: (userDict["name"] as! String))
                             post.setIconURL(iconURL: (userDict["iconURL"] as! String))
+                            post.setTime(time: self.dateManeger.dateFromString(string: (postDict["time"] as! String)))
                             post.setUUID(uuid: self.uuid)
                             post.setGroupName(groupName: groupName)
                             post.setAutoID(autoID: (child as! DataSnapshot).key)
                             self.postArray.append(post)
-                            self.postTableView.reloadData()
+                            self.reload()
                         })
                         
                     }
@@ -86,6 +94,19 @@ class PostViewController: UIViewController {
             }
         })
 //        ref.child(self.uuid).child("userData").child("group").removeAllObservers()
+    }
+    
+    func reload(){
+        postArray = postArray.sorted(by: { (a, b) -> Bool in
+            return a.getTime() > b.getTime()
+        })
+        self.postTableView.reloadData()
+    }
+    
+    @objc func refresh(sender: UIRefreshControl) {
+        postArray.removeAll()
+        getUserContents()
+        refreshCtl.endRefreshing()
     }
     
 }

@@ -50,6 +50,7 @@
 		40BC7F83224C50DF005EC53C /* TimeLine.png in Resources */ = {isa = PBXBuildFile; fileRef = 40BC7F82224C50DF005EC53C /* TimeLine.png */; };
 		40BC7F86224C51B6005EC53C /* TopView.png in Resources */ = {isa = PBXBuildFile; fileRef = 40BC7F85224C51B6005EC53C /* TopView.png */; };
 		40BC7F88224C54E4005EC53C /* pinkhearts.png in Resources */ = {isa = PBXBuildFile; fileRef = 40BC7F87224C54E3005EC53C /* pinkhearts.png */; };
+		40D3E04922CB673B00F90DC9 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D3E04822CB673B00F90DC9 /* DateManager.swift */; };
 		577FEDBBA4DCB26C02ADBCB2 /* Pods_FavoriteSNS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB3D5F8A21BABFE255C0BC8 /* Pods_FavoriteSNS.framework */; };
 		AAF6BCEE224C5EDF007290D0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AAF6BCED224C5EDF007290D0 /* GoogleService-Info.plist */; };
 		AAF6BCF0224C639D007290D0 /* setting sun.JPG in Resources */ = {isa = PBXBuildFile; fileRef = AAF6BCEF224C639D007290D0 /* setting sun.JPG */; };
@@ -124,6 +125,7 @@
 		40BC7F82224C50DF005EC53C /* TimeLine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TimeLine.png; sourceTree = "<group>"; };
 		40BC7F85224C51B6005EC53C /* TopView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TopView.png; sourceTree = "<group>"; };
 		40BC7F87224C54E3005EC53C /* pinkhearts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pinkhearts.png; sourceTree = "<group>"; };
+		40D3E04822CB673B00F90DC9 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		53C18270F5AD1553742D5804 /* Pods-FavoriteSNS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FavoriteSNS.release.xcconfig"; path = "Pods/Target Support Files/Pods-FavoriteSNS/Pods-FavoriteSNS.release.xcconfig"; sourceTree = "<group>"; };
 		AAF6BCED224C5EDF007290D0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AAF6BCEF224C639D007290D0 /* setting sun.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "setting sun.JPG"; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 		406D518B22486FAD0051086E /* FavoriteSNS */ = {
 			isa = PBXGroup;
 			children = (
+				40D3E04722CB672300F90DC9 /* Manager */,
 				40BC7F84224C50E2005EC53C /* Image */,
 				40BC7F7F224B62A7005EC53C /* Delegate */,
 				40BC7F66224B1530005EC53C /* CustomLayout */,
@@ -300,6 +303,14 @@
 				4074E38322A663200027BDD4 /* yellowStar.png */,
 			);
 			path = Image;
+			sourceTree = "<group>";
+		};
+		40D3E04722CB672300F90DC9 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				40D3E04822CB673B00F90DC9 /* DateManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		BF28D567DE1D2D24E0CE3EC9 /* Frameworks */ = {
@@ -545,6 +556,7 @@
 				40BC7F74224B5FE6005EC53C /* QRViewController.swift in Sources */,
 				402A626C228ADA1E002D2DD8 /* Friend.swift in Sources */,
 				40BC7F7D224B6197005EC53C /* MenuItemTableViewCell.swift in Sources */,
+				40D3E04922CB673B00F90DC9 /* DateManager.swift in Sources */,
 				402A6260228AC15C002D2DD8 /* CameraViewController.swift in Sources */,
 				40BC7F632249BBDB005EC53C /* User.swift in Sources */,
 				4074E38922A66B6B0027BDD4 /* PostTableViewCell.swift in Sources */,

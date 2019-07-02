@@ -352,7 +352,6 @@
                                 </state>
                                 <connections>
                                     <action selector="saveButton:" destination="JKX-Wp-syD" eventType="touchUpInside" id="RnL-an-cCa"/>
-                                    <segue destination="izv-QZ-YQM" kind="show" id="raY-RR-f2Z"/>
                                 </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rhp-TQ-ZsO">
@@ -396,7 +395,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6UG-38-NgE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-854" y="770"/>
+            <point key="canvasLocation" x="23" y="886"/>
         </scene>
         <!--Drawer Controller-->
         <scene sceneID="jVn-mb-naJ">
@@ -654,7 +653,6 @@
         <image name="star.jpg" width="300" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="raY-RR-f2Z"/>
         <segue reference="CoJ-AE-oDz"/>
     </inferredMetricsTieBreakers>
 </document>

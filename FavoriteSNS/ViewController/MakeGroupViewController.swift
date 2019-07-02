@@ -11,7 +11,7 @@ import RealmSwift
 import Firebase
 
 class MakeGroupViewController: UIViewController {
-
+    
     var userName: String!
     var iconImage: UIImage!
     let userDefaults = UserDefaults.standard
@@ -27,13 +27,23 @@ class MakeGroupViewController: UIViewController {
         groupName.delegate = self
         //インスタンスを作成
         DBRef = Database.database().reference()
-    
+        
     }
     
     @IBAction func saveButton(_ sender: Any) {
-        uploadGroupName(groupName: groupName.text!)
+        if groupName.text != "" {
+            uploadGroupName(groupName: groupName.text!)
+        } else {
+            makeAleart(title: "全て入力してください", message: "全て入力してください", okText: "OK")
+        }
     }
-    
+    func makeAleart(title: String, message: String, okText: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        let okayButton = UIAlertAction(title: okText, style: UIAlertAction.Style.cancel, handler: nil)
+        alert.addAction(okayButton)
+        
+        present(alert, animated: true, completion: nil)
+    }
     func uploadGroupName(groupName: String) {
         print("upload")
         let groupArray = [groupName]
@@ -44,12 +54,12 @@ class MakeGroupViewController: UIViewController {
         userDefaults.synchronize()
         
         ref.child(Util.getUUID()).child("userData").child("group").observe(.value, with: {snapshot  in
-           self.navigationController?.popToRootViewController(animated: true)
+            self.navigationController?.popToRootViewController(animated: true)
         })
         
     }
     
-   
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // キーボードを閉じる
         groupName.resignFirstResponder()

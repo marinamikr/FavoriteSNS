@@ -19,6 +19,7 @@ class Post: NSObject {
     private var uuid: String = ""
     private var groupName: String = ""
     private var autoID: String = ""
+    private var time: Date = Date()
     
     func setPictureURL(pictureURL:String){
         self.pictureURL = pictureURL
@@ -98,5 +99,13 @@ class Post: NSObject {
     
     func getAutoID() -> String {
         return self.autoID
+    }
+    
+    func setTime(time: Date) {
+        self.time = time
+    }
+    
+    func getTime() -> Date {
+        return self.time
     }
 }

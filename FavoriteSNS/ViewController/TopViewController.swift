@@ -64,14 +64,18 @@ class TopViewController: UIViewController  {
     }
     
     @IBAction func startButton(_ sender: AnyObject) {
-        uploadIcon(name: userNameText.text!, pic: iconImageView.image!)
-        
-        //        // 一つ前のViewControllerに戻る
-        //        navigationController?.popViewController(animated: true)
-        performSegue(withIdentifier: "toMakeGroupViewController", sender: nil)
-        
+        if userNameText.text != "" && iconImageView.image != nil {
+             uploadIcon(name: userNameText.text!, pic: iconImageView.image!)
+            //        // 一つ前のViewControllerに戻る
+            //        navigationController?.popViewController(animated: true)
+            performSegue(withIdentifier: "toMakeGroupViewController", sender: nil)
+        } else {
+            makeAleart(title: "全て入力してください", message: "全て入力してください", okText: "OK")
+        }
         
     }
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender:
         Any?) {
         if (segue.identifier == "toMakeGroupViewController") {
@@ -85,6 +89,14 @@ class TopViewController: UIViewController  {
         // キーボードを閉じる
         userNameText.resignFirstResponder()
         return true
+    }
+    
+    func makeAleart(title: String, message: String, okText: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        let okayButton = UIAlertAction(title: okText, style: UIAlertAction.Style.cancel, handler: nil)
+        alert.addAction(okayButton)
+        
+        present(alert, animated: true, completion: nil)
     }
     
 }
