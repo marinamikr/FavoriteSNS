@@ -54,7 +54,7 @@ class MakeGroupViewController: UIViewController {
         userDefaults.synchronize()
         
         ref.child(Util.getUUID()).child("userData").child("group").observe(.value, with: {snapshot  in
-            self.navigationController?.popToRootViewController(animated: true)
+            self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
         })
         
     }

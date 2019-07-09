@@ -9,5 +9,6 @@ pod 'Firebase/Core', '~> 4.13.0'
 pod 'Firebase/Storage', '~> 4.13.0'
 pod 'Firebase/Database', '~> 4.13.0'
 pod 'KYDrawerController'
+pod 'CropViewController'
 
 end

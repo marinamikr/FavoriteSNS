@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import Firebase
 
 class MenuItemViewController: UIViewController {
     
@@ -20,6 +21,7 @@ class MenuItemViewController: UIViewController {
     var userDefaults:UserDefaults = UserDefaults.standard
     var array:[String] = ["自分の投稿","MyQRコード","QRコード読み取り","グループ一覧","設定"]
     var dalegate : CustomDelegate!
+    var ref:DatabaseReference!
     
     
     
@@ -28,10 +30,12 @@ class MenuItemViewController: UIViewController {
         self.menuTableVIew.register(UINib(nibName: "MenuItemTableViewCell", bundle: nil), forCellReuseIdentifier: "menuItemTableViewCell")
         menuTableVIew.dataSource = self
         menuTableVIew.delegate = self
+        ref = Database.database().reference()
         
+        followLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(MenuItemViewController.tappedFollowLabel(_:))))
+        followerLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(MenuItemViewController.tappedFollowerLabel(_:))))
         
-        followLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(MenuItemViewController.tappedLabel(_:))))
-        followerLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(MenuItemViewController.tappedLabel(_:))))
+        getUserData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,8 +49,31 @@ class MenuItemViewController: UIViewController {
         }
     }
     
-    @objc func tappedLabel(_ sender:UITapGestureRecognizer) {
+    @objc func tappedFollowLabel(_ sender:UITapGestureRecognizer) {
+        FriendListViewController.isFollow = true
         dalegate.toFriend()
+    }
+    
+    @objc func tappedFollowerLabel(_ sender:UITapGestureRecognizer) {
+        FriendListViewController.isFollow = false
+        dalegate.toFriend()
+    }
+    
+    func getUserData() {
+        
+        ref.child(Util.getUUID()).child("userData").child("follow").observe(.value, with: {snapshot in
+            self.followLabel.text = String(snapshot.children.allObjects.count)
+        })
+        ref.child(Util.getUUID()).child("userData").child("follower").observe(.value, with: {snapshot in
+            self.followerLabel.text = String(snapshot.children.allObjects.count)
+        })
+        
+        ref.child(Util.getUUID()).child("userData").observe(.value, with: {snapshot in
+           let userDict = snapshot.value as! [String:Any]
+            self.nameLabel.text = userDict["name"] as! String
+            self.iconImageView.loadImage(urlString: userDict["iconURL"] as! String)
+        })
+        
     }
     
 }
@@ -76,7 +103,7 @@ extension MenuItemViewController :UITableViewDataSource, UITableViewDelegate {
         case 3:
             dalegate.toGroup()
         case 4:
-             dalegate.toSetting()
+            dalegate.toSetting()
         default: break
         }
     }

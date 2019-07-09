@@ -13,6 +13,8 @@ class FriendListViewController: UIViewController {
     @IBOutlet weak var friendTableView: UITableView!
     var friendArray :Array<Friend> = Array()
     var ref:DatabaseReference!
+    static var isFollow: Bool = false
+    var childName = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +25,13 @@ class FriendListViewController: UIViewController {
         friendTableView.dataSource = self
         friendTableView.delegate = self
         
-        ref.child(Util.getUUID()).child("userData").child("follow").observe(.value, with: {snapshot in
+        if FriendListViewController.isFollow {
+            childName = "follow"
+        }else{
+            childName = "follower"
+        }
+        
+        ref.child(Util.getUUID()).child("userData").child(childName).observe(.value, with: {snapshot in
             for followUser in snapshot.children {
                 let followUserDict = (followUser as! DataSnapshot).value as! [String:Any]
                 let friendID = followUserDict["uuid"] as! String
@@ -42,6 +50,7 @@ class FriendListViewController: UIViewController {
         })
         //Identifierを設定する
         friendTableView.register(UINib(nibName: "FriendTableViewCell", bundle: nil), forCellReuseIdentifier: "friendTableViewCell")
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender:

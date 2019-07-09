@@ -105,7 +105,7 @@
                     <navigationItem key="navigationItem" id="ovf-aH-iAB"/>
                     <connections>
                         <outlet property="timeLineTableView" destination="tHE-SQ-9t3" id="ilG-SX-wS7"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="toTopViewController" id="NYF-1W-KyA"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="toTopViewController" id="NYF-1W-KyA"/>
                         <segue destination="3tS-Q3-MN1" kind="show" identifier="toPostViewController" id="b6y-TS-rQv"/>
                         <segue destination="E7S-2c-7fe" kind="show" identifier="toQrcodeViewController" id="8qd-lt-pqV"/>
                         <segue destination="BNI-OW-gK2" kind="show" identifier="toSettingViewController" id="lEE-8g-56S"/>

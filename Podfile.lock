@@ -1,4 +1,5 @@
 PODS:
+  - CropViewController (2.4.0)
   - Firebase/Core (4.13.0):
     - FirebaseAnalytics (= 4.2.0)
     - FirebaseCore (= 4.0.20)
@@ -43,6 +44,7 @@ PODS:
     - Realm (= 3.13.1)
 
 DEPENDENCIES:
+  - CropViewController
   - Firebase/Core (~> 4.13.0)
   - Firebase/Database (~> 4.13.0)
   - Firebase/Storage (~> 4.13.0)
@@ -51,6 +53,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - CropViewController
     - Firebase
     - FirebaseAnalytics
     - FirebaseCore
@@ -66,6 +69,7 @@ SPEC REPOS:
     - RealmSwift
 
 SPEC CHECKSUMS:
+  CropViewController: a090820b15fc3da68e694d7c192a4708c576828b
   Firebase: 5ec5e863d269d82d66b4bf56856726f8fb8f0fb3
   FirebaseAnalytics: 7ef69e76a5142f643aeb47c780e1cdce4e23632e
   FirebaseCore: 90cb1c53d69b556f112a1bf72b5fcfaad7650790
@@ -80,6 +84,6 @@ SPEC CHECKSUMS:
   Realm: 50071da38fe079e0735e47c9f2eae738c68c5996
   RealmSwift: 8a1e6a02b7a08cd17a31e3115143fb69fe5f3fb9
 
-PODFILE CHECKSUM: e67ff7e3f86f2dcc41773276582e707e210646ed
+PODFILE CHECKSUM: 9edbab06ba49f5baacb425386af66a1ef8626df0
 
 COCOAPODS: 1.5.3

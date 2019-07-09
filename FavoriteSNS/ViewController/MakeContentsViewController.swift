@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import RealmSwift
+import CropViewController
 
 class MakeContentsViewController: UIViewController {
     
@@ -106,7 +107,7 @@ class MakeContentsViewController: UIViewController {
         if self.starIndex >= 1 && self.contentsTextView.text != "" && self.pictureImageView.image != nil{
             uploadContents()
         }else{
-            makeAleart(title: "全て入力してください", message: "全て入力してください", okText: "OK")
+            makeAleart(title: "全て入力してください", message: "おすすめ度を選択してください", okText: "OK")
         }
         
         
@@ -183,10 +184,15 @@ extension MakeContentsViewController : UIImagePickerControllerDelegate ,UINaviga
     // 写真を選んだ後に呼ばれる処理
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         selectedImage = info[.originalImage] as! UIImage
-        // ビューに表示する
-        self.pictureImageView.image = selectedImage
+        
+        
+        let cropViewController = CropViewController(image: selectedImage)
+        cropViewController.delegate = self
+        
         // 写真を選ぶビューを引っ込める
         self.dismiss(animated: true)
+        present(cropViewController,animated: true, completion: nil)
+        
     }
 }
 
@@ -224,4 +230,20 @@ extension MakeContentsViewController :UITextViewDelegate {
         return true
     }
     
+}
+
+extension MakeContentsViewController: CropViewControllerDelegate {
+    func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
+        //加工した画像が取得できる
+        // ビューに表示する
+        selectedImage = image
+        self.pictureImageView.image = selectedImage
+        cropViewController.dismiss(animated: true, completion: nil)
+        
+    }
+    
+    func cropViewController(_ cropViewController: CropViewController, didFinishCancelled cancelled: Bool) {
+        // キャンセル時
+        cropViewController.dismiss(animated: true, completion: nil)
+    }
 }
