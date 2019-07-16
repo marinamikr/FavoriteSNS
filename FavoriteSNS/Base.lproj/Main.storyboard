@@ -89,13 +89,13 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ySZ-Py-k9q">
-                                <rect key="frame" x="278" y="757" width="62" height="30"/>
+                                <rect key="frame" x="282" y="757" width="62" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="投稿する">
                                     <color key="titleColor" red="1" green="0.0" blue="0.69889190830000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
-                                    <segue destination="JKX-Wp-syD" kind="show" id="DC9-6e-jUI"/>
+                                    <segue destination="zaS-cf-wG6" kind="show" id="FsM-IJ-cSE"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -310,6 +310,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="suh-Dw-7yg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7279.1999999999998" y="406.4039408866995"/>
+        </scene>
+        <!--Post Contents View Controller-->
+        <scene sceneID="QlP-1U-poe">
+            <objects>
+                <viewController id="zaS-cf-wG6" customClass="PostContentsViewController" customModule="FavoriteSNS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Br5-eG-M3e">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FDL-Ie-Z3w">
+                                <rect key="frame" x="0.0" y="44" width="375" height="684"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sV7-pc-awO">
+                                <rect key="frame" x="295" y="750" width="76" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="投稿">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.69889190830000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveButton:" destination="zaS-cf-wG6" eventType="touchUpInside" id="pvW-p3-oMy"/>
+                                    <action selector="saveButton:" destination="JKX-Wp-syD" eventType="touchUpInside" id="yJM-ov-47e"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="vov-1J-TOB"/>
+                    </view>
+                    <connections>
+                        <outlet property="postTableView" destination="FDL-Ie-Z3w" id="cNe-zT-hDI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MxM-FL-iW2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-695.20000000000005" y="882.26600985221683"/>
         </scene>
         <!--Make Contents View Controller-->
         <scene sceneID="cev-Ey-IyU">
@@ -653,6 +689,6 @@
         <image name="star.jpg" width="300" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="CoJ-AE-oDz"/>
+        <segue reference="b6y-TS-rQv"/>
     </inferredMetricsTieBreakers>
 </document>

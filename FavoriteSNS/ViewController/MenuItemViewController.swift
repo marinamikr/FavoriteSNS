@@ -35,17 +35,19 @@ class MenuItemViewController: UIViewController {
         followLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(MenuItemViewController.tappedFollowLabel(_:))))
         followerLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(MenuItemViewController.tappedFollowerLabel(_:))))
         
-        getUserData()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if (self.userDefaults.string(forKey: "UserName") != nil) {
+            getUserData()
             let realm = try! Realm()
             let result = realm.objects(User.self).first
             var iconImage = UIImage(data: result?.userIcon as! Data)
             iconImageView.image = iconImage
             nameLabel.text = result?.userName
+            
         }
     }
     
@@ -69,7 +71,7 @@ class MenuItemViewController: UIViewController {
         })
         
         ref.child(Util.getUUID()).child("userData").observe(.value, with: {snapshot in
-           let userDict = snapshot.value as! [String:Any]
+          let userDict = snapshot.value as! [String:Any]
             self.nameLabel.text = userDict["name"] as! String
             self.iconImageView.loadImage(urlString: userDict["iconURL"] as! String)
         })

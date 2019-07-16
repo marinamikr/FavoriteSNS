@@ -49,6 +49,13 @@
                 </subviews>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="star1" destination="uPp-dh-Jbq" id="zq7-0G-qvI"/>
+                <outlet property="star2" destination="AGp-Om-BN2" id="pW0-hD-34o"/>
+                <outlet property="star3" destination="5jh-zL-9pR" id="dOv-aS-fG0"/>
+                <outlet property="star4" destination="xPR-IZ-zY5" id="K02-Df-SiB"/>
+                <outlet property="star5" destination="8MT-jL-DOq" id="ijr-IX-qDk"/>
+            </connections>
             <point key="canvasLocation" x="47.826086956521742" y="43.861607142857139"/>
         </tableViewCell>
     </objects>

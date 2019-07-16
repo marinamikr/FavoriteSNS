@@ -32,6 +32,9 @@
 		4074E38A22A66B6B0027BDD4 /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4074E38822A66B6B0027BDD4 /* PostTableViewCell.xib */; };
 		4074E38F22A6766B0027BDD4 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4074E38D22A6766B0027BDD4 /* CustomCell.swift */; };
 		4074E39022A6766B0027BDD4 /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4074E38E22A6766B0027BDD4 /* CustomCell.xib */; };
+		4095F4A622DDD1DA00EAE0A4 /* PostGroupItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4095F4A422DDD1DA00EAE0A4 /* PostGroupItemTableViewCell.swift */; };
+		4095F4A722DDD1DA00EAE0A4 /* PostGroupItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4095F4A522DDD1DA00EAE0A4 /* PostGroupItemTableViewCell.xib */; };
+		4095F4A922DDD40B00EAE0A4 /* PostContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4095F4A822DDD40B00EAE0A4 /* PostContentsViewController.swift */; };
 		409646E022D4AFFD00443666 /* PostTextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409646DE22D4AFFD00443666 /* PostTextTableViewCell.swift */; };
 		409646E122D4AFFD00443666 /* PostTextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 409646DF22D4AFFD00443666 /* PostTextTableViewCell.xib */; };
 		409646E622D4B05500443666 /* PostLikeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409646E422D4B05500443666 /* PostLikeTableViewCell.swift */; };
@@ -113,6 +116,9 @@
 		4074E38822A66B6B0027BDD4 /* PostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
 		4074E38D22A6766B0027BDD4 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		4074E38E22A6766B0027BDD4 /* CustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
+		4095F4A422DDD1DA00EAE0A4 /* PostGroupItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostGroupItemTableViewCell.swift; sourceTree = "<group>"; };
+		4095F4A522DDD1DA00EAE0A4 /* PostGroupItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostGroupItemTableViewCell.xib; sourceTree = "<group>"; };
+		4095F4A822DDD40B00EAE0A4 /* PostContentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostContentsViewController.swift; sourceTree = "<group>"; };
 		409646DE22D4AFFD00443666 /* PostTextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTextTableViewCell.swift; sourceTree = "<group>"; };
 		409646DF22D4AFFD00443666 /* PostTextTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostTextTableViewCell.xib; sourceTree = "<group>"; };
 		409646E422D4B05500443666 /* PostLikeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostLikeTableViewCell.swift; sourceTree = "<group>"; };
@@ -247,6 +253,7 @@
 				402A6261228AC16D002D2DD8 /* SettingViewController.swift */,
 				4058E25922A67E04009553E9 /* AddGroupViewController.swift */,
 				1F11E96D22C23B30006AACA1 /* FriendListViewController.swift */,
+				4095F4A822DDD40B00EAE0A4 /* PostContentsViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -298,6 +305,8 @@
 				409646E522D4B05500443666 /* PostLikeTableViewCell.xib */,
 				409646E822D4B0C300443666 /* PostChooseGroupTableViewCell.swift */,
 				409646E922D4B0C300443666 /* PostChooseGroupTableViewCell.xib */,
+				4095F4A422DDD1DA00EAE0A4 /* PostGroupItemTableViewCell.swift */,
+				4095F4A522DDD1DA00EAE0A4 /* PostGroupItemTableViewCell.xib */,
 			);
 			path = CustomLayout;
 			sourceTree = "<group>";
@@ -466,6 +475,7 @@
 				409646EB22D4B0C300443666 /* PostChooseGroupTableViewCell.xib in Resources */,
 				AAF6BCF0224C639D007290D0 /* setting sun.JPG in Resources */,
 				409646E722D4B05500443666 /* PostLikeTableViewCell.xib in Resources */,
+				4095F4A722DDD1DA00EAE0A4 /* PostGroupItemTableViewCell.xib in Resources */,
 				40BC7F88224C54E4005EC53C /* pinkhearts.png in Resources */,
 				40BC7F86224C51B6005EC53C /* TopView.png in Resources */,
 				40BC7F7E224B6197005EC53C /* MenuItemTableViewCell.xib in Resources */,
@@ -558,11 +568,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4095F4A622DDD1DA00EAE0A4 /* PostGroupItemTableViewCell.swift in Sources */,
 				4074E38F22A6766B0027BDD4 /* CustomCell.swift in Sources */,
 				40BC7F5D2249B6CF005EC53C /* MakeGroupViewController.swift in Sources */,
 				409646E022D4AFFD00443666 /* PostTextTableViewCell.swift in Sources */,
 				4058E25A22A67E04009553E9 /* AddGroupViewController.swift in Sources */,
 				402A625E228AC129002D2DD8 /* PostViewController.swift in Sources */,
+				4095F4A922DDD40B00EAE0A4 /* PostContentsViewController.swift in Sources */,
 				40BC7F48224873B0005EC53C /* TopViewController.swift in Sources */,
 				40BC7F81224B62E6005EC53C /* CustomDelegate.swift in Sources */,
 				40BC7F6B224B15E7005EC53C /* FriendPostTableViewCell.swift in Sources */,
