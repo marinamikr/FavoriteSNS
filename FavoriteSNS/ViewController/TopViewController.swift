@@ -113,7 +113,25 @@ extension TopViewController : UIImagePickerControllerDelegate ,UINavigationContr
         selectedImage = info[.originalImage] as? UIImage
         // ビューに表示する
         self.iconImageView.image = selectedImage
+
         // 写真を選ぶビューを引っ込める
         self.dismiss(animated: true)
     }
 }
+
+//
+//extension TopViewController: CropViewControllerDelegate {
+//
+//    func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
+//        //加工した画像が取得できる
+//        iconImageView.image = image
+//        cropViewController.dismiss(animated: true, completion: nil)
+//
+//
+//    }
+//
+//    func cropViewController(_ cropViewController: CropViewController, didFinishCancelled cancelled: Bool) {
+//        // キャンセル時
+//        cropViewController.dismiss(animated: true, completion: nil)
+//    }
+//}

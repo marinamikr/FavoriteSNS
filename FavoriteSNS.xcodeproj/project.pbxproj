@@ -20,6 +20,21 @@
 		4058E25A22A67E04009553E9 /* AddGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4058E25922A67E04009553E9 /* AddGroupViewController.swift */; };
 		4058E26F22A685F6009553E9 /* AddGroupCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4058E26D22A685F6009553E9 /* AddGroupCustomCell.swift */; };
 		4058E27022A685F6009553E9 /* AddGroupCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4058E26E22A685F6009553E9 /* AddGroupCustomCell.xib */; };
+		4065DED022E6A98000EBD8A2 /* makegroup.png in Resources */ = {isa = PBXBuildFile; fileRef = 4065DEC422E6A97F00EBD8A2 /* makegroup.png */; };
+		4065DED122E6A98000EBD8A2 /* setting2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4065DEC522E6A97F00EBD8A2 /* setting2.png */; };
+		4065DED222E6A98000EBD8A2 /* makeaccount.png in Resources */ = {isa = PBXBuildFile; fileRef = 4065DEC622E6A97F00EBD8A2 /* makeaccount.png */; };
+		4065DED322E6A98000EBD8A2 /* addFriend.png in Resources */ = {isa = PBXBuildFile; fileRef = 4065DEC722E6A97F00EBD8A2 /* addFriend.png */; };
+		4065DED422E6A98000EBD8A2 /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 4065DEC822E6A97F00EBD8A2 /* camera.png */; };
+		4065DED522E6A98000EBD8A2 /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = 4065DEC922E6A97F00EBD8A2 /* list.png */; };
+		4065DED622E6A98000EBD8A2 /* qrcode.png in Resources */ = {isa = PBXBuildFile; fileRef = 4065DECA22E6A97F00EBD8A2 /* qrcode.png */; };
+		4065DED722E6A98000EBD8A2 /* timeline.png in Resources */ = {isa = PBXBuildFile; fileRef = 4065DECB22E6A97F00EBD8A2 /* timeline.png */; };
+		4065DED822E6A98000EBD8A2 /* top.png in Resources */ = {isa = PBXBuildFile; fileRef = 4065DECC22E6A98000EBD8A2 /* top.png */; };
+		4065DED922E6A98000EBD8A2 /* toukou.png in Resources */ = {isa = PBXBuildFile; fileRef = 4065DECD22E6A98000EBD8A2 /* toukou.png */; };
+		4065DEDA22E6A98000EBD8A2 /* myPost.png in Resources */ = {isa = PBXBuildFile; fileRef = 4065DECE22E6A98000EBD8A2 /* myPost.png */; };
+		4065DEDB22E6A98000EBD8A2 /* setting1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4065DECF22E6A98000EBD8A2 /* setting1.png */; };
+		4065DEDE22E6AD5F00EBD8A2 /* azuki.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4065DEDD22E6AD2C00EBD8A2 /* azuki.ttf */; };
+		4065DEE022E6AE0500EBD8A2 /* toukou2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4065DEDF22E6AE0500EBD8A2 /* toukou2.png */; };
+		4065DEE422E6B29200EBD8A2 /* timeline2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4065DEE322E6B29200EBD8A2 /* timeline2.png */; };
 		406D518D22486FAD0051086E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406D518C22486FAD0051086E /* AppDelegate.swift */; };
 		406D519222486FAD0051086E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 406D519022486FAD0051086E /* Main.storyboard */; };
 		406D519422486FAE0051086E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 406D519322486FAE0051086E /* Assets.xcassets */; };
@@ -56,13 +71,10 @@
 		40BC7F7D224B6197005EC53C /* MenuItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BC7F7B224B6197005EC53C /* MenuItemTableViewCell.swift */; };
 		40BC7F7E224B6197005EC53C /* MenuItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40BC7F7C224B6197005EC53C /* MenuItemTableViewCell.xib */; };
 		40BC7F81224B62E6005EC53C /* CustomDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BC7F80224B62E6005EC53C /* CustomDelegate.swift */; };
-		40BC7F83224C50DF005EC53C /* TimeLine.png in Resources */ = {isa = PBXBuildFile; fileRef = 40BC7F82224C50DF005EC53C /* TimeLine.png */; };
-		40BC7F86224C51B6005EC53C /* TopView.png in Resources */ = {isa = PBXBuildFile; fileRef = 40BC7F85224C51B6005EC53C /* TopView.png */; };
 		40BC7F88224C54E4005EC53C /* pinkhearts.png in Resources */ = {isa = PBXBuildFile; fileRef = 40BC7F87224C54E3005EC53C /* pinkhearts.png */; };
 		40D3E04922CB673B00F90DC9 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D3E04822CB673B00F90DC9 /* DateManager.swift */; };
 		577FEDBBA4DCB26C02ADBCB2 /* Pods_FavoriteSNS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB3D5F8A21BABFE255C0BC8 /* Pods_FavoriteSNS.framework */; };
 		AAF6BCEE224C5EDF007290D0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AAF6BCED224C5EDF007290D0 /* GoogleService-Info.plist */; };
-		AAF6BCF0224C639D007290D0 /* setting sun.JPG in Resources */ = {isa = PBXBuildFile; fileRef = AAF6BCEF224C639D007290D0 /* setting sun.JPG */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +110,21 @@
 		4058E25922A67E04009553E9 /* AddGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupViewController.swift; sourceTree = "<group>"; };
 		4058E26D22A685F6009553E9 /* AddGroupCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupCustomCell.swift; sourceTree = "<group>"; };
 		4058E26E22A685F6009553E9 /* AddGroupCustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddGroupCustomCell.xib; sourceTree = "<group>"; };
+		4065DEC422E6A97F00EBD8A2 /* makegroup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = makegroup.png; sourceTree = "<group>"; };
+		4065DEC522E6A97F00EBD8A2 /* setting2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting2.png; sourceTree = "<group>"; };
+		4065DEC622E6A97F00EBD8A2 /* makeaccount.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = makeaccount.png; sourceTree = "<group>"; };
+		4065DEC722E6A97F00EBD8A2 /* addFriend.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addFriend.png; sourceTree = "<group>"; };
+		4065DEC822E6A97F00EBD8A2 /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
+		4065DEC922E6A97F00EBD8A2 /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list.png; sourceTree = "<group>"; };
+		4065DECA22E6A97F00EBD8A2 /* qrcode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qrcode.png; sourceTree = "<group>"; };
+		4065DECB22E6A97F00EBD8A2 /* timeline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timeline.png; sourceTree = "<group>"; };
+		4065DECC22E6A98000EBD8A2 /* top.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = top.png; sourceTree = "<group>"; };
+		4065DECD22E6A98000EBD8A2 /* toukou.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toukou.png; sourceTree = "<group>"; };
+		4065DECE22E6A98000EBD8A2 /* myPost.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = myPost.png; sourceTree = "<group>"; };
+		4065DECF22E6A98000EBD8A2 /* setting1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting1.png; sourceTree = "<group>"; };
+		4065DEDD22E6AD2C00EBD8A2 /* azuki.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = azuki.ttf; sourceTree = "<group>"; };
+		4065DEDF22E6AE0500EBD8A2 /* toukou2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toukou2.png; sourceTree = "<group>"; };
+		4065DEE322E6B29200EBD8A2 /* timeline2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timeline2.png; sourceTree = "<group>"; };
 		406D518922486FAD0051086E /* FavoriteSNS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FavoriteSNS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		406D518C22486FAD0051086E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		406D519122486FAD0051086E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -140,13 +167,10 @@
 		40BC7F7B224B6197005EC53C /* MenuItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemTableViewCell.swift; sourceTree = "<group>"; };
 		40BC7F7C224B6197005EC53C /* MenuItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuItemTableViewCell.xib; sourceTree = "<group>"; };
 		40BC7F80224B62E6005EC53C /* CustomDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDelegate.swift; sourceTree = "<group>"; };
-		40BC7F82224C50DF005EC53C /* TimeLine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TimeLine.png; sourceTree = "<group>"; };
-		40BC7F85224C51B6005EC53C /* TopView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TopView.png; sourceTree = "<group>"; };
 		40BC7F87224C54E3005EC53C /* pinkhearts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pinkhearts.png; sourceTree = "<group>"; };
 		40D3E04822CB673B00F90DC9 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		53C18270F5AD1553742D5804 /* Pods-FavoriteSNS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FavoriteSNS.release.xcconfig"; path = "Pods/Target Support Files/Pods-FavoriteSNS/Pods-FavoriteSNS.release.xcconfig"; sourceTree = "<group>"; };
 		AAF6BCED224C5EDF007290D0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		AAF6BCEF224C639D007290D0 /* setting sun.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "setting sun.JPG"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +199,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4065DEDC22E6AD1700EBD8A2 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				4065DEDD22E6AD2C00EBD8A2 /* azuki.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 		406D518022486FAD0051086E = {
 			isa = PBXGroup;
 			children = (
@@ -200,6 +232,7 @@
 		406D518B22486FAD0051086E /* FavoriteSNS */ = {
 			isa = PBXGroup;
 			children = (
+				4065DEDC22E6AD1700EBD8A2 /* Font */,
 				40D3E04722CB672300F90DC9 /* Manager */,
 				40BC7F84224C50E2005EC53C /* Image */,
 				40BC7F7F224B62A7005EC53C /* Delegate */,
@@ -242,7 +275,6 @@
 				40BC7F47224873B0005EC53C /* TopViewController.swift */,
 				40BC7F5C2249B6CF005EC53C /* MakeGroupViewController.swift */,
 				40BC7F5A2248CAEF005EC53C /* TimeLineViewController.swift */,
-				40BC7F642249CDB1005EC53C /* MakeContentsViewController.swift */,
 				40BC7F71224B5ED2005EC53C /* MenuItemViewController.swift */,
 				40BC7F73224B5FE6005EC53C /* QRViewController.swift */,
 				402A625D228AC129002D2DD8 /* PostViewController.swift */,
@@ -254,6 +286,7 @@
 				4058E25922A67E04009553E9 /* AddGroupViewController.swift */,
 				1F11E96D22C23B30006AACA1 /* FriendListViewController.swift */,
 				4095F4A822DDD40B00EAE0A4 /* PostContentsViewController.swift */,
+				40BC7F642249CDB1005EC53C /* MakeContentsViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -322,12 +355,23 @@
 		40BC7F84224C50E2005EC53C /* Image */ = {
 			isa = PBXGroup;
 			children = (
-				AAF6BCEF224C639D007290D0 /* setting sun.JPG */,
-				40BC7F82224C50DF005EC53C /* TimeLine.png */,
-				40BC7F85224C51B6005EC53C /* TopView.png */,
 				40BC7F87224C54E3005EC53C /* pinkhearts.png */,
 				4074E38422A663200027BDD4 /* star.png */,
 				4074E38322A663200027BDD4 /* yellowStar.png */,
+				4065DEC722E6A97F00EBD8A2 /* addFriend.png */,
+				4065DEC822E6A97F00EBD8A2 /* camera.png */,
+				4065DEC922E6A97F00EBD8A2 /* list.png */,
+				4065DEC622E6A97F00EBD8A2 /* makeaccount.png */,
+				4065DEC422E6A97F00EBD8A2 /* makegroup.png */,
+				4065DECE22E6A98000EBD8A2 /* myPost.png */,
+				4065DECA22E6A97F00EBD8A2 /* qrcode.png */,
+				4065DECF22E6A98000EBD8A2 /* setting1.png */,
+				4065DEC522E6A97F00EBD8A2 /* setting2.png */,
+				4065DECB22E6A97F00EBD8A2 /* timeline.png */,
+				4065DECC22E6A98000EBD8A2 /* top.png */,
+				4065DECD22E6A98000EBD8A2 /* toukou.png */,
+				4065DEDF22E6AE0500EBD8A2 /* toukou2.png */,
+				4065DEE322E6B29200EBD8A2 /* timeline2.png */,
 			);
 			path = Image;
 			sourceTree = "<group>";
@@ -463,26 +507,38 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4065DEDE22E6AD5F00EBD8A2 /* azuki.ttf in Resources */,
+				4065DED722E6A98000EBD8A2 /* timeline.png in Resources */,
 				40BC7F6C224B15E7005EC53C /* FriendPostTableViewCell.xib in Resources */,
-				40BC7F83224C50DF005EC53C /* TimeLine.png in Resources */,
 				4074E39022A6766B0027BDD4 /* CustomCell.xib in Resources */,
 				1F11E96C22C23AAF006AACA1 /* FriendTableViewCell.xib in Resources */,
+				4065DED922E6A98000EBD8A2 /* toukou.png in Resources */,
 				AAF6BCEE224C5EDF007290D0 /* GoogleService-Info.plist in Resources */,
+				4065DEDB22E6A98000EBD8A2 /* setting1.png in Resources */,
+				4065DED422E6A98000EBD8A2 /* camera.png in Resources */,
+				4065DEE422E6B29200EBD8A2 /* timeline2.png in Resources */,
+				4065DED822E6A98000EBD8A2 /* top.png in Resources */,
 				4074E38A22A66B6B0027BDD4 /* PostTableViewCell.xib in Resources */,
 				4074E38522A663200027BDD4 /* yellowStar.png in Resources */,
+				4065DED622E6A98000EBD8A2 /* qrcode.png in Resources */,
 				4058E27022A685F6009553E9 /* AddGroupCustomCell.xib in Resources */,
 				406D519722486FAE0051086E /* LaunchScreen.storyboard in Resources */,
 				409646EB22D4B0C300443666 /* PostChooseGroupTableViewCell.xib in Resources */,
-				AAF6BCF0224C639D007290D0 /* setting sun.JPG in Resources */,
 				409646E722D4B05500443666 /* PostLikeTableViewCell.xib in Resources */,
+				4065DED122E6A98000EBD8A2 /* setting2.png in Resources */,
 				4095F4A722DDD1DA00EAE0A4 /* PostGroupItemTableViewCell.xib in Resources */,
+				4065DED322E6A98000EBD8A2 /* addFriend.png in Resources */,
 				40BC7F88224C54E4005EC53C /* pinkhearts.png in Resources */,
-				40BC7F86224C51B6005EC53C /* TopView.png in Resources */,
 				40BC7F7E224B6197005EC53C /* MenuItemTableViewCell.xib in Resources */,
+				4065DED222E6A98000EBD8A2 /* makeaccount.png in Resources */,
+				4065DEE022E6AE0500EBD8A2 /* toukou2.png in Resources */,
 				4074E38622A663200027BDD4 /* star.png in Resources */,
 				406D519422486FAE0051086E /* Assets.xcassets in Resources */,
 				406D519222486FAD0051086E /* Main.storyboard in Resources */,
+				4065DEDA22E6A98000EBD8A2 /* myPost.png in Resources */,
 				409646E122D4AFFD00443666 /* PostTextTableViewCell.xib in Resources */,
+				4065DED022E6A98000EBD8A2 /* makegroup.png in Resources */,
+				4065DED522E6A98000EBD8A2 /* list.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

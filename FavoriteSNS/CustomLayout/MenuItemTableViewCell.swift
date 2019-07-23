@@ -10,8 +10,6 @@ import UIKit
 
 class MenuItemTableViewCell: UITableViewCell {
 
-    
-
     @IBOutlet weak var label: UILabel!
     
     override func awakeFromNib() {
@@ -26,3 +24,5 @@ class MenuItemTableViewCell: UITableViewCell {
     }
 
 }
+
+

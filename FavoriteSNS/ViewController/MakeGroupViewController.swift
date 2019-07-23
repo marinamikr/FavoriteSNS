@@ -49,7 +49,7 @@ class MakeGroupViewController: UIViewController {
         let groupArray = [groupName]
         let ref = Database.database().reference()
         ref.child(Util.getUUID()).child("userData").child("group").setValue(groupArray)
-        
+    
         userDefaults.set(true, forKey: "isFirst")
         userDefaults.synchronize()
         

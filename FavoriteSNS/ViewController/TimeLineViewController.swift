@@ -50,6 +50,9 @@ class TimeLineViewController: UIViewController {
         refreshCtl.addTarget(self, action: #selector(TimeLineViewController.refresh(sender:)), for: .valueChanged)
         //Identifierを設定する
         self.timeLineTableView.register(UINib(nibName: "FriendPostTableViewCell", bundle: nil), forCellReuseIdentifier: "friendPostTableViewCell")
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "+", style: UIBarButtonItem.Style.plain, target: self, action:#selector(self.makeContains))
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -63,6 +66,14 @@ class TimeLineViewController: UIViewController {
         }else{
             getUserContents()
         }
+        
+        // ナビゲーションを透明にする処理
+        self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController!.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.tintColor = .clear
+    }
+    @objc func makeContains(){
+         performSegue(withIdentifier: "toContaints", sender: nil)
     }
     
     func getUserContents(){

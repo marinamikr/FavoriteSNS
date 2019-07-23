@@ -13,6 +13,7 @@ import CropViewController
 class PostContentsViewController: UIViewController {
     
     @IBOutlet weak var postTableView: UITableView!
+    
     var selectedImage:UIImage!
     
     var DBRef:DatabaseReference!
@@ -55,7 +56,7 @@ class PostContentsViewController: UIViewController {
             self.present(pickerView, animated: true)
         }
         
-       
+        
         
         
     }
@@ -104,8 +105,13 @@ class PostContentsViewController: UIViewController {
     @IBAction func saveButton(_ sender: Any) {
         if self.starIndex >= 1 && self.postTextTableViewCell.textView.text != "" && self.postTextTableViewCell.pictureImageView.image != nil{
             uploadContents()
-        }else{
+        } else if  self.starIndex == 0 && self.postTextTableViewCell.textView.text != "" && self.postTextTableViewCell.pictureImageView.image != nil{
             makeAleart(title: "全て入力してください", message: "おすすめ度を選択してください", okText: "OK")
+        } else if  self.starIndex >= 1 && self.postTextTableViewCell.textView.text
+            == "" && self.postTextTableViewCell.pictureImageView.image != nil{
+            makeAleart(title: "全て入力してください", message: "文を入力してください", okText: "OK")
+        }else{
+            makeAleart(title: "全て入力してください", message: "画像を選択してください", okText: "OK")
         }
         
     }
@@ -195,7 +201,6 @@ extension PostContentsViewController: CropViewControllerDelegate {
         cropViewController.dismiss(animated: true, completion: nil)
     }
 }
-
 
 
 extension PostContentsViewController {

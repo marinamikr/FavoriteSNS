@@ -87,7 +87,7 @@ class FriendPostTableViewCell: UITableViewCell {
    private func setStarLabel(starData: Int) {
         starLabel.text = String(starData)
     }
-    
+
     private func setRepryLabel(repryData: String) {
         repryLabel.text = repryData
     }

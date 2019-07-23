@@ -40,14 +40,9 @@ class MenuItemViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if (self.userDefaults.string(forKey: "UserName") != nil) {
+        userDefaults.register(defaults: ["isFirst":false])
+        if (self.userDefaults.bool(forKey: "isFirst")) {
             getUserData()
-            let realm = try! Realm()
-            let result = realm.objects(User.self).first
-            var iconImage = UIImage(data: result?.userIcon as! Data)
-            iconImageView.image = iconImage
-            nameLabel.text = result?.userName
-            
         }
     }
     
@@ -62,9 +57,10 @@ class MenuItemViewController: UIViewController {
     }
     
     func getUserData() {
-        
+        print("hoge")
         ref.child(Util.getUUID()).child("userData").child("follow").observe(.value, with: {snapshot in
             self.followLabel.text = String(snapshot.children.allObjects.count)
+            
         })
         ref.child(Util.getUUID()).child("userData").child("follower").observe(.value, with: {snapshot in
             self.followerLabel.text = String(snapshot.children.allObjects.count)
@@ -109,8 +105,7 @@ extension MenuItemViewController :UITableViewDataSource, UITableViewDelegate {
         default: break
         }
     }
-    
-    func tableView(_ tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 100
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 30
     }
 }
