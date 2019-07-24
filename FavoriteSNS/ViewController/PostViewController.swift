@@ -57,7 +57,7 @@ class PostViewController: UIViewController {
     }
     
     func getUserContents(){
-        
+        postArray.removeAll()
         ref = Database.database().reference()
         groupHandler = ref.child(self.uuid).child("userData").child("group").observe(.value, with: {snapshot  in
             let groupArray = (snapshot as! DataSnapshot).value as! [String]
@@ -127,12 +127,18 @@ extension PostViewController: UITableViewDataSource,UITableViewDelegate {
         cell.setUserName(nameData: post.getUserName())
         cell.setIconImage(iconURL: post.getIconURL())
         cell.setLikeLabel(likeData: post.getLikes())
-        cell.setRepryLabel(repryData: post.getRepry())
         cell.setStarLabel(starData: post.getStar())
+        cell.setRepryTextView(repryData: post.getRepry())
+        cell.makeCorner()
+        cell.repryButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(PostViewController.repryButtonTapped(_:))))
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 580
+    }
+    
+    @objc func repryButtonTapped(_ sender: UITapGestureRecognizer) {
+        performSegue(withIdentifier: "toRepryViewController", sender: nil)
     }
 }

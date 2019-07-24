@@ -31,6 +31,8 @@ class FriendListViewController: UIViewController {
             childName = "follower"
         }
         
+        print(childName)
+        
         ref.child(Util.getUUID()).child("userData").child(childName).observe(.value, with: {snapshot in
             for followUser in snapshot.children {
                 let followUserDict = (followUser as! DataSnapshot).value as! [String:Any]
@@ -42,7 +44,9 @@ class FriendListViewController: UIViewController {
                     friend.uuid = friendID
                     friend.group = friendGroupName
                     friend.userName = userDict["name"] as! String
+                    friend.userIconURL = userDict["iconURL"] as! String
                     self.friendArray.append(friend)
+                    print(friend.userName)
                     self.friendTableView.reloadData()
                 })
                 
@@ -50,7 +54,6 @@ class FriendListViewController: UIViewController {
         })
         //Identifierを設定する
         friendTableView.register(UINib(nibName: "FriendTableViewCell", bundle: nil), forCellReuseIdentifier: "friendTableViewCell")
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender:
@@ -74,6 +77,7 @@ extension FriendListViewController: UITableViewDataSource,UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = friendTableView.dequeueReusableCell(withIdentifier: "friendTableViewCell", for: indexPath) as! FriendTableViewCell
         cell.setFriendName(friendName: friendArray[indexPath.row].userName)
+        cell.iconImageView.loadImageCircle(urlString: friendArray[indexPath.row].userIconURL)
         return cell
     }
     

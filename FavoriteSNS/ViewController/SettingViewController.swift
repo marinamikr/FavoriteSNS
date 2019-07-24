@@ -45,6 +45,8 @@ extension SettingViewController: UITableViewDataSource,UITableViewDelegate {
         switch indexPath.row {
         case 0:
             self.performSegue(withIdentifier: "toAddGroupViewController", sender: nil)
+        case 1:
+            self.performSegue(withIdentifier: "toFriendList", sender: nil)
         default: break
             
         }

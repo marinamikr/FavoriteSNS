@@ -12,6 +12,7 @@ class FriendTableViewCell: UITableViewCell {
 
     @IBOutlet weak var friendNameLabel: UILabel!
     
+    @IBOutlet weak var iconImageView: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -24,6 +25,7 @@ class FriendTableViewCell: UITableViewCell {
     }
     
     func setFriendName(friendName: String) {
+        print(friendName)
         friendNameLabel.text = friendName
     }
     

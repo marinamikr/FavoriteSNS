@@ -23,15 +23,21 @@ class FriendPostTableViewCell: UITableViewCell {
     
     @IBOutlet weak var starLabel: UILabel!
     
-    @IBOutlet weak var repryLabel: UILabel!
-    
     @IBOutlet weak var heartImageView: UIImageView!
+    
+    @IBOutlet weak var containtsView: UIView!
+    
+    @IBOutlet weak var repryButton: UIButton!
+    
+    private var indexNum: Int!
+
     
     var URL = String()
     
     var imageURL = String()
     
     var postModel: Post = Post()
+    
     
     // インスタンス変数
     var DBRef:DatabaseReference!
@@ -49,6 +55,14 @@ class FriendPostTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func setAction() {
+         repryButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(TimeLineViewController.repryButtonTapped)))
+    }
+    
+    func makeCorner() {
+        containtsView.layer.cornerRadius = 20
+    }
+    
     func setPostModel(post: Post) {
         self.postModel = post
         setContents(contentsData: post.getContents())
@@ -56,7 +70,7 @@ class FriendPostTableViewCell: UITableViewCell {
         setUserName(nameData: post.getUserName())
         setIconImage(iconURL: post.getIconURL())
         setLikeLabel(likeData: post.getLikes())
-        setRepryLabel(repryData: post.getRepry())
+
         setStarLabel(starData: post.getStar())
     }
     
@@ -88,9 +102,9 @@ class FriendPostTableViewCell: UITableViewCell {
         starLabel.text = String(starData)
     }
 
-    private func setRepryLabel(repryData: String) {
-        repryLabel.text = repryData
-    }
+//    private func setRepryLabel(repryData: String) {
+//        repryLabel.text = repryData
+//    }
     
     func setheartImage(imageName: String) {
         heartImageView.image = UIImage(named: imageName)
@@ -109,4 +123,22 @@ class FriendPostTableViewCell: UITableViewCell {
         let ref = Database.database().reference()
         ref.child(postModel.getUUID()).child("post").child(postModel.getGroupName()).child(postModel.getAutoID()).child("likes").setValue(like)
     }
+   
+    func setIndex(indexData: Int){
+        indexNum = indexData
+    }
+    func getIndex() -> Int{
+        return indexNum
+    }
+    
+    @IBAction func repryButton(_ sender: Any) {
+        
+    }
+    
+    func repryButtonTapped(){
+        
+    }
+    
+    
 }
+

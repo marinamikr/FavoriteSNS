@@ -36,6 +36,7 @@ class MenuItemViewController: UIViewController {
         followerLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(MenuItemViewController.tappedFollowerLabel(_:))))
         
         
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -69,7 +70,7 @@ class MenuItemViewController: UIViewController {
         ref.child(Util.getUUID()).child("userData").observe(.value, with: {snapshot in
           let userDict = snapshot.value as! [String:Any]
             self.nameLabel.text = userDict["name"] as! String
-            self.iconImageView.loadImage(urlString: userDict["iconURL"] as! String)
+            self.iconImageView.loadImageCircle(urlString: userDict["iconURL"] as! String)
         })
         
     }

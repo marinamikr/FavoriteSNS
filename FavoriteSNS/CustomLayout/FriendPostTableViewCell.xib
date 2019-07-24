@@ -9,6 +9,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="azuki.ttf">
+            <string>azuki_font</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -22,6 +27,16 @@
                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gy6-J5-06x">
                         <rect key="frame" x="0.0" y="0.0" width="348" height="549"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KHj-HD-WZx">
+                                <rect key="frame" x="14" y="519" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="コメントする"/>
+                                <connections>
+                                    <action selector="repryButton:" destination="KGk-i7-Jjw" eventType="touchDragInside" id="fFc-W3-Dl5"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HWh-Ed-JHS">
@@ -31,7 +46,7 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F7L-0H-ggY">
                         <rect key="frame" x="65" y="17" width="109" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" name="azuki_font" family="azuki_font" pointSize="20"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -72,24 +87,18 @@
                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t60-QC-V99">
-                        <rect key="frame" x="16" y="523" width="42" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="containtsView" destination="gy6-J5-06x" id="Whp-4p-5rp"/>
                 <outlet property="contentsTextView" destination="TdG-MY-sDq" id="zSm-aD-pHE"/>
                 <outlet property="heartImageView" destination="RYc-IP-9NV" id="mgT-h7-4VQ"/>
                 <outlet property="iconImageView" destination="ys3-vD-EuS" id="qca-FH-NuE"/>
                 <outlet property="likeLabel" destination="LG7-o7-3eb" id="m7l-g9-by7"/>
                 <outlet property="pictureImageView" destination="HWh-Ed-JHS" id="Eai-27-CLI"/>
-                <outlet property="repryLabel" destination="t60-QC-V99" id="Gcf-Io-7h4"/>
+                <outlet property="repryButton" destination="KHj-HD-WZx" id="pdc-OU-tY4"/>
                 <outlet property="starLabel" destination="3sT-oE-JhC" id="bp2-5q-C7D"/>
                 <outlet property="userNameLabel" destination="F7L-0H-ggY" id="WeK-GG-lxz"/>
             </connections>

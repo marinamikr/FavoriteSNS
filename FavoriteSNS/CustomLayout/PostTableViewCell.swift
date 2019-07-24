@@ -22,8 +22,13 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var likeLabel: UILabel!
     
     @IBOutlet weak var starLabel: UILabel!
+        
+    @IBOutlet weak var postView: UIView!
     
-    @IBOutlet weak var repryLabel: UILabel!
+    @IBOutlet weak var repryTextView: UITextView!
+    
+    @IBOutlet weak var repryButton: UIButton!
+    
     
     var URL = String()
     
@@ -33,10 +38,12 @@ class PostTableViewCell: UITableViewCell {
     
     // インスタンス変数
     var DBRef:DatabaseReference!
-   
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -45,8 +52,13 @@ class PostTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func makeCorner() {
+        postView.layer.cornerRadius = 20
+    }
+    
     func setPostModel(post: Post) {
         self.postModel = post
+        
     }
     
     func setImage(imageData: String) {
@@ -67,6 +79,7 @@ class PostTableViewCell: UITableViewCell {
     func setIconImage(iconURL: String) {
         self.URL = iconURL
         iconImageView.loadImage(urlString: iconURL)
+        
     }
     
     func setLikeLabel(likeData: Int) {
@@ -77,9 +90,8 @@ class PostTableViewCell: UITableViewCell {
         starLabel.text = String(starData)
     }
     
-    func setRepryLabel(repryData: String) {
-        repryLabel.text = repryData
+    func setRepryTextView(repryData: String) {
+        repryTextView.text = repryData
     }
-    
     
 }

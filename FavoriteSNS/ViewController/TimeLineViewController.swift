@@ -52,7 +52,6 @@ class TimeLineViewController: UIViewController {
         self.timeLineTableView.register(UINib(nibName: "FriendPostTableViewCell", bundle: nil), forCellReuseIdentifier: "friendPostTableViewCell")
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "+", style: UIBarButtonItem.Style.plain, target: self, action:#selector(self.makeContains))
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -73,7 +72,7 @@ class TimeLineViewController: UIViewController {
         self.navigationController?.navigationBar.tintColor = .clear
     }
     @objc func makeContains(){
-         performSegue(withIdentifier: "toContaints", sender: nil)
+        performSegue(withIdentifier: "toContaints", sender: nil)
     }
     
     func getUserContents(){
@@ -91,7 +90,7 @@ class TimeLineViewController: UIViewController {
                         let postDict = (child as! DataSnapshot).value as! [String:Any]
                         self.postHandler = ref.child(friendID).child("userData").observe(.value, with: {snapshot in
                             let userDict = snapshot.value as! [String:Any]
-                        
+                            
                             let post = Post()
                             post.setPictureURL(pictureURL: (postDict["imageURL"] as! String))
                             post.setContents(contents: (postDict["contents"] as! String))
@@ -132,6 +131,41 @@ class TimeLineViewController: UIViewController {
         getUserContents()
         refreshCtl.endRefreshing()
     }
+    
+    @objc func repryButtonTapped(){
+        // テキストフィールド付きアラート表示
+        
+        let alert = UIAlertController(title: "タイトル", message: "メッセージ", preferredStyle: .alert)
+        
+        // OKボタンの設定
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: {
+            (action:UIAlertAction!) -> Void in
+            
+            // OKを押した時入力されていたテキストを表示
+            if let textFields = alert.textFields {
+                
+                // アラートに含まれるすべてのテキストフィールドを調べる
+                for textField in textFields {
+                   
+                }
+            }
+        })
+        alert.addAction(okAction)
+        
+        // キャンセルボタンの設定
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+        
+        // テキストフィールドを追加
+        alert.addTextField(configurationHandler: {(textField: UITextField!) -> Void in
+            textField.placeholder = "テキスト"
+        })
+        
+        alert.view.setNeedsLayout() // シミュレータの種類によっては、これがないと警告が発生
+        
+        //アラートを画面に表示
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
 extension TimeLineViewController: UITableViewDataSource,UITableViewDelegate {
@@ -147,6 +181,8 @@ extension TimeLineViewController: UITableViewDataSource,UITableViewDelegate {
             let post = postArray[indexPath.row]
             cell.setPostModel(post: post)
             cell.setheartImage(imageName: "pinkhearts.png")
+            cell.setIndex(indexData: indexPath.row)
+            cell.makeCorner()
         }
         
         return cell

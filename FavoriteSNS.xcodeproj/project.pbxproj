@@ -35,6 +35,7 @@
 		4065DEDE22E6AD5F00EBD8A2 /* azuki.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4065DEDD22E6AD2C00EBD8A2 /* azuki.ttf */; };
 		4065DEE022E6AE0500EBD8A2 /* toukou2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4065DEDF22E6AE0500EBD8A2 /* toukou2.png */; };
 		4065DEE422E6B29200EBD8A2 /* timeline2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4065DEE322E6B29200EBD8A2 /* timeline2.png */; };
+		4065DEE622E82C8D00EBD8A2 /* RepryViewControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065DEE522E82C8D00EBD8A2 /* RepryViewControllerViewController.swift */; };
 		406D518D22486FAD0051086E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406D518C22486FAD0051086E /* AppDelegate.swift */; };
 		406D519222486FAD0051086E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 406D519022486FAD0051086E /* Main.storyboard */; };
 		406D519422486FAE0051086E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 406D519322486FAE0051086E /* Assets.xcassets */; };
@@ -125,6 +126,7 @@
 		4065DEDD22E6AD2C00EBD8A2 /* azuki.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = azuki.ttf; sourceTree = "<group>"; };
 		4065DEDF22E6AE0500EBD8A2 /* toukou2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toukou2.png; sourceTree = "<group>"; };
 		4065DEE322E6B29200EBD8A2 /* timeline2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timeline2.png; sourceTree = "<group>"; };
+		4065DEE522E82C8D00EBD8A2 /* RepryViewControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepryViewControllerViewController.swift; sourceTree = "<group>"; };
 		406D518922486FAD0051086E /* FavoriteSNS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FavoriteSNS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		406D518C22486FAD0051086E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		406D519122486FAD0051086E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -287,6 +289,7 @@
 				1F11E96D22C23B30006AACA1 /* FriendListViewController.swift */,
 				4095F4A822DDD40B00EAE0A4 /* PostContentsViewController.swift */,
 				40BC7F642249CDB1005EC53C /* MakeContentsViewController.swift */,
+				4065DEE522E82C8D00EBD8A2 /* RepryViewControllerViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -636,6 +639,7 @@
 				40BC7F6B224B15E7005EC53C /* FriendPostTableViewCell.swift in Sources */,
 				1F11E96B22C23AAF006AACA1 /* FriendTableViewCell.swift in Sources */,
 				402A6262228AC16D002D2DD8 /* SettingViewController.swift in Sources */,
+				4065DEE622E82C8D00EBD8A2 /* RepryViewControllerViewController.swift in Sources */,
 				40BC7F532248B07D005EC53C /* Util.swift in Sources */,
 				406D518D22486FAD0051086E /* AppDelegate.swift in Sources */,
 				409646E622D4B05500443666 /* PostLikeTableViewCell.swift in Sources */,
