@@ -12,7 +12,6 @@ class Post: NSObject {
     private var pictureURL: String = ""
     private var contents: String = ""
     private var likes: Int = 0
-    private var repry: String = ""
     private var star: Int = 0
     private var userName: String = ""
     private var iconURL: String = ""
@@ -20,6 +19,7 @@ class Post: NSObject {
     private var groupName: String = ""
     private var autoID: String = ""
     private var time: Date = Date()
+    private var repryData: Array<Dictionary<String, String>> = Array()
     
     func setPictureURL(pictureURL:String){
         self.pictureURL = pictureURL
@@ -43,14 +43,6 @@ class Post: NSObject {
     
     func getLikes() -> Int {
         return self.likes
-    }
-    
-    func setRepry(repry: String) {
-        self.repry = repry
-    }
-    
-    func getRepry() -> String {
-        return self.repry
     }
     
     func setStar(star: Int) {
@@ -107,5 +99,17 @@ class Post: NSObject {
     
     func getTime() -> Date {
         return self.time
+    }
+    
+    func addRepryData(repryData: Dictionary<String, String>) {
+        self.repryData.append(repryData)
+    }
+    
+    func getRepryData() -> Array<Dictionary<String, String>> {
+        return self.repryData
+    }
+    
+    func deletRepryData() {
+        self.repryData.removeAll()
     }
 }

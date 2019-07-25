@@ -29,12 +29,16 @@ class PostTableViewCell: UITableViewCell {
     
     @IBOutlet weak var repryButton: UIButton!
     
+    var repryTableViewCellDelegate: RepryTableViewCellDelegate!
+    
     
     var URL = String()
     
     var imageURL = String()
     
     var postModel: Post = Post()
+    
+    private var index: Int!
     
     // インスタンス変数
     var DBRef:DatabaseReference!
@@ -92,6 +96,19 @@ class PostTableViewCell: UITableViewCell {
     
     func setRepryTextView(repryData: String) {
         repryTextView.text = repryData
+    }
+    
+    func setIndex(indexData: Int)  {
+        self.index = indexData
+    }
+    
+    func getIndex() -> Int {
+        return index
+    }
+    
+    @IBAction func repryButton(_ sender: Any) {
+        repryTableViewCellDelegate.toDetail(postModel: postModel, index: index)
+        
     }
     
 }

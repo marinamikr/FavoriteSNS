@@ -55,10 +55,6 @@ class PostContentsViewController: UIViewController {
             // ビューに表示
             self.present(pickerView, animated: true)
         }
-        
-        
-        
-        
     }
     
     func getUserData() {
@@ -83,7 +79,7 @@ class PostContentsViewController: UIViewController {
                 let downloadURL: String = (metaData?.downloadURL()?.absoluteString)!
                 let dateManeger = DateManager()
                 var time = dateManeger.stringFromDate(date: Date())
-                let data = ["contents": self.postTextTableViewCell.textView.text,"imageURL": downloadURL,"likes": 0,"repry": "","star": self.starIndex,"time": time] as [String : Any]
+                let data = ["contents": self.postTextTableViewCell.textView.text,"imageURL": downloadURL,"likes": 0,"star": self.starIndex,"time": time] as [String : Any]
                 let ref = Database.database().reference()
                 for postGroupItemTableViewCell in self.postGroupItemTableViewCellArray{
                     print(postGroupItemTableViewCell.groupNameLabel.text)

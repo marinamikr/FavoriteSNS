@@ -71,7 +71,14 @@ class PostViewController: UIViewController {
                             post.setPictureURL(pictureURL: (postDict["imageURL"] as! String))
                             post.setContents(contents: (postDict["contents"] as! String))
                             post.setLikes(likes: (postDict["likes"] as! Int))
-                            post.setRepry(repry: (postDict["repry"] as! String))
+                            
+                            if let repryData  = postDict["repry"]{
+                                let repry = repryData as! Dictionary<String, Any>
+                                
+                                for key in repry.keys{
+                                    post.addRepryData(repryData: (repry[key] as! Dictionary<String, String>))
+                                }
+                            }
                             post.setStar(star: (postDict["star"] as! Int))
                             post.setUserName(userName: (userDict["name"] as! String))
                             post.setIconURL(iconURL: (userDict["iconURL"] as! String))
@@ -109,6 +116,7 @@ class PostViewController: UIViewController {
         refreshCtl.endRefreshing()
     }
     
+    
 }
 extension PostViewController: UITableViewDataSource,UITableViewDelegate {
     //cellの数
@@ -128,9 +136,10 @@ extension PostViewController: UITableViewDataSource,UITableViewDelegate {
         cell.setIconImage(iconURL: post.getIconURL())
         cell.setLikeLabel(likeData: post.getLikes())
         cell.setStarLabel(starData: post.getStar())
-        cell.setRepryTextView(repryData: post.getRepry())
+        cell.setRepryTextView(repryData: post.getRepryData()[0]["repry"]!)
         cell.makeCorner()
-        cell.repryButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(PostViewController.repryButtonTapped(_:))))
+        cell.repryTableViewCellDelegate = self
+        cell.setIndex(indexData: indexPath.row)
         return cell
     }
     
@@ -138,7 +147,19 @@ extension PostViewController: UITableViewDataSource,UITableViewDelegate {
         return 580
     }
     
-    @objc func repryButtonTapped(_ sender: UITapGestureRecognizer) {
-        performSegue(withIdentifier: "toRepryViewController", sender: nil)
+   
+}
+
+
+extension PostViewController: RepryTableViewCellDelegate {
+    func toDetail(postModel: Post, index: Int) {
+        performSegue(withIdentifier: "toRepryViewController", sender: postArray[index])
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+         if segue.identifier == "toRepryViewController" {
+            let repryViewController = segue.destination as! RepryViewController
+            repryViewController.postModel = sender as! Post
+        }
     }
 }

@@ -20,7 +20,6 @@ class TimeLineViewController: UIViewController {
     
     var postArray :Array<Post> = Array()
     
-    var ref:DatabaseReference!
     
     var followHandler: UInt = 0
     var friendHandler: UInt = 0
@@ -95,7 +94,17 @@ class TimeLineViewController: UIViewController {
                             post.setPictureURL(pictureURL: (postDict["imageURL"] as! String))
                             post.setContents(contents: (postDict["contents"] as! String))
                             post.setLikes(likes: (postDict["likes"] as! Int))
-                            post.setRepry(repry: (postDict["repry"] as! String))
+//                            post.setRepry(repry: (postDict["repry"] as! [String]))
+                            
+                            if let repryData  = postDict["repry"]{
+                                let repry = repryData as! Dictionary<String, Any>
+                                
+                                for key in repry.keys{
+                                    post.addRepryData(repryData: repry[key] as! Dictionary<String, String>)
+                                }
+//                                print((postDict["repry"] as! Dictionary<>))
+                            }
+                            
                             post.setStar(star: (postDict["star"] as! Int))
                             post.setUserName(userName: (userDict["name"] as! String))
                             post.setIconURL(iconURL: (userDict["iconURL"] as! String))
@@ -132,40 +141,6 @@ class TimeLineViewController: UIViewController {
         refreshCtl.endRefreshing()
     }
     
-    @objc func repryButtonTapped(){
-        // テキストフィールド付きアラート表示
-        
-        let alert = UIAlertController(title: "タイトル", message: "メッセージ", preferredStyle: .alert)
-        
-        // OKボタンの設定
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: {
-            (action:UIAlertAction!) -> Void in
-            
-            // OKを押した時入力されていたテキストを表示
-            if let textFields = alert.textFields {
-                
-                // アラートに含まれるすべてのテキストフィールドを調べる
-                for textField in textFields {
-                   
-                }
-            }
-        })
-        alert.addAction(okAction)
-        
-        // キャンセルボタンの設定
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        alert.addAction(cancelAction)
-        
-        // テキストフィールドを追加
-        alert.addTextField(configurationHandler: {(textField: UITextField!) -> Void in
-            textField.placeholder = "テキスト"
-        })
-        
-        alert.view.setNeedsLayout() // シミュレータの種類によっては、これがないと警告が発生
-        
-        //アラートを画面に表示
-        self.present(alert, animated: true, completion: nil)
-    }
 }
 
 extension TimeLineViewController: UITableViewDataSource,UITableViewDelegate {

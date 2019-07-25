@@ -28,20 +28,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z6l-8h-P7r">
-                                <rect key="frame" x="60" y="-23" width="100.5" height="53"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z6l-8h-P7r">
+                                <rect key="frame" x="29" y="6" width="53" height="53"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QCz-W9-TJu">
                                         <rect key="frame" x="0.0" y="0.0" width="53" height="53"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q6V-Xr-xF3">
-                                        <rect key="frame" x="53" y="0.0" width="47.5" height="53"/>
+                                        <rect key="frame" x="53" y="0.0" width="0.0" height="53"/>
                                         <fontDescription key="fontDescription" name="azuki_font" family="azuki_font" pointSize="19"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="QCz-W9-TJu" firstAttribute="width" secondItem="z6l-8h-P7r" secondAttribute="width" id="i0T-dg-gVt"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

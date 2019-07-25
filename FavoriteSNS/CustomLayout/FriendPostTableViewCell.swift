@@ -30,7 +30,7 @@ class FriendPostTableViewCell: UITableViewCell {
     @IBOutlet weak var repryButton: UIButton!
     
     private var indexNum: Int!
-
+    
     
     var URL = String()
     
@@ -55,9 +55,7 @@ class FriendPostTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setAction() {
-         repryButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(TimeLineViewController.repryButtonTapped)))
-    }
+    
     
     func makeCorner() {
         containtsView.layer.cornerRadius = 20
@@ -70,7 +68,7 @@ class FriendPostTableViewCell: UITableViewCell {
         setUserName(nameData: post.getUserName())
         setIconImage(iconURL: post.getIconURL())
         setLikeLabel(likeData: post.getLikes())
-
+        
         setStarLabel(starData: post.getStar())
     }
     
@@ -98,13 +96,13 @@ class FriendPostTableViewCell: UITableViewCell {
         likeLabel.text = String(likeData)
     }
     
-   private func setStarLabel(starData: Int) {
+    private func setStarLabel(starData: Int) {
         starLabel.text = String(starData)
     }
-
-//    private func setRepryLabel(repryData: String) {
-//        repryLabel.text = repryData
-//    }
+    
+//        private func setRepryLabel(repryData: String) {
+//            repryLabel.text = repryData
+//        }
     
     func setheartImage(imageName: String) {
         heartImageView.image = UIImage(named: imageName)
@@ -123,7 +121,7 @@ class FriendPostTableViewCell: UITableViewCell {
         let ref = Database.database().reference()
         ref.child(postModel.getUUID()).child("post").child(postModel.getGroupName()).child(postModel.getAutoID()).child("likes").setValue(like)
     }
-   
+    
     func setIndex(indexData: Int){
         indexNum = indexData
     }
@@ -132,13 +130,50 @@ class FriendPostTableViewCell: UITableViewCell {
     }
     
     @IBAction func repryButton(_ sender: Any) {
+        var baseView = UIApplication.shared.keyWindow?.rootViewController
+        while ((baseView?.presentedViewController) != nil)  {
+            baseView = baseView?.presentedViewController
+        }
         
+        // テキストフィールド付きアラート表示
+        
+        let alert = UIAlertController(title: "タイトル", message: "メッセージ", preferredStyle: .alert)
+        
+        // OKボタンの設定
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: {
+            (action:UIAlertAction!) -> Void in
+            
+            // OKを押した時入力されていたテキストを表示
+            if let textFields = alert.textFields {
+                
+                // アラートに含まれるすべてのテキストフィールドを調べる
+                for textField in textFields {
+                    self.upLoadComment(comment: textField.text!)
+                }
+            }
+        })
+        alert.addAction(okAction)
+        
+        // キャンセルボタンの設定
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+        
+        // テキストフィールドを追加
+        alert.addTextField(configurationHandler: {(textField: UITextField!) -> Void in
+            textField.placeholder = "テキスト"
+        })
+        
+        alert.view.setNeedsLayout() // シミュレータの種類によっては、これがないと警告が発生
+        
+        
+        baseView?.present(alert, animated: true, completion: nil)
     }
     
-    func repryButtonTapped(){
-        
+    func upLoadComment(comment: String) {
+
+        let data = ["uuid": Util.getUUID(),"repry": comment] as [String : Any]
+        DBRef.child(postModel.getUUID()).child("post").child(postModel.getGroupName()).child(postModel.getAutoID()).child("repry").childByAutoId().setValue(data)
     }
-    
     
 }
 

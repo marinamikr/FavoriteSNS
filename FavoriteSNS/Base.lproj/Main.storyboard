@@ -148,20 +148,50 @@
             </objects>
             <point key="canvasLocation" x="5141.6000000000004" y="-207.63546798029557"/>
         </scene>
-        <!--Repry View Controller View Controller-->
+        <!--Repry View Controller-->
         <scene sceneID="dMX-ga-0ff">
             <objects>
-                <viewController id="JDP-Z8-8xQ" customClass="RepryViewControllerViewController" customModule="FavoriteSNS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="JDP-Z8-8xQ" customClass="RepryViewController" customModule="FavoriteSNS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Odz-7K-3ad">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="myPost.png" translatesAutoresizingMaskIntoConstraints="NO" id="BQd-96-X9w">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OrD-8n-4Zk">
+                                <rect key="frame" x="16" y="88" width="343" height="658"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1dl-ec-kse">
+                                <rect key="frame" x="16" y="754" width="201" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AF8-6M-wO6">
+                                <rect key="frame" x="284" y="754" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="sendRepryButton:" destination="JDP-Z8-8xQ" eventType="touchUpInside" id="xdc-5B-c6v"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="u1n-cu-7iT"/>
                     </view>
+                    <connections>
+                        <outlet property="repryTableView" destination="OrD-8n-4Zk" id="pRr-bE-xt4"/>
+                        <outlet property="repryTextField" destination="1dl-ec-kse" id="t8M-QT-myg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ik-k7-4td" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5894" y="-208"/>
+            <point key="canvasLocation" x="5893.6000000000004" y="-208.37438423645321"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="MPe-lY-pYu">
@@ -374,18 +404,18 @@
                                 <rect key="frame" x="0.0" y="88" width="375" height="601"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dBr-og-ZJd">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="41"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="azuki_font" family="azuki_font" pointSize="29"/>
+                                    <state key="normal" title="投稿">
+                                        <color key="titleColor" red="0.023529411764705882" green="0.0" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="saveButton:" destination="zaS-cf-wG6" eventType="touchUpInside" id="iOU-NJ-iQO"/>
+                                    </connections>
+                                </button>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dBr-og-ZJd">
-                                <rect key="frame" x="158" y="706" width="58" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="azuki_font" family="azuki_font" pointSize="29"/>
-                                <state key="normal" title="投稿">
-                                    <color key="titleColor" red="0.023529411764705882" green="0.0" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="saveButton:" destination="zaS-cf-wG6" eventType="touchUpInside" id="iOU-NJ-iQO"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="vov-1J-TOB"/>
@@ -759,7 +789,7 @@
         <image name="toukou2.png" width="1125" height="2436"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nGB-Kv-6te"/>
-        <segue reference="CoJ-AE-oDz"/>
+        <segue reference="K5S-Th-p3G"/>
+        <segue reference="b6y-TS-rQv"/>
     </inferredMetricsTieBreakers>
 </document>

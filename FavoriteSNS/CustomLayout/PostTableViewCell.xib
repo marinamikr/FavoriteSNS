@@ -37,14 +37,14 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t2d-QB-eJv">
-                                <rect key="frame" x="312" y="540" width="57" height="26"/>
+                                <rect key="frame" x="303" y="530" width="57" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <state key="normal" title="もっと見る">
                                     <color key="titleColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="repryButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="kpf-Xb-chA"/>
+                                    <action selector="repryButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="q4J-Tq-1UE"/>
                                 </connections>
                             </button>
                         </subviews>

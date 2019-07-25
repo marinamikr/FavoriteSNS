@@ -35,7 +35,10 @@
 		4065DEDE22E6AD5F00EBD8A2 /* azuki.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4065DEDD22E6AD2C00EBD8A2 /* azuki.ttf */; };
 		4065DEE022E6AE0500EBD8A2 /* toukou2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4065DEDF22E6AE0500EBD8A2 /* toukou2.png */; };
 		4065DEE422E6B29200EBD8A2 /* timeline2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4065DEE322E6B29200EBD8A2 /* timeline2.png */; };
-		4065DEE622E82C8D00EBD8A2 /* RepryViewControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065DEE522E82C8D00EBD8A2 /* RepryViewControllerViewController.swift */; };
+		4065DEE622E82C8D00EBD8A2 /* RepryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065DEE522E82C8D00EBD8A2 /* RepryViewController.swift */; };
+		4065DEE922E92FC900EBD8A2 /* RepryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065DEE722E92FC900EBD8A2 /* RepryTableViewCell.swift */; };
+		4065DEEA22E92FC900EBD8A2 /* RepryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4065DEE822E92FC900EBD8A2 /* RepryTableViewCell.xib */; };
+		4065DEEC22E97E8B00EBD8A2 /* RepryTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065DEEB22E97E8B00EBD8A2 /* RepryTableViewCellDelegate.swift */; };
 		406D518D22486FAD0051086E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406D518C22486FAD0051086E /* AppDelegate.swift */; };
 		406D519222486FAD0051086E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 406D519022486FAD0051086E /* Main.storyboard */; };
 		406D519422486FAE0051086E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 406D519322486FAE0051086E /* Assets.xcassets */; };
@@ -63,7 +66,6 @@
 		40BC7F5B2248CAEF005EC53C /* TimeLineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BC7F5A2248CAEF005EC53C /* TimeLineViewController.swift */; };
 		40BC7F5D2249B6CF005EC53C /* MakeGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BC7F5C2249B6CF005EC53C /* MakeGroupViewController.swift */; };
 		40BC7F632249BBDB005EC53C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BC7F622249BBDB005EC53C /* User.swift */; };
-		40BC7F652249CDB1005EC53C /* MakeContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BC7F642249CDB1005EC53C /* MakeContentsViewController.swift */; };
 		40BC7F6B224B15E7005EC53C /* FriendPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BC7F69224B15E7005EC53C /* FriendPostTableViewCell.swift */; };
 		40BC7F6C224B15E7005EC53C /* FriendPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40BC7F6A224B15E7005EC53C /* FriendPostTableViewCell.xib */; };
 		40BC7F6E224B1DC6005EC53C /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BC7F6D224B1DC6005EC53C /* Post.swift */; };
@@ -126,7 +128,10 @@
 		4065DEDD22E6AD2C00EBD8A2 /* azuki.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = azuki.ttf; sourceTree = "<group>"; };
 		4065DEDF22E6AE0500EBD8A2 /* toukou2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toukou2.png; sourceTree = "<group>"; };
 		4065DEE322E6B29200EBD8A2 /* timeline2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timeline2.png; sourceTree = "<group>"; };
-		4065DEE522E82C8D00EBD8A2 /* RepryViewControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepryViewControllerViewController.swift; sourceTree = "<group>"; };
+		4065DEE522E82C8D00EBD8A2 /* RepryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepryViewController.swift; sourceTree = "<group>"; };
+		4065DEE722E92FC900EBD8A2 /* RepryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepryTableViewCell.swift; sourceTree = "<group>"; };
+		4065DEE822E92FC900EBD8A2 /* RepryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepryTableViewCell.xib; sourceTree = "<group>"; };
+		4065DEEB22E97E8B00EBD8A2 /* RepryTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepryTableViewCellDelegate.swift; sourceTree = "<group>"; };
 		406D518922486FAD0051086E /* FavoriteSNS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FavoriteSNS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		406D518C22486FAD0051086E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		406D519122486FAD0051086E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -160,7 +165,6 @@
 		40BC7F5A2248CAEF005EC53C /* TimeLineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineViewController.swift; sourceTree = "<group>"; };
 		40BC7F5C2249B6CF005EC53C /* MakeGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeGroupViewController.swift; sourceTree = "<group>"; };
 		40BC7F622249BBDB005EC53C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		40BC7F642249CDB1005EC53C /* MakeContentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeContentsViewController.swift; sourceTree = "<group>"; };
 		40BC7F69224B15E7005EC53C /* FriendPostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendPostTableViewCell.swift; sourceTree = "<group>"; };
 		40BC7F6A224B15E7005EC53C /* FriendPostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendPostTableViewCell.xib; sourceTree = "<group>"; };
 		40BC7F6D224B1DC6005EC53C /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
@@ -243,8 +247,8 @@
 				40BC7F542248B46B005EC53C /* Extension */,
 				40BC7F512248B05C005EC53C /*  Util */,
 				40BC7F4622487333005EC53C /* ViewController */,
-				406D518C22486FAD0051086E /* AppDelegate.swift */,
 				406D519022486FAD0051086E /* Main.storyboard */,
+				406D518C22486FAD0051086E /* AppDelegate.swift */,
 				406D519322486FAE0051086E /* Assets.xcassets */,
 				AAF6BCED224C5EDF007290D0 /* GoogleService-Info.plist */,
 				406D519522486FAE0051086E /* LaunchScreen.storyboard */,
@@ -288,8 +292,7 @@
 				4058E25922A67E04009553E9 /* AddGroupViewController.swift */,
 				1F11E96D22C23B30006AACA1 /* FriendListViewController.swift */,
 				4095F4A822DDD40B00EAE0A4 /* PostContentsViewController.swift */,
-				40BC7F642249CDB1005EC53C /* MakeContentsViewController.swift */,
-				4065DEE522E82C8D00EBD8A2 /* RepryViewControllerViewController.swift */,
+				4065DEE522E82C8D00EBD8A2 /* RepryViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -327,8 +330,8 @@
 				40BC7F6A224B15E7005EC53C /* FriendPostTableViewCell.xib */,
 				40BC7F7B224B6197005EC53C /* MenuItemTableViewCell.swift */,
 				40BC7F7C224B6197005EC53C /* MenuItemTableViewCell.xib */,
-				4074E38722A66B6B0027BDD4 /* PostTableViewCell.swift */,
 				4074E38822A66B6B0027BDD4 /* PostTableViewCell.xib */,
+				4074E38722A66B6B0027BDD4 /* PostTableViewCell.swift */,
 				4074E38D22A6766B0027BDD4 /* CustomCell.swift */,
 				4074E38E22A6766B0027BDD4 /* CustomCell.xib */,
 				4058E26D22A685F6009553E9 /* AddGroupCustomCell.swift */,
@@ -343,6 +346,8 @@
 				409646E922D4B0C300443666 /* PostChooseGroupTableViewCell.xib */,
 				4095F4A422DDD1DA00EAE0A4 /* PostGroupItemTableViewCell.swift */,
 				4095F4A522DDD1DA00EAE0A4 /* PostGroupItemTableViewCell.xib */,
+				4065DEE722E92FC900EBD8A2 /* RepryTableViewCell.swift */,
+				4065DEE822E92FC900EBD8A2 /* RepryTableViewCell.xib */,
 			);
 			path = CustomLayout;
 			sourceTree = "<group>";
@@ -351,6 +356,7 @@
 			isa = PBXGroup;
 			children = (
 				40BC7F80224B62E6005EC53C /* CustomDelegate.swift */,
+				4065DEEB22E97E8B00EBD8A2 /* RepryTableViewCellDelegate.swift */,
 			);
 			path = Delegate;
 			sourceTree = "<group>";
@@ -523,6 +529,7 @@
 				4065DED822E6A98000EBD8A2 /* top.png in Resources */,
 				4074E38A22A66B6B0027BDD4 /* PostTableViewCell.xib in Resources */,
 				4074E38522A663200027BDD4 /* yellowStar.png in Resources */,
+				4065DEEA22E92FC900EBD8A2 /* RepryTableViewCell.xib in Resources */,
 				4065DED622E6A98000EBD8A2 /* qrcode.png in Resources */,
 				4058E27022A685F6009553E9 /* AddGroupCustomCell.xib in Resources */,
 				406D519722486FAE0051086E /* LaunchScreen.storyboard in Resources */,
@@ -639,18 +646,19 @@
 				40BC7F6B224B15E7005EC53C /* FriendPostTableViewCell.swift in Sources */,
 				1F11E96B22C23AAF006AACA1 /* FriendTableViewCell.swift in Sources */,
 				402A6262228AC16D002D2DD8 /* SettingViewController.swift in Sources */,
-				4065DEE622E82C8D00EBD8A2 /* RepryViewControllerViewController.swift in Sources */,
+				4065DEE622E82C8D00EBD8A2 /* RepryViewController.swift in Sources */,
 				40BC7F532248B07D005EC53C /* Util.swift in Sources */,
 				406D518D22486FAD0051086E /* AppDelegate.swift in Sources */,
 				409646E622D4B05500443666 /* PostLikeTableViewCell.swift in Sources */,
+				4065DEE922E92FC900EBD8A2 /* RepryTableViewCell.swift in Sources */,
 				1F11E96E22C23B30006AACA1 /* FriendListViewController.swift in Sources */,
 				409646EA22D4B0C300443666 /* PostChooseGroupTableViewCell.swift in Sources */,
 				402A6264228AC181002D2DD8 /* QrcodeViewController.swift in Sources */,
 				40BC7F72224B5ED2005EC53C /* MenuItemViewController.swift in Sources */,
-				40BC7F652249CDB1005EC53C /* MakeContentsViewController.swift in Sources */,
 				40BC7F5B2248CAEF005EC53C /* TimeLineViewController.swift in Sources */,
 				40BC7F562248B493005EC53C /* Extension.swift in Sources */,
 				402A6266228AC190002D2DD8 /* GroupViewController.swift in Sources */,
+				4065DEEC22E97E8B00EBD8A2 /* RepryTableViewCellDelegate.swift in Sources */,
 				40BC7F74224B5FE6005EC53C /* QRViewController.swift in Sources */,
 				402A626C228ADA1E002D2DD8 /* Friend.swift in Sources */,
 				40BC7F7D224B6197005EC53C /* MenuItemTableViewCell.swift in Sources */,
