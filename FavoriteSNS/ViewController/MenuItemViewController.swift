@@ -19,7 +19,7 @@ class MenuItemViewController: UIViewController {
     @IBOutlet weak var menuTableVIew: UITableView!
     
     var userDefaults:UserDefaults = UserDefaults.standard
-    var array:[String] = ["自分の投稿","MyQRコード","QRコード読み取り","グループ一覧","設定"]
+    var array:[String] = ["自分の投稿","MyQRコード","QRコード読み取り","設定"]
     var dalegate : CustomDelegate!
     var ref:DatabaseReference!
     
@@ -100,8 +100,6 @@ extension MenuItemViewController :UITableViewDataSource, UITableViewDelegate {
         case 2:
             dalegate.toCamera()
         case 3:
-            dalegate.toGroup()
-        case 4:
             dalegate.toSetting()
         default: break
         }

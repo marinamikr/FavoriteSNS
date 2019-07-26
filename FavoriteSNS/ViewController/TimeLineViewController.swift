@@ -163,10 +163,11 @@ extension TimeLineViewController: UITableViewDataSource,UITableViewDelegate {
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 580
+        return 600
     }
 }
 extension TimeLineViewController: CustomDelegate {
+   
     func toCamera() {
         let elDrawer = self.navigationController?.parent as! KYDrawerController
         elDrawer.setDrawerState(KYDrawerController.DrawerState.closed, animated: true)
@@ -183,13 +184,6 @@ extension TimeLineViewController: CustomDelegate {
         elDrawer.setDrawerState(KYDrawerController.DrawerState.closed, animated: true)
         performSegue(withIdentifier: "toSettingViewController", sender: nil)
     }
-    
-    func toGroup() {
-        let elDrawer = self.navigationController?.parent as! KYDrawerController
-        elDrawer.setDrawerState(KYDrawerController.DrawerState.closed, animated: true)
-        performSegue(withIdentifier: "toGroupViewController", sender: nil)
-    }
-    
     
     func toMyPost() {
         let elDrawer = self.navigationController?.parent as! KYDrawerController

@@ -82,7 +82,7 @@ class PostTableViewCell: UITableViewCell {
     
     func setIconImage(iconURL: String) {
         self.URL = iconURL
-        iconImageView.loadImage(urlString: iconURL)
+        iconImageView.loadImageCircle(urlString: iconURL)
         
     }
     

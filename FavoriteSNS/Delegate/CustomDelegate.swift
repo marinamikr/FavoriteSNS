@@ -13,7 +13,6 @@ func toMyPost() -> Void
 func toCamera() -> Void
 func toQrcode() -> Void
 func toSetting() -> Void
-func toGroup() -> Void
 func toFriend() -> Void
 
 }

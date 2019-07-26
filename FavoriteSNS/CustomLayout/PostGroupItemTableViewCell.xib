@@ -24,19 +24,28 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="75.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N7O-v2-obF">
-                        <rect key="frame" x="36" y="24" width="172" height="26"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N7O-v2-obF">
+                        <rect key="frame" x="0.0" y="0.0" width="145" height="75.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="145" id="443-MR-MIh"/>
+                        </constraints>
                         <fontDescription key="fontDescription" name="azuki_font" family="azuki_font" pointSize="18"/>
                         <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iaX-ye-pUo">
-                        <rect key="frame" x="235" y="22" width="49" height="31"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iaX-ye-pUo">
+                        <rect key="frame" x="205" y="23" width="51" height="29.5"/>
                         <color key="onTintColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                     </switch>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="N7O-v2-obF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="BYm-RV-yYy"/>
+                    <constraint firstAttribute="bottom" secondItem="N7O-v2-obF" secondAttribute="bottom" id="NKl-Um-Xxu"/>
+                    <constraint firstItem="iaX-ye-pUo" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="23" id="UGt-aX-Dl1"/>
+                    <constraint firstItem="iaX-ye-pUo" firstAttribute="leading" secondItem="N7O-v2-obF" secondAttribute="trailing" constant="60" id="fYC-IA-e2H"/>
+                    <constraint firstAttribute="bottom" secondItem="iaX-ye-pUo" secondAttribute="bottom" constant="23" id="hJv-ZC-FZ0"/>
+                    <constraint firstItem="N7O-v2-obF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="l5J-UC-Lcd"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>

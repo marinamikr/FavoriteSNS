@@ -20,7 +20,7 @@ class RepryViewController: UIViewController {
     
     var postModel: Post!
     var postHandler:UInt!
-    var friendHandler:UInt
+    var friendHandler:UInt!
     
     fileprivate let refreshCtl = UIRefreshControl()
     

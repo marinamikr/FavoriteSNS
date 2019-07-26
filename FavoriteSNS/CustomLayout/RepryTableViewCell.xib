@@ -24,31 +24,74 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fTo-tc-zEM">
-                        <rect key="frame" x="68" y="9" width="56" height="26"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" name="azuki_font" family="azuki_font" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sx9-Dg-oh6">
-                        <rect key="frame" x="136" y="2" width="184" height="38"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                    </textView>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZLJ-6f-bxD">
-                        <rect key="frame" x="8" y="2" width="41" height="41"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </imageView>
-                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yOa-wp-day">
-                        <rect key="frame" x="0.0" y="0.0" width="8" height="43"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sEQ-HC-4M2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="00r-He-1tR" userLabel="View1">
+                                <rect key="frame" x="0.0" y="0.0" width="12" height="43.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="12" id="9uN-fr-9bv"/>
+                                </constraints>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZLJ-6f-bxD">
+                                <rect key="frame" x="22" y="5" width="35" height="33.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="ZhW-Ga-lLx"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yOa-wp-day" userLabel="View2">
+                                <rect key="frame" x="57" y="0.0" width="18" height="43.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="18" id="MCj-Q3-eU4"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fTo-tc-zEM">
+                                <rect key="frame" x="75" y="0.0" width="60" height="43.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="j9y-cd-iFH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="azuki_font" family="azuki_font" pointSize="17"/>
+                                <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sx9-Dg-oh6">
+                                <rect key="frame" x="135" y="0.0" width="185" height="43.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="sx9-Dg-oh6" secondAttribute="trailing" id="3F8-92-NFO"/>
+                            <constraint firstAttribute="bottom" secondItem="sx9-Dg-oh6" secondAttribute="bottom" id="7Oh-hq-ite"/>
+                            <constraint firstAttribute="bottom" secondItem="ZLJ-6f-bxD" secondAttribute="bottom" constant="5" id="Jym-Ql-BXe"/>
+                            <constraint firstItem="yOa-wp-day" firstAttribute="leading" secondItem="ZLJ-6f-bxD" secondAttribute="trailing" id="KrL-9L-ywa"/>
+                            <constraint firstItem="ZLJ-6f-bxD" firstAttribute="leading" secondItem="00r-He-1tR" secondAttribute="trailing" constant="10" id="RM2-ig-WG5"/>
+                            <constraint firstAttribute="bottom" secondItem="yOa-wp-day" secondAttribute="bottom" id="SGj-qn-qex"/>
+                            <constraint firstItem="yOa-wp-day" firstAttribute="top" secondItem="sEQ-HC-4M2" secondAttribute="top" id="SU7-YU-dpf"/>
+                            <constraint firstAttribute="bottom" secondItem="fTo-tc-zEM" secondAttribute="bottom" id="TBT-9d-KuM"/>
+                            <constraint firstItem="sx9-Dg-oh6" firstAttribute="top" secondItem="sEQ-HC-4M2" secondAttribute="top" id="Yv8-tH-IqI"/>
+                            <constraint firstItem="sx9-Dg-oh6" firstAttribute="leading" secondItem="fTo-tc-zEM" secondAttribute="trailing" id="m0C-OL-BVR"/>
+                            <constraint firstItem="ZLJ-6f-bxD" firstAttribute="top" secondItem="sEQ-HC-4M2" secondAttribute="top" constant="5" id="m8g-aZ-fiO"/>
+                            <constraint firstItem="00r-He-1tR" firstAttribute="leading" secondItem="sEQ-HC-4M2" secondAttribute="leading" id="n3x-bR-4V6"/>
+                            <constraint firstItem="00r-He-1tR" firstAttribute="top" secondItem="sEQ-HC-4M2" secondAttribute="top" id="nn0-MA-kFb"/>
+                            <constraint firstAttribute="bottom" secondItem="00r-He-1tR" secondAttribute="bottom" id="sNm-7q-eyc"/>
+                            <constraint firstItem="fTo-tc-zEM" firstAttribute="leading" secondItem="yOa-wp-day" secondAttribute="trailing" id="vXu-Q2-UDY"/>
+                            <constraint firstItem="fTo-tc-zEM" firstAttribute="top" secondItem="sEQ-HC-4M2" secondAttribute="top" id="wmt-Ej-B9S"/>
+                        </constraints>
                     </view>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="sEQ-HC-4M2" secondAttribute="trailing" id="57t-Z0-v1n"/>
+                    <constraint firstItem="sEQ-HC-4M2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="X6Y-1M-Xk7"/>
+                    <constraint firstItem="sEQ-HC-4M2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="jMI-vC-RWb"/>
+                    <constraint firstAttribute="bottom" secondItem="sEQ-HC-4M2" secondAttribute="bottom" id="pkK-FJ-L7y"/>
+                </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -57,7 +100,7 @@
                 <outlet property="nameLabel" destination="fTo-tc-zEM" id="i2F-db-b8Y"/>
                 <outlet property="repryTextView" destination="sx9-Dg-oh6" id="dVe-Li-jYy"/>
             </connections>
-            <point key="canvasLocation" x="47.826086956521742" y="34.821428571428569"/>
+            <point key="canvasLocation" x="53.623188405797109" y="16.741071428571427"/>
         </tableViewCell>
     </objects>
 </document>

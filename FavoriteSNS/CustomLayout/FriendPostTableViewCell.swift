@@ -58,7 +58,7 @@ class FriendPostTableViewCell: UITableViewCell {
     
     
     func makeCorner() {
-        containtsView.layer.cornerRadius = 20
+//        containtsView.layer.cornerRadius = 30
     }
     
     func setPostModel(post: Post) {
@@ -89,7 +89,7 @@ class FriendPostTableViewCell: UITableViewCell {
     
     private func setIconImage(iconURL: String) {
         self.URL = iconURL
-        iconImageView.loadImage(urlString: iconURL)
+        iconImageView.loadImageCircle(urlString: iconURL)
     }
     
     private func setLikeLabel(likeData: Int) {
