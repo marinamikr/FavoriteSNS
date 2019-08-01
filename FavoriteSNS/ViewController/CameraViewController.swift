@@ -27,6 +27,11 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.title = "camera"
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.gray]
+
+        
         self.navigationItem.title = "友達追加"
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Mamelon", size: 20)]
        

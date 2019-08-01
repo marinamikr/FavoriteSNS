@@ -21,6 +21,9 @@ class TopViewController: UIViewController  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.title = "アカウント作成"
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.gray]
         userNameText.delegate = self
         //インスタンスを作成
         DBRef = Database.database().reference()

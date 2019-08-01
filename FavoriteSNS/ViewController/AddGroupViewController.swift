@@ -22,6 +22,8 @@ class AddGroupViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "setting"
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.gray]
         allGroupTableView.delegate = self
         allGroupTableView.dataSource = self
         DBRef = Database.database().reference()

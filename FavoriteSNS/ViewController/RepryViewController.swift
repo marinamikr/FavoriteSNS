@@ -26,7 +26,8 @@ class RepryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationItem.title = "repry"
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.gray]
         repryTableView.dataSource = self
         repryTableView.delegate = self
         //Identifierを設定する
@@ -78,7 +79,7 @@ extension RepryViewController: UITableViewDataSource,UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 580
+        return 30
     }
     
     

@@ -29,7 +29,10 @@ class PostContentsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "投稿"
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.gray]
         //インスタンスを作成
+
         DBRef = Database.database().reference()
         
         // Do any additional setup after loading the view.

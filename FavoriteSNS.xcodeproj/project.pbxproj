@@ -20,6 +20,7 @@
 		4058E25A22A67E04009553E9 /* AddGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4058E25922A67E04009553E9 /* AddGroupViewController.swift */; };
 		4058E26F22A685F6009553E9 /* AddGroupCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4058E26D22A685F6009553E9 /* AddGroupCustomCell.swift */; };
 		4058E27022A685F6009553E9 /* AddGroupCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4058E26E22A685F6009553E9 /* AddGroupCustomCell.xib */; };
+		405C61BC22EB115B000AB2AF /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 405C61BB22EB115B000AB2AF /* background.png */; };
 		4065DED022E6A98000EBD8A2 /* makegroup.png in Resources */ = {isa = PBXBuildFile; fileRef = 4065DEC422E6A97F00EBD8A2 /* makegroup.png */; };
 		4065DED122E6A98000EBD8A2 /* setting2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4065DEC522E6A97F00EBD8A2 /* setting2.png */; };
 		4065DED222E6A98000EBD8A2 /* makeaccount.png in Resources */ = {isa = PBXBuildFile; fileRef = 4065DEC622E6A97F00EBD8A2 /* makeaccount.png */; };
@@ -113,6 +114,7 @@
 		4058E25922A67E04009553E9 /* AddGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupViewController.swift; sourceTree = "<group>"; };
 		4058E26D22A685F6009553E9 /* AddGroupCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupCustomCell.swift; sourceTree = "<group>"; };
 		4058E26E22A685F6009553E9 /* AddGroupCustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddGroupCustomCell.xib; sourceTree = "<group>"; };
+		405C61BB22EB115B000AB2AF /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		4065DEC422E6A97F00EBD8A2 /* makegroup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = makegroup.png; sourceTree = "<group>"; };
 		4065DEC522E6A97F00EBD8A2 /* setting2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting2.png; sourceTree = "<group>"; };
 		4065DEC622E6A97F00EBD8A2 /* makeaccount.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = makeaccount.png; sourceTree = "<group>"; };
@@ -381,6 +383,7 @@
 				4065DECD22E6A98000EBD8A2 /* toukou.png */,
 				4065DEDF22E6AE0500EBD8A2 /* toukou2.png */,
 				4065DEE322E6B29200EBD8A2 /* timeline2.png */,
+				405C61BB22EB115B000AB2AF /* background.png */,
 			);
 			path = Image;
 			sourceTree = "<group>";
@@ -535,6 +538,7 @@
 				406D519722486FAE0051086E /* LaunchScreen.storyboard in Resources */,
 				409646EB22D4B0C300443666 /* PostChooseGroupTableViewCell.xib in Resources */,
 				409646E722D4B05500443666 /* PostLikeTableViewCell.xib in Resources */,
+				405C61BC22EB115B000AB2AF /* background.png in Resources */,
 				4065DED122E6A98000EBD8A2 /* setting2.png in Resources */,
 				4095F4A722DDD1DA00EAE0A4 /* PostGroupItemTableViewCell.xib in Resources */,
 				4065DED322E6A98000EBD8A2 /* addFriend.png in Resources */,

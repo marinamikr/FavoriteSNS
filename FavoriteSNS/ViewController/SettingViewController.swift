@@ -15,6 +15,8 @@ class SettingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "setting"
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.gray]
         settingTableView.dataSource = self
         settingTableView.delegate = self
         //Identifierを設定する

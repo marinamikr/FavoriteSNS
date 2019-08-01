@@ -24,6 +24,8 @@ class MakeGroupViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "投稿"
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.gray]
         groupName.delegate = self
         //インスタンスを作成
         DBRef = Database.database().reference()

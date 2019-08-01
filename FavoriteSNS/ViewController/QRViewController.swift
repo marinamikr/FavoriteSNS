@@ -24,6 +24,8 @@ class QRViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "QRcode"
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.gray]
         //インスタンスを作成
         DBRef = Database.database().reference()
         getUserData()

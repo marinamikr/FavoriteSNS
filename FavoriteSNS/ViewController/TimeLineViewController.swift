@@ -37,6 +37,13 @@ class TimeLineViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // タイトルをセット
+        self.navigationItem.title = "TimeLine"
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.gray]
+       
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "+", style: UIBarButtonItem.Style.plain, target: self, action:#selector(self.makeContains))
+        
+    
         //インスタンスを作成
         DBRef = Database.database().reference()
         
@@ -50,7 +57,6 @@ class TimeLineViewController: UIViewController {
         //Identifierを設定する
         self.timeLineTableView.register(UINib(nibName: "FriendPostTableViewCell", bundle: nil), forCellReuseIdentifier: "friendPostTableViewCell")
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "+", style: UIBarButtonItem.Style.plain, target: self, action:#selector(self.makeContains))
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -68,7 +74,7 @@ class TimeLineViewController: UIViewController {
         // ナビゲーションを透明にする処理
         self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController!.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.tintColor = .clear
+        self.navigationController?.navigationBar.tintColor = .gray
     }
     @objc func makeContains(){
         performSegue(withIdentifier: "toContaints", sender: nil)
