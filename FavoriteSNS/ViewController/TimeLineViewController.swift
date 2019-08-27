@@ -106,7 +106,7 @@ class TimeLineViewController: UIViewController {
                                 let repry = repryData as! Dictionary<String, Any>
                                 
                                 for key in repry.keys{
-                                    post.addRepryData(repryData: repry[key] as! Dictionary<String, String>)
+                                    post.setRepryData(repryData: repry[key] as! Dictionary<String, String>)
                                 }
 //                                print((postDict["repry"] as! Dictionary<>))
                             }

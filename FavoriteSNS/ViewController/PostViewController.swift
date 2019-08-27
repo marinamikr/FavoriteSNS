@@ -75,13 +75,25 @@ class PostViewController: UIViewController {
                             post.setContents(contents: (postDict["contents"] as! String))
                             post.setLikes(likes: (postDict["likes"] as! Int))
                             
+                            
                             if let repryData  = postDict["repry"]{
+                                var tmpRepryData: Array<Dictionary<String, String>> = Array()
                                 let repry = repryData as! Dictionary<String, Any>
                                 
                                 for key in repry.keys{
-                                    post.addRepryData(repryData: (repry[key] as! Dictionary<String, String>))
+                                    tmpRepryData.append(repry[key] as! Dictionary<String, String>)
+                                }
+                                let dateManeger = DateManager()
+                                tmpRepryData = tmpRepryData.sorted(by: { (a, b) -> Bool in
+                                    return dateManeger.dateFromString(string: a["time"]! ) < dateManeger.dateFromString(string: b["time"]! )
+                                })
+                                for repry in tmpRepryData{
+                                    post.setRepryData(repryData: repry)
                                 }
                             }
+                            
+                            
+                            
                             post.setStar(star: (postDict["star"] as! Int))
                             post.setUserName(userName: (userDict["name"] as! String))
                             post.setIconURL(iconURL: (userDict["iconURL"] as! String))
@@ -90,6 +102,7 @@ class PostViewController: UIViewController {
                             post.setGroupName(groupName: groupName)
                             post.setAutoID(autoID: (child as! DataSnapshot).key)
                             self.postArray.append(post)
+                            
                             self.reload()
                         })
                         
@@ -139,7 +152,10 @@ extension PostViewController: UITableViewDataSource,UITableViewDelegate {
         cell.setIconImage(iconURL: post.getIconURL())
         cell.setLikeLabel(likeData: post.getLikes())
         cell.setStarLabel(starData: post.getStar())
+        if post.getRepryData().count != 0 {
         cell.setRepryTextView(repryData: post.getRepryData()[0]["repry"]!)
+        }
+        
         cell.makeCorner()
         cell.repryTableViewCellDelegate = self
         cell.setIndex(indexData: indexPath.row)

@@ -287,7 +287,6 @@
         <!--Choose Group View Controller-->
         <scene sceneID="VXh-KQ-kPL">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aJf-Xb-bli" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="DMb-dJ-Znt" customClass="ChooseGroupViewController" customModule="FavoriteSNS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8u3-gz-TO7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
@@ -398,6 +397,7 @@
                         <outlet property="userNameLabel" destination="KMR-Xf-3C3" id="F8t-A0-wOf"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aJf-Xb-bli" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6115.9420289855079" y="-853.79464285714278"/>
         </scene>

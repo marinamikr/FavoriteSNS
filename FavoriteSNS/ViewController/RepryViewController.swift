@@ -17,6 +17,8 @@ class RepryViewController: UIViewController {
     
     var DBRef:DatabaseReference!
     
+    var alert: UIAlertController!
+    
     
     var postModel: Post!
     var postHandler:UInt!
@@ -26,10 +28,12 @@ class RepryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.navigationItem.title = "repry"
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.gray]
         repryTableView.dataSource = self
         repryTableView.delegate = self
+        repryTextField.delegate = self
         //Identifierを設定する
         self.repryTableView.register(UINib(nibName: "RepryTableViewCell", bundle: nil), forCellReuseIdentifier: "repryTableViewCell")
         repryTableView.refreshControl = refreshCtl
@@ -39,21 +43,82 @@ class RepryViewController: UIViewController {
     
     @IBAction func sendRepryButton(_ sender: Any) {
         upLoadComment(comment: repryTextField.text!)
+        repryTextField.text = ""
     }
     
     func upLoadComment(comment: String) {
-        
-        let data = ["uuid": Util.getUUID(),"repry": comment] as [String : Any]
+        makeProgressDialog()
+        let dateManeger = DateManager()
+        var time = dateManeger.stringFromDate(date: Date())
+        let data = ["uuid": Util.getUUID(),"repry": comment,"time":time] as [String : Any]
         DBRef.child(postModel.getUUID()).child("post").child(postModel.getGroupName()).child(postModel.getAutoID()).child("repry").childByAutoId().setValue(data)
+        alert.dismiss(animated: true, completion: nil)
+        getPostData()
+        
         
     }
+    
+    func makeProgressDialog(){
+        // インジケータ表示
+        alert = UIAlertController(title: "投稿中...", message: "\n", preferredStyle: .alert)
+        
+        let indicator = UIActivityIndicatorView()
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        alert.view.addSubview(indicator)
+        
+        let views: [String: UIView] = ["alert": alert.view, "indicator": indicator]
+        var constraints = NSLayoutConstraint.constraints(withVisualFormat: "V:[indicator]-(12)-|",
+                                                         options: [],
+                                                         metrics: nil,
+                                                         views: views)
+        constraints += NSLayoutConstraint.constraints(withVisualFormat: "H:|[indicator]|",
+                                                      options: [],
+                                                      metrics: nil,
+                                                      views: views)
+        alert.view.addConstraints(constraints)
+        
+        indicator.isUserInteractionEnabled = false
+        indicator.color = UIColor.lightGray
+        indicator.startAnimating()
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
     func getPostData() {
-      
+        print("hige")
+        self.DBRef.child(postModel.getUUID()).child("post").child(postModel.getGroupName()).child(postModel.getAutoID()).child("repry").observe(.value, with: {snapshot  in
+            
+            
+            var tmpRepryData: Array<Dictionary<String, String>> = Array()
+            for child in snapshot.children {
+                let repryDict = (child as! DataSnapshot).value as! Dictionary<String, String>
+                print(repryDict)
+                tmpRepryData.append(repryDict)
+            }
+            
+            self.postModel.deletRepryData()
+            
+            let dateManeger = DateManager()
+            tmpRepryData = tmpRepryData.sorted(by: { (a, b) -> Bool in
+                return dateManeger.dateFromString(string: a["time"]! ) < dateManeger.dateFromString(string: b["time"]! )
+            })
+            for repry in tmpRepryData{
+                self.postModel.setRepryData(repryData: repry)
+            }
+            
+            self.repryTableView.reloadData()
+            
+            
+        })
     }
     
     @objc func refresh(sender: UIRefreshControl) {
-       
-        refreshCtl.endRefreshing()
+        getPostData()
+        self.refreshCtl.endRefreshing()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     
@@ -85,3 +150,12 @@ extension RepryViewController: UITableViewDataSource,UITableViewDelegate {
     
     
 }
+
+extension RepryViewController:UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // キーボードを閉じる
+        repryTextField.resignFirstResponder()
+        return true
+    }
+}
+

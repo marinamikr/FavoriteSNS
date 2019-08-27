@@ -2,7 +2,7 @@
 //  FriendListViewController.swift
 //  FavoriteSNS
 //
-//  Created by 橋詰明宗 on 2019/06/25.
+//  Created by 原田摩利奈 on 2019/06/25.
 //  Copyright © 2019 原田摩利奈. All rights reserved.
 //
 
@@ -49,6 +49,7 @@ class FriendListViewController: UIViewController {
                     friend.userIconURL = userDict["iconURL"] as! String
                     self.friendArray.append(friend)
                     print(friend.userName)
+                    print(friend.group)
                     self.friendTableView.reloadData()
                 })
                 

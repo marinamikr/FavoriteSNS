@@ -171,7 +171,9 @@ class FriendPostTableViewCell: UITableViewCell {
     
     func upLoadComment(comment: String) {
 
-        let data = ["uuid": Util.getUUID(),"repry": comment] as [String : Any]
+        let dateManeger = DateManager()
+        var time = dateManeger.stringFromDate(date: Date())
+        let data = ["uuid": Util.getUUID(),"repry": comment,"time":time] as [String : Any]
         DBRef.child(postModel.getUUID()).child("post").child(postModel.getGroupName()).child(postModel.getAutoID()).child("repry").childByAutoId().setValue(data)
     }
     

@@ -25,12 +25,14 @@ class PostContentsViewController: UIViewController {
     var starIndex: Int = 0
     
     var groupArray: [String]! = []
+    var alert:UIAlertController!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "投稿"
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.gray]
+       
         //インスタンスを作成
 
         DBRef = Database.database().reference()
@@ -67,13 +69,15 @@ class PostContentsViewController: UIViewController {
         })
     }
     
+    
     func uploadContents(){
+        makeProgressDialog()
         // strageの一番トップのReferenceを指定
         let storage = Storage.storage()
         // let storageRef = storage.reference(forURL: "gs://calender-4a2d3.appspot.com")
         let storageRef = storage.reference(forURL: "gs://favoritesns3.appspot.com/")
         
-        //変数dataにpicをNSDataにしたものを指定
+         //変数dataにpicをNSDataにしたものを指定
         if let data = Util.resizeImage(src: postTextTableViewCell.pictureImageView.image, max: 500)?.jpegData(compressionQuality: 0.8) {
             // トップReferenceの一つ下の固有IDの枝を指定
             let riversRef = storageRef.child(Util.getUUID()).child(String.getRandomStringWithLength(length: 60))
@@ -87,12 +91,40 @@ class PostContentsViewController: UIViewController {
                 for postGroupItemTableViewCell in self.postGroupItemTableViewCellArray{
                     print(postGroupItemTableViewCell.groupNameLabel.text)
                     if postGroupItemTableViewCell.chooseGroupSwitch.isOn { ref.child(Util.getUUID()).child("post").child(postGroupItemTableViewCell.groupNameLabel.text!).childByAutoId().setValue(data)
+                        self.alert.dismiss(animated: true, completion: nil)
                     }
                 }
                 self.navigationController?.popToRootViewController(animated: true)
             })
         }
     }
+    
+    func makeProgressDialog(){
+        // インジケータ表示
+        alert = UIAlertController(title: "投稿中...", message: "\n", preferredStyle: .alert)
+        
+        let indicator = UIActivityIndicatorView()
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        alert.view.addSubview(indicator)
+        
+        let views: [String: UIView] = ["alert": alert.view, "indicator": indicator]
+        var constraints = NSLayoutConstraint.constraints(withVisualFormat: "V:[indicator]-(12)-|",
+                                                         options: [],
+                                                         metrics: nil,
+                                                         views: views)
+        constraints += NSLayoutConstraint.constraints(withVisualFormat: "H:|[indicator]|",
+                                                      options: [],
+                                                      metrics: nil,
+                                                      views: views)
+        alert.view.addConstraints(constraints)
+        
+        indicator.isUserInteractionEnabled = false
+        indicator.color = UIColor.lightGray
+        indicator.startAnimating()
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
     func makeAleart(title: String, message: String, okText: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         let okayButton = UIAlertAction(title: okText, style: UIAlertAction.Style.cancel, handler: nil)

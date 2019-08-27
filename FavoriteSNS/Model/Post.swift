@@ -101,7 +101,7 @@ class Post: NSObject {
         return self.time
     }
     
-    func addRepryData(repryData: Dictionary<String, String>) {
+    func setRepryData(repryData: Dictionary<String, String>) {
         self.repryData.append(repryData)
     }
     
