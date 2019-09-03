@@ -208,6 +208,7 @@ extension PostContentsViewController : UIImagePickerControllerDelegate ,UINaviga
         
         
         let cropViewController = CropViewController(image: selectedImage)
+        cropViewController.setAspectRatioPreset(.presetSquare, animated: true)
         cropViewController.delegate = self
         
         // 写真を選ぶビューを引っ込める
