@@ -24,14 +24,19 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="34.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="グループ選択" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gne-q6-SeR">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="グループ選択" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gne-q6-SeR">
                         <rect key="frame" x="22" y="8" width="108" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" name="azuki_font" family="azuki_font" pointSize="18"/>
                         <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="gne-q6-SeR" secondAttribute="bottom" constant="8.5" id="5kK-lh-8Cm"/>
+                    <constraint firstItem="gne-q6-SeR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="ff2-ot-ara"/>
+                    <constraint firstItem="gne-q6-SeR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="22" id="rnL-AG-ZnW"/>
+                    <constraint firstAttribute="trailing" secondItem="gne-q6-SeR" secondAttribute="trailing" constant="190" id="t2Z-Z5-HUC"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <point key="canvasLocation" x="137.68115942028987" y="133.59375"/>
