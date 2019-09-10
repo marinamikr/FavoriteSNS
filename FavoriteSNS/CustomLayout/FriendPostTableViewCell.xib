@@ -74,7 +74,7 @@
                                     <constraint firstAttribute="bottom" secondItem="F7L-0H-ggY" secondAttribute="bottom" id="tfb-wx-zVm"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HWh-Ed-JHS">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HWh-Ed-JHS">
                                 <rect key="frame" x="0.0" y="60" width="348" height="360"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qH8-V4-gWa" userLabel="View2">
@@ -135,18 +135,12 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.0" blue="0.69889190830000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="HWh-Ed-JHS" secondAttribute="trailing" id="5hj-DU-P1a"/>
-                            <constraint firstItem="DtF-80-cfc" firstAttribute="leading" secondItem="WDc-Kj-1fZ" secondAttribute="leading" id="FXO-zZ-Tpd"/>
-                            <constraint firstAttribute="trailing" secondItem="DtF-80-cfc" secondAttribute="trailing" id="MBi-DS-S65"/>
                             <constraint firstItem="qH8-V4-gWa" firstAttribute="height" secondItem="WDc-Kj-1fZ" secondAttribute="height" multiplier="0.05" id="Pg2-6t-4cn"/>
                             <constraint firstItem="Yph-DI-j41" firstAttribute="height" secondItem="WDc-Kj-1fZ" secondAttribute="height" multiplier="0.1" id="UhW-zS-DWs"/>
                             <constraint firstItem="HWh-Ed-JHS" firstAttribute="height" secondItem="WDc-Kj-1fZ" secondAttribute="height" multiplier="0.6" id="Uy6-1z-4l6"/>
-                            <constraint firstItem="HWh-Ed-JHS" firstAttribute="leading" secondItem="WDc-Kj-1fZ" secondAttribute="leading" id="VeE-C0-pgn"/>
                             <constraint firstItem="TdG-MY-sDq" firstAttribute="height" secondItem="WDc-Kj-1fZ" secondAttribute="height" multiplier="0.15" id="X7y-yS-ckC"/>
                             <constraint firstAttribute="bottom" secondItem="DtF-80-cfc" secondAttribute="bottom" id="b8C-oA-kl8"/>
                             <constraint firstAttribute="height" constant="600" id="eIR-uF-ab5"/>
-                            <constraint firstAttribute="trailing" secondItem="TdG-MY-sDq" secondAttribute="trailing" id="eLI-Xi-Czx"/>
-                            <constraint firstItem="TdG-MY-sDq" firstAttribute="leading" secondItem="WDc-Kj-1fZ" secondAttribute="leading" id="zg2-hG-e7V"/>
                         </constraints>
                     </stackView>
                 </subviews>

@@ -29,7 +29,6 @@
 		4065DED522E6A98000EBD8A2 /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = 4065DEC922E6A97F00EBD8A2 /* list.png */; };
 		4065DED622E6A98000EBD8A2 /* qrcode.png in Resources */ = {isa = PBXBuildFile; fileRef = 4065DECA22E6A97F00EBD8A2 /* qrcode.png */; };
 		4065DED722E6A98000EBD8A2 /* timeline.png in Resources */ = {isa = PBXBuildFile; fileRef = 4065DECB22E6A97F00EBD8A2 /* timeline.png */; };
-		4065DED822E6A98000EBD8A2 /* top.png in Resources */ = {isa = PBXBuildFile; fileRef = 4065DECC22E6A98000EBD8A2 /* top.png */; };
 		4065DED922E6A98000EBD8A2 /* toukou.png in Resources */ = {isa = PBXBuildFile; fileRef = 4065DECD22E6A98000EBD8A2 /* toukou.png */; };
 		4065DEDA22E6A98000EBD8A2 /* myPost.png in Resources */ = {isa = PBXBuildFile; fileRef = 4065DECE22E6A98000EBD8A2 /* myPost.png */; };
 		4065DEDB22E6A98000EBD8A2 /* setting1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4065DECF22E6A98000EBD8A2 /* setting1.png */; };
@@ -123,7 +122,6 @@
 		4065DEC922E6A97F00EBD8A2 /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list.png; sourceTree = "<group>"; };
 		4065DECA22E6A97F00EBD8A2 /* qrcode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qrcode.png; sourceTree = "<group>"; };
 		4065DECB22E6A97F00EBD8A2 /* timeline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timeline.png; sourceTree = "<group>"; };
-		4065DECC22E6A98000EBD8A2 /* top.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = top.png; sourceTree = "<group>"; };
 		4065DECD22E6A98000EBD8A2 /* toukou.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toukou.png; sourceTree = "<group>"; };
 		4065DECE22E6A98000EBD8A2 /* myPost.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = myPost.png; sourceTree = "<group>"; };
 		4065DECF22E6A98000EBD8A2 /* setting1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting1.png; sourceTree = "<group>"; };
@@ -379,7 +377,6 @@
 				4065DECF22E6A98000EBD8A2 /* setting1.png */,
 				4065DEC522E6A97F00EBD8A2 /* setting2.png */,
 				4065DECB22E6A97F00EBD8A2 /* timeline.png */,
-				4065DECC22E6A98000EBD8A2 /* top.png */,
 				4065DECD22E6A98000EBD8A2 /* toukou.png */,
 				4065DEDF22E6AE0500EBD8A2 /* toukou2.png */,
 				4065DEE322E6B29200EBD8A2 /* timeline2.png */,
@@ -529,7 +526,6 @@
 				4065DEDB22E6A98000EBD8A2 /* setting1.png in Resources */,
 				4065DED422E6A98000EBD8A2 /* camera.png in Resources */,
 				4065DEE422E6B29200EBD8A2 /* timeline2.png in Resources */,
-				4065DED822E6A98000EBD8A2 /* top.png in Resources */,
 				4074E38A22A66B6B0027BDD4 /* PostTableViewCell.xib in Resources */,
 				4074E38522A663200027BDD4 /* yellowStar.png in Resources */,
 				4065DEEA22E92FC900EBD8A2 /* RepryTableViewCell.xib in Resources */,

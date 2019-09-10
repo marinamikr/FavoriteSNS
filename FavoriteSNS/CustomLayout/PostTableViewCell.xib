@@ -78,14 +78,14 @@
                                 <rect key="frame" x="0.0" y="65.5" width="376" height="390"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="like" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RLd-1G-ZOn">
-                                <rect key="frame" x="16" y="455.5" width="360" height="32.5"/>
+                                <rect key="frame" x="0.0" y="455.5" width="376" height="32.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.69889190830000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="32Q-MU-afE">
-                                <rect key="frame" x="5" y="488" width="366" height="97.5"/>
+                                <rect key="frame" x="0.0" y="488" width="376" height="97.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -147,17 +147,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="32Q-MU-afE" firstAttribute="leading" secondItem="aAq-Uy-akt" secondAttribute="leading" constant="5" id="1o5-DN-9oI"/>
-                            <constraint firstAttribute="bottom" secondItem="Sde-Sc-sxZ" secondAttribute="bottom" id="NZZ-KA-kP2"/>
-                            <constraint firstAttribute="trailing" secondItem="Sde-Sc-sxZ" secondAttribute="trailing" id="QXo-sY-YLI"/>
-                            <constraint firstItem="Sde-Sc-sxZ" firstAttribute="leading" secondItem="aAq-Uy-akt" secondAttribute="leading" id="WAD-4l-Lyh"/>
                             <constraint firstItem="32Q-MU-afE" firstAttribute="height" secondItem="aAq-Uy-akt" secondAttribute="height" multiplier="0.15" id="XNj-lQ-6OH"/>
                             <constraint firstItem="ffg-CV-L9C" firstAttribute="height" secondItem="aAq-Uy-akt" secondAttribute="height" multiplier="0.6" id="bxV-ud-QqQ"/>
-                            <constraint firstAttribute="trailing" secondItem="32Q-MU-afE" secondAttribute="trailing" constant="5" id="e0u-6m-z8m"/>
                             <constraint firstItem="4ea-Y7-8ZZ" firstAttribute="height" secondItem="aAq-Uy-akt" secondAttribute="height" multiplier="0.1" id="ebs-Ca-SCz"/>
-                            <constraint firstItem="RLd-1G-ZOn" firstAttribute="top" secondItem="ffg-CV-L9C" secondAttribute="bottom" id="iYf-wE-3CM"/>
-                            <constraint firstItem="32Q-MU-afE" firstAttribute="top" secondItem="RLd-1G-ZOn" secondAttribute="bottom" id="iie-m2-tbx"/>
-                            <constraint firstItem="RLd-1G-ZOn" firstAttribute="leading" secondItem="aAq-Uy-akt" secondAttribute="leading" constant="16" id="l3M-pa-Fjx"/>
                             <constraint firstAttribute="height" constant="650" id="qdL-qC-AFL"/>
                             <constraint firstItem="RLd-1G-ZOn" firstAttribute="height" secondItem="aAq-Uy-akt" secondAttribute="height" multiplier="0.05" id="s1B-aP-cKQ"/>
                         </constraints>

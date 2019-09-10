@@ -47,6 +47,8 @@ class PostViewController: UIViewController {
         // Do any additional setup after loading the view.
         postTableView.dataSource = self
         postTableView.delegate = self
+        postTableView.rowHeight = UITableView.automaticDimension
+        
         postTableView.refreshControl = refreshCtl
         refreshCtl.addTarget(self, action: #selector(PostViewController.refresh(sender:)), for: .valueChanged)
         //Identifierを設定する
@@ -162,10 +164,9 @@ extension PostViewController: UITableViewDataSource,UITableViewDelegate {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 580
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
-    
    
 }
 

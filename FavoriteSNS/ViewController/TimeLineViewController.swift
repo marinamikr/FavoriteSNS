@@ -63,6 +63,8 @@ class TimeLineViewController: UIViewController {
         super.viewWillAppear(animated)
         let elDrawer = self.navigationController?.parent as! KYDrawerController
         (elDrawer.drawerViewController as! MenuItemViewController).dalegate = self
+        //一旦
+        elDrawer.setDrawerState(KYDrawerController.DrawerState.opened, animated: true)
         
         isFirst = userDefaults.bool(forKey: "isFirst")
         if !isFirst {
