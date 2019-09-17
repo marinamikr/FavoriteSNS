@@ -47,12 +47,27 @@ class PostViewController: UIViewController {
         // Do any additional setup after loading the view.
         postTableView.dataSource = self
         postTableView.delegate = self
-        postTableView.rowHeight = UITableView.automaticDimension
-        
         postTableView.refreshControl = refreshCtl
         refreshCtl.addTarget(self, action: #selector(PostViewController.refresh(sender:)), for: .valueChanged)
         //Identifierを設定する
         self.postTableView.register(UINib(nibName: "PostTableViewCell", bundle: nil), forCellReuseIdentifier: "postTableViewCell")
+        
+        
+        if #available(iOS 11, *) {
+            let guide = view.safeAreaLayoutGuide
+            NSLayoutConstraint.activate([
+                postTableView.topAnchor.constraint(equalToSystemSpacingBelow: guide.topAnchor, multiplier: 1.0),
+                guide.bottomAnchor.constraint(equalToSystemSpacingBelow: postTableView.bottomAnchor, multiplier: 1.0)
+                ])
+        } else {
+            let standardSpacing: CGFloat = 8.0
+            NSLayoutConstraint.activate([
+                postTableView.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor, constant: standardSpacing),
+                bottomLayoutGuide.topAnchor.constraint(equalTo: postTableView.bottomAnchor, constant: standardSpacing)
+                ])
+        }
+        let frame = postTableView.frame
+        postTableView.frame = CGRect(x:16 , y: frame.origin.y, width:  UIScreen.main.bounds.width - 32, height: frame.size.height)
         
     }
     
@@ -164,9 +179,10 @@ extension PostViewController: UITableViewDataSource,UITableViewDelegate {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 580
     }
+    
    
 }
 

@@ -24,27 +24,25 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="75.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N7O-v2-obF">
-                        <rect key="frame" x="0.0" y="0.0" width="145" height="75.5"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="145" id="443-MR-MIh"/>
-                        </constraints>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N7O-v2-obF">
+                        <rect key="frame" x="24" y="8" width="199" height="59.5"/>
                         <fontDescription key="fontDescription" name="azuki_font" family="azuki_font" pointSize="20"/>
                         <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iaX-ye-pUo">
-                        <rect key="frame" x="205" y="23" width="51" height="29.5"/>
+                        <rect key="frame" x="239" y="24" width="51" height="27.5"/>
                         <color key="onTintColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                     </switch>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="N7O-v2-obF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="BYm-RV-yYy"/>
-                    <constraint firstAttribute="bottom" secondItem="N7O-v2-obF" secondAttribute="bottom" id="NKl-Um-Xxu"/>
-                    <constraint firstItem="iaX-ye-pUo" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="23" id="UGt-aX-Dl1"/>
-                    <constraint firstItem="iaX-ye-pUo" firstAttribute="leading" secondItem="N7O-v2-obF" secondAttribute="trailing" constant="60" id="fYC-IA-e2H"/>
-                    <constraint firstAttribute="bottom" secondItem="iaX-ye-pUo" secondAttribute="bottom" constant="23" id="hJv-ZC-FZ0"/>
-                    <constraint firstItem="N7O-v2-obF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="l5J-UC-Lcd"/>
+                    <constraint firstAttribute="bottom" secondItem="iaX-ye-pUo" secondAttribute="bottom" constant="24" id="1Sd-wD-Xvo"/>
+                    <constraint firstItem="iaX-ye-pUo" firstAttribute="leading" secondItem="N7O-v2-obF" secondAttribute="trailing" constant="16" id="2Fx-BN-ogr"/>
+                    <constraint firstItem="N7O-v2-obF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="24" id="CPu-wk-p6e"/>
+                    <constraint firstAttribute="bottom" secondItem="N7O-v2-obF" secondAttribute="bottom" constant="8" id="EP6-z9-SWb"/>
+                    <constraint firstAttribute="trailing" secondItem="iaX-ye-pUo" secondAttribute="trailing" constant="32" id="b7R-ov-wEK"/>
+                    <constraint firstItem="iaX-ye-pUo" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="24" id="mgk-Oy-TOb"/>
+                    <constraint firstItem="N7O-v2-obF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="uvJ-NI-EVT"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

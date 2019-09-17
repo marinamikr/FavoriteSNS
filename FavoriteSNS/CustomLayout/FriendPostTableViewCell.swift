@@ -99,11 +99,6 @@ class FriendPostTableViewCell: UITableViewCell {
     private func setStarLabel(starData: Int) {
         starLabel.text = String(starData)
     }
-    
-//        private func setRepryLabel(repryData: String) {
-//            repryLabel.text = repryData
-//        }
-    
     func setheartImage(imageName: String) {
         heartImageView.image = UIImage(named: imageName)
         heartImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(FriendPostTableViewCell.imageViewTapped(_:))))
@@ -164,7 +159,6 @@ class FriendPostTableViewCell: UITableViewCell {
         })
         
         alert.view.setNeedsLayout() // シミュレータの種類によっては、これがないと警告が発生
-        
         
         baseView?.present(alert, animated: true, completion: nil)
     }

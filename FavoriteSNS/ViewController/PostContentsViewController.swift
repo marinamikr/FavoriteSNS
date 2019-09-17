@@ -134,15 +134,24 @@ class PostContentsViewController: UIViewController {
     }
     
     @IBAction func saveButton(_ sender: Any) {
-        if self.starIndex >= 1 && self.postTextTableViewCell.textView.text != "" && self.postTextTableViewCell.pictureImageView.image != nil{
+        var isGroopChoiced = false
+        for cell in postGroupItemTableViewCellArray{
+            if cell.chooseGroupSwitch.isOn{
+                isGroopChoiced = true
+            }
+        }
+         
+        if isGroopChoiced && self.starIndex >= 1 && self.postTextTableViewCell.textView.text != "" && self.postTextTableViewCell.pictureImageView.image != nil{
             uploadContents()
         } else if  self.starIndex == 0 && self.postTextTableViewCell.textView.text != "" && self.postTextTableViewCell.pictureImageView.image != nil{
             makeAleart(title: "全て入力してください", message: "おすすめ度を選択してください", okText: "OK")
         } else if  self.starIndex >= 1 && self.postTextTableViewCell.textView.text
             == "" && self.postTextTableViewCell.pictureImageView.image != nil{
             makeAleart(title: "全て入力してください", message: "文を入力してください", okText: "OK")
-        }else{
+        }else if self.postTextTableViewCell.pictureImageView.image == nil{
             makeAleart(title: "全て入力してください", message: "画像を選択してください", okText: "OK")
+        }else{
+            makeAleart(title: "全て入力してください", message: "グループを選択してください", okText: "OK")
         }
         
     }
@@ -188,11 +197,11 @@ extension PostContentsViewController: UITableViewDataSource,UITableViewDelegate 
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
-            return 100
+            return 250
         }else if indexPath.row == 1 {
-            return 100
+            return 50
         }else if indexPath.row == 2 {
-            return 100
+            return 50
         }else{
             return 100
         }

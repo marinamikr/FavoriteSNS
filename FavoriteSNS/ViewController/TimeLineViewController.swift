@@ -57,13 +57,28 @@ class TimeLineViewController: UIViewController {
         //Identifierを設定する
         self.timeLineTableView.register(UINib(nibName: "FriendPostTableViewCell", bundle: nil), forCellReuseIdentifier: "friendPostTableViewCell")
         
+        if #available(iOS 11, *) {
+            let guide = view.safeAreaLayoutGuide
+            NSLayoutConstraint.activate([
+                timeLineTableView.topAnchor.constraint(equalToSystemSpacingBelow: guide.topAnchor, multiplier: 1.0),
+                guide.bottomAnchor.constraint(equalToSystemSpacingBelow: timeLineTableView.bottomAnchor, multiplier: 1.0)
+                ])
+        } else {
+            let standardSpacing: CGFloat = 8.0
+            NSLayoutConstraint.activate([
+                timeLineTableView.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor, constant: standardSpacing),
+                bottomLayoutGuide.topAnchor.constraint(equalTo: timeLineTableView.bottomAnchor, constant: standardSpacing)
+                ])
+        }
+        let frame = timeLineTableView.frame
+        timeLineTableView.frame = CGRect(x:16 , y: frame.origin.y, width:  UIScreen.main.bounds.width - 32, height: frame.size.height)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let elDrawer = self.navigationController?.parent as! KYDrawerController
         (elDrawer.drawerViewController as! MenuItemViewController).dalegate = self
-        //一旦
         elDrawer.setDrawerState(KYDrawerController.DrawerState.opened, animated: true)
         
         isFirst = userDefaults.bool(forKey: "isFirst")
