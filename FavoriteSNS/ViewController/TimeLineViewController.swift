@@ -56,13 +56,7 @@ class TimeLineViewController: UIViewController {
     }
     
     func setUpNavigation() {
-        for familyName:String in UIFont.familyNames {
-            print("Family Name: \(familyName)")
-            for fontName:String in UIFont.fontNames(forFamilyName: familyName) {
-                print("--Font Name: \(fontName)")
-            }
-        }
-        self.navigationItem.title = "TimeLine"
+        self.navigationItem.title = "Favns"
         self.navigationController?.navigationBar.titleTextAttributes =
             [NSAttributedString.Key.foregroundColor: UIColor.gray,
              NSAttributedString.Key.font: UIFont(name: "azuki_font", size: 15)!]
@@ -172,6 +166,8 @@ extension TimeLineViewController: UITableViewDataSource,UITableViewDelegate {
             cell.setPostModel(post: post)
             cell.setheartImage(imageName: "pinkhearts.png")
             cell.setIndex(indexData: indexPath.row)
+            print("@@@@@@@@@@")
+            print(cell.userNameLabel.font.fontName)
         }
         return cell
     }

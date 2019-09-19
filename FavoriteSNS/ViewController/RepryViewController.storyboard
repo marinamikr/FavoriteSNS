@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JDP-Z8-8xQ">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="azuki.ttf">
+            <string>azuki_font</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Repry View Controller-->
+        <scene sceneID="dMX-ga-0ff">
+            <objects>
+                <viewController id="JDP-Z8-8xQ" customClass="RepryViewController" customModule="FavoriteSNS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Odz-7K-3ad">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="BQd-96-X9w">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OrD-8n-4Zk">
+                                <rect key="frame" x="16" y="88" width="343" height="574"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FDE-0t-JWd">
+                                <rect key="frame" x="0.0" y="685" width="375" height="28"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1dl-ec-kse">
+                                        <rect key="frame" x="30" y="0.0" width="165" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="165" id="m8D-1I-RGx"/>
+                                        </constraints>
+                                        <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AF8-6M-wO6">
+                                        <rect key="frame" x="215" y="0.0" width="108" height="28"/>
+                                        <fontDescription key="fontDescription" name="azuki_font" family="azuki_font" pointSize="18"/>
+                                        <state key="normal" title="コメントする">
+                                            <color key="titleColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="sendRepryButton:" destination="JDP-Z8-8xQ" eventType="touchUpInside" id="xdc-5B-c6v"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="AF8-6M-wO6" secondAttribute="bottom" id="6Fk-ZS-qrh"/>
+                                    <constraint firstItem="AF8-6M-wO6" firstAttribute="leading" secondItem="1dl-ec-kse" secondAttribute="trailing" constant="20" id="6tP-X7-9rS"/>
+                                    <constraint firstItem="1dl-ec-kse" firstAttribute="top" secondItem="FDE-0t-JWd" secondAttribute="top" id="AKh-EV-NOP"/>
+                                    <constraint firstAttribute="bottom" secondItem="1dl-ec-kse" secondAttribute="bottom" id="KKx-yo-2er"/>
+                                    <constraint firstItem="AF8-6M-wO6" firstAttribute="top" secondItem="FDE-0t-JWd" secondAttribute="top" id="l9Z-od-vb8"/>
+                                    <constraint firstItem="1dl-ec-kse" firstAttribute="leading" secondItem="FDE-0t-JWd" secondAttribute="leading" constant="30" id="xV0-FZ-kEN"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="BQd-96-X9w" firstAttribute="leading" secondItem="u1n-cu-7iT" secondAttribute="leading" id="4eW-HP-Kuv"/>
+                            <constraint firstItem="u1n-cu-7iT" firstAttribute="bottom" secondItem="FDE-0t-JWd" secondAttribute="bottom" constant="16" id="9xB-mZ-dTB"/>
+                            <constraint firstItem="u1n-cu-7iT" firstAttribute="trailing" secondItem="FDE-0t-JWd" secondAttribute="trailing" id="BCA-WX-9dr"/>
+                            <constraint firstItem="FDE-0t-JWd" firstAttribute="leading" secondItem="u1n-cu-7iT" secondAttribute="leading" id="Bwu-hj-1hK"/>
+                            <constraint firstItem="FDE-0t-JWd" firstAttribute="top" secondItem="u1n-cu-7iT" secondAttribute="bottom" constant="-44" id="IcA-td-OVt"/>
+                            <constraint firstItem="BQd-96-X9w" firstAttribute="top" secondItem="Odz-7K-3ad" secondAttribute="top" id="Ujt-h3-03g"/>
+                            <constraint firstItem="BQd-96-X9w" firstAttribute="trailing" secondItem="u1n-cu-7iT" secondAttribute="trailing" id="YeD-kR-XWC"/>
+                            <constraint firstAttribute="bottom" secondItem="BQd-96-X9w" secondAttribute="bottom" id="qXO-RR-9p1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="u1n-cu-7iT"/>
+                    </view>
+                    <connections>
+                        <outlet property="repryTableView" destination="OrD-8n-4Zk" id="pRr-bE-xt4"/>
+                        <outlet property="repryTextField" destination="1dl-ec-kse" id="t8M-QT-myg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7ik-k7-4td" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7776.8000000000002" y="-209.11330049261085"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="background.png" width="1125" height="2436"/>
+    </resources>
+</document>

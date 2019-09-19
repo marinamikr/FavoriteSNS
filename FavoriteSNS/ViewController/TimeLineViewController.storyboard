@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vgP-g8-1Kd">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--TimeLine-->
+        <scene sceneID="Y2A-no-buk">
+            <objects>
+                <viewController id="Gba-Y7-nox" customClass="TimeLineViewController" customModule="FavoriteSNS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gwb-eC-UCy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="69o-3i-LLU">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tHE-SQ-9t3">
+                                <rect key="frame" x="16" y="346" width="343" height="672"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="69o-3i-LLU" firstAttribute="trailing" secondItem="wPq-8t-Sxf" secondAttribute="trailing" id="5hJ-GL-7py"/>
+                            <constraint firstItem="69o-3i-LLU" firstAttribute="top" secondItem="gwb-eC-UCy" secondAttribute="top" id="6Go-Sk-CBE"/>
+                            <constraint firstAttribute="bottom" secondItem="69o-3i-LLU" secondAttribute="bottom" id="BAe-6r-ra0"/>
+                            <constraint firstItem="69o-3i-LLU" firstAttribute="leading" secondItem="wPq-8t-Sxf" secondAttribute="leading" id="bVF-UQ-KRH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="wPq-8t-Sxf"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="TimeLine" id="ovf-aH-iAB"/>
+                    <connections>
+                        <outlet property="timeLineTableView" destination="tHE-SQ-9t3" id="ilG-SX-wS7"/>
+                        <segue destination="sJu-eW-Udo" kind="presentation" identifier="toTopViewController" id="NYF-1W-KyA"/>
+                        <segue destination="b1T-b3-KXe" kind="show" identifier="toSettingViewController" id="lEE-8g-56S"/>
+                        <segue destination="3FK-gs-TjP" kind="show" identifier="toFriendListViewController" id="nGB-Kv-6te"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="04R-Cz-a96" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4513" y="1722"/>
+        </scene>
+        <!--ホーム-->
+        <scene sceneID="Kmu-rK-IbC">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vgP-g8-1Kd" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="ホーム" image="home 2.png" id="dWb-mg-72O"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eB0-Gb-XQF">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Gba-Y7-nox" kind="relationship" relationship="rootViewController" id="QvH-Hw-Rah"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1pW-UZ-rjI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3626" y="1666"/>
+        </scene>
+        <!--TopViewController-->
+        <scene sceneID="4DG-XZ-zRq">
+            <objects>
+                <viewControllerPlaceholder storyboardName="TopViewController" id="sJu-eW-Udo" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bsk-D4-jB1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6354" y="1362"/>
+        </scene>
+        <!--FriendListViewController-->
+        <scene sceneID="Orz-Ww-rOv">
+            <objects>
+                <viewControllerPlaceholder storyboardName="FriendListViewController" id="3FK-gs-TjP" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D1G-v1-JXx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6382" y="1190"/>
+        </scene>
+        <!--SettingViewController-->
+        <scene sceneID="yQy-e5-2zy">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SettingViewController" id="b1T-b3-KXe" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FPr-OY-hPs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6328" y="1293"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="home 2.png" width="18" height="18"/>
+    </resources>
+</document>

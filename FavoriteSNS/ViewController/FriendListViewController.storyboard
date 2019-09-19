@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4fe-rC-xqf">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Friend List View Controller-->
+        <scene sceneID="wz9-BQ-dnN">
+            <objects>
+                <viewController id="4fe-rC-xqf" customClass="FriendListViewController" customModule="FavoriteSNS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WKE-VX-ecM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="Lfe-JX-jFh">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hXI-fR-f9E">
+                                <rect key="frame" x="16" y="132" width="343" height="680"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Lfe-JX-jFh" secondAttribute="bottom" id="2T4-pr-CeU"/>
+                            <constraint firstItem="Lfe-JX-jFh" firstAttribute="top" secondItem="WKE-VX-ecM" secondAttribute="top" id="Rb4-Ee-l9V"/>
+                            <constraint firstItem="Lfe-JX-jFh" firstAttribute="trailing" secondItem="SJd-hb-hvx" secondAttribute="trailing" id="geh-kJ-VZp"/>
+                            <constraint firstItem="Lfe-JX-jFh" firstAttribute="leading" secondItem="SJd-hb-hvx" secondAttribute="leading" id="p1Z-C9-wti"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="SJd-hb-hvx"/>
+                    </view>
+                    <connections>
+                        <outlet property="friendTableView" destination="hXI-fR-f9E" id="12U-ad-y17"/>
+                        <segue destination="HqD-b2-fTH" kind="show" identifier="toPostViewController" id="Lms-8O-GKd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nyB-sg-020" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8150" y="587"/>
+        </scene>
+        <!--UIViewController-3tS-Q3-MN1-->
+        <scene sceneID="KSN-hJ-2LW">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="UIViewController-3tS-Q3-MN1" id="HqD-b2-fTH" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JFc-mt-wew" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="9268" y="673"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="background.png" width="1125" height="2436"/>
+    </resources>
+</document>
