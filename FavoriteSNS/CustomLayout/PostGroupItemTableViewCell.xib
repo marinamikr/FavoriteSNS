@@ -35,6 +35,7 @@
                         <color key="onTintColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                     </switch>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="iaX-ye-pUo" secondAttribute="bottom" constant="24" id="1Sd-wD-Xvo"/>
                     <constraint firstItem="iaX-ye-pUo" firstAttribute="leading" secondItem="N7O-v2-obF" secondAttribute="trailing" constant="16" id="2Fx-BN-ogr"/>
@@ -45,6 +46,7 @@
                     <constraint firstItem="N7O-v2-obF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="uvJ-NI-EVT"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="chooseGroupSwitch" destination="iaX-ye-pUo" id="kkt-G8-ZmF"/>

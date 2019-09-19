@@ -8,5 +8,7 @@
 
 import Foundation
 protocol RepryTableViewCellDelegate {
+    
     func toDetail(postModel: Post, index: Int)
+    
 }

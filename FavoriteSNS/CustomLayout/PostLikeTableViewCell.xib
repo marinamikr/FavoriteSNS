@@ -65,7 +65,7 @@
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ihO-a8-75O">
                                 <rect key="frame" x="263.5" y="0.0" width="32.5" height="68.5"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
                         <constraints>
@@ -73,6 +73,7 @@
                         </constraints>
                     </stackView>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="COQ-Pq-run" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="0Oz-65-fMo"/>
                     <constraint firstAttribute="bottom" secondItem="COQ-Pq-run" secondAttribute="bottom" id="TJi-pK-R3Z"/>
@@ -80,6 +81,7 @@
                     <constraint firstAttribute="trailing" secondItem="COQ-Pq-run" secondAttribute="trailing" id="jkY-jm-DXX"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="star1" destination="uPp-dh-Jbq" id="zq7-0G-qvI"/>

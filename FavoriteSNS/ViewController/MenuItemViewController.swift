@@ -17,13 +17,10 @@ class MenuItemViewController: UIViewController {
     @IBOutlet weak var followLabel: UILabel!
     @IBOutlet weak var followerLabel: UILabel!
     @IBOutlet weak var menuTableVIew: UITableView!
-    
     var userDefaults:UserDefaults = UserDefaults.standard
     var array:[String] = ["自分の投稿","MyQRコード","QRコード読み取り","設定"]
     var dalegate : CustomDelegate!
     var ref:DatabaseReference!
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,12 +28,8 @@ class MenuItemViewController: UIViewController {
         menuTableVIew.dataSource = self
         menuTableVIew.delegate = self
         ref = Database.database().reference()
-        
         followLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(MenuItemViewController.tappedFollowLabel(_:))))
         followerLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(MenuItemViewController.tappedFollowerLabel(_:))))
-        
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,7 +51,6 @@ class MenuItemViewController: UIViewController {
     }
     
     func getUserData() {
-        print("hoge")
         ref.child(Util.getUUID()).child("userData").child("follow").observe(.value, with: {snapshot in
             self.followLabel.text = String(snapshot.children.allObjects.count)
             
@@ -68,11 +60,10 @@ class MenuItemViewController: UIViewController {
         })
         
         ref.child(Util.getUUID()).child("userData").observe(.value, with: {snapshot in
-          let userDict = snapshot.value as! [String:Any]
+            let userDict = snapshot.value as! [String:Any]
             self.nameLabel.text = userDict["name"] as! String
             self.iconImageView.loadImageCircle(urlString: userDict["iconURL"] as! String)
         })
-        
     }
     
 }
@@ -84,14 +75,12 @@ extension MenuItemViewController :UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = self.menuTableVIew.dequeueReusableCell(withIdentifier: "menuItemTableViewCell") as? MenuItemTableViewCell
         cell?.label.text = array[indexPath.row]
         return cell!
     }
-    //セルが押された時に呼ばれるデリゲートメソッド
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // indexPath.rowを使う
         switch indexPath.row {
         case 0:
             dalegate.toMyPost()
@@ -104,6 +93,7 @@ extension MenuItemViewController :UITableViewDataSource, UITableViewDelegate {
         default: break
         }
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 30
     }

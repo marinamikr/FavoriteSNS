@@ -12,51 +12,36 @@ import RealmSwift
 
 class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
-    
-    
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
-    
-
     var qrCodeFrameView: UIView!
     var userDefaults:UserDefaults = UserDefaults.standard
     let defaults = UserDefaults.standard
-    // セッションのインスタンス生成
     var captureSession :AVCaptureSession!
     var videoLayer: AVCaptureVideoPreviewLayer?
     
-    
     override func viewWillAppear(_ animated: Bool) {
-        
         super.viewWillAppear(animated)
+        self.navigationItem.title = "QR読み取り"
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.gray]
         captureSession = AVCaptureSession()
-        
         let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: AVMediaType.video, position: .back)
-        
         guard let captureDevice = deviceDiscoverySession.devices.first else {
             print("Failed to get the camera device")
             return
         }
-        
         do {
             let input = try AVCaptureDeviceInput(device: captureDevice)
-            
             captureSession.addInput(input)
-            
             let captureMetadataOutput = AVCaptureMetadataOutput()
             captureSession.addOutput(captureMetadataOutput)
-            
             captureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
             captureMetadataOutput.metadataObjectTypes = [AVMetadataObject.ObjectType.qr]
-            
             videoPreviewLayer = AVCaptureVideoPreviewLayer.init(session: captureSession)
             videoPreviewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
             videoPreviewLayer?.frame = view.layer.bounds
             view.layer.addSublayer(videoPreviewLayer!)
-            
             self.captureSession.startRunning()
-            
             qrCodeFrameView = UIView()
-            // スキャンしたQRコードを緑の枠で囲む
             if let qrCodeFrameView = qrCodeFrameView {
                 qrCodeFrameView.layer.borderColor = UIColor.green.cgColor
                 qrCodeFrameView.layer.borderWidth = 2
@@ -73,7 +58,6 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         // Check if the metadataObjects array is not nil and it contains at least one object.
         if metadataObjects.count == 0 {
             qrCodeFrameView?.frame = CGRect.zero
-            print("No QR code is detected")
             return
         }
         
@@ -84,19 +68,14 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
             // If the found metadata is equal to the QR code metadata then update the status label's text and set the bounds
             let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
             qrCodeFrameView?.frame = barCodeObject!.bounds
-            
             if metadataObj.stringValue != nil {
                 let text = metadataObj.stringValue
                 let dataArray = text?.components(separatedBy: ",")
                 self.captureSession.stopRunning()
                 self.performSegue(withIdentifier: "toChooseGroupViewController", sender: dataArray) // sender で指定したものを渡せる
             }
-            
-           
         }
     }
-    
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toChooseGroupViewController" {

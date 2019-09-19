@@ -10,50 +10,29 @@ import UIKit
 import Firebase
 
 class PostTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var iconImageView: UIImageView!
-    
     @IBOutlet weak var userNameLabel: UILabel!
-    
     @IBOutlet weak var pictureImageView: UIImageView!
-    
     @IBOutlet weak var contentsTextView: UITextView!
-    
     @IBOutlet weak var likeLabel: UILabel!
-    
     @IBOutlet weak var starLabel: UILabel!
-        
     @IBOutlet weak var postView: UIView!
-    
     @IBOutlet weak var repryTextView: UITextView!
-    
     @IBOutlet weak var repryButton: UIButton!
-    
     var repryTableViewCellDelegate: RepryTableViewCellDelegate!
-    
-    
     var URL = String()
-    
     var imageURL = String()
-    
     var postModel: Post = Post()
-    
     private var index: Int!
-    
-    // インスタンス変数
     var DBRef:DatabaseReference!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-    
-
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     func makeCorner() {
@@ -62,7 +41,6 @@ class PostTableViewCell: UITableViewCell {
     
     func setPostModel(post: Post) {
         self.postModel = post
-        
     }
     
     func setImage(imageData: String) {
@@ -83,7 +61,6 @@ class PostTableViewCell: UITableViewCell {
     func setIconImage(iconURL: String) {
         self.URL = iconURL
         iconImageView.loadImageCircle(urlString: iconURL)
-        
     }
     
     func setLikeLabel(likeData: Int) {
@@ -108,7 +85,5 @@ class PostTableViewCell: UITableViewCell {
     
     @IBAction func repryButton(_ sender: Any) {
         repryTableViewCellDelegate.toDetail(postModel: postModel, index: index)
-        
     }
-    
 }

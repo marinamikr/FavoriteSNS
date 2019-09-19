@@ -15,52 +15,32 @@ class TimeLineViewController: UIViewController {
     @IBOutlet weak var timeLineTableView: UITableView!
     
     let userDefaults = UserDefaults.standard
-    // インスタンス変数
     var DBRef:DatabaseReference!
-    
     var postArray :Array<Post> = Array()
-    
-    
     var followHandler: UInt = 0
     var friendHandler: UInt = 0
     var postHandler: UInt = 0
-    
     let realm = try! Realm()
-    
     let dateManeger = DateManager()
-    
     var isFirst: Bool = false
-    
     fileprivate let refreshCtl = UIRefreshControl()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         (self.navigationController?.parent as? UITabBarController)?.delegate = self
-     setUpNavigation()
-//
-        
-        //インスタンスを作成
+        setUpNavigation()
         DBRef = Database.database().reference()
         userDefaults.register(defaults: ["isFirst":false])
-        
-        // Do any additional setup after loading the view.
         timeLineTableView.dataSource = self
         timeLineTableView.delegate = self
         timeLineTableView.refreshControl = refreshCtl
         refreshCtl.addTarget(self, action: #selector(TimeLineViewController.refresh(sender:)), for: .valueChanged)
-        //Identifierを設定する
         self.timeLineTableView.register(UINib(nibName: "FriendPostTableViewCell", bundle: nil), forCellReuseIdentifier: "friendPostTableViewCell")
     }
     
-   
-    
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
     }
-
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -72,28 +52,23 @@ class TimeLineViewController: UIViewController {
         }else{
             getUserContents()
         }
-    
         setUpSafeArea()
     }
     
     func setUpNavigation() {
-        
-        self.navigationItem.title = "TimeLine"
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.gray]
-
+        self.navigationItem.title = "Favns"
+        self.navigationController?.navigationBar.titleTextAttributes =
+            [NSAttributedString.Key.foregroundColor: UIColor.gray,
+             NSAttributedString.Key.font: UIFont(name: "azuki_font", size: 21)!]
     }
     
     private func setUpSafeArea(){
-        print("size")
         var topPadding:CGFloat = 0
         var bottomPadding:CGFloat = 0
         var leftPadding:CGFloat = 0
         var rightPadding:CGFloat = 0
-        // 画面の横幅を取得
-        // 以降、Landscape のみを想定
         let screenWidth:CGFloat = view.frame.size.width
         let screenHeight:CGFloat = view.frame.size.height
-        // iPhone X , X以外は0となる
         if #available(iOS 11.0, *) {
             let window = UIApplication.shared.windows[0]
             topPadding = window.safeAreaInsets.top
@@ -117,18 +92,13 @@ class TimeLineViewController: UIViewController {
                           y: topPadding,
                           width: safeAreaWidth,
                           height: safeAreaHeight)
-        // frame をCGRectで作った矩形に合わせる
         timeLineTableView.frame = rect
         print(rect)
     }
     
-   
-    
     func getUserContents(){
         postArray.removeAll()
-        
         let ref = Database.database().reference()
-        
         self.followHandler = ref.child(Util.getUUID()).child("userData").child("follow").observe(.value, with: {snapshot in
             for followUser in snapshot.children {
                 let followUserDict = (followUser as! DataSnapshot).value as! [String:Any]
@@ -139,22 +109,16 @@ class TimeLineViewController: UIViewController {
                         let postDict = (child as! DataSnapshot).value as! [String:Any]
                         self.postHandler = ref.child(friendID).child("userData").observe(.value, with: {snapshot in
                             let userDict = snapshot.value as! [String:Any]
-                            
                             let post = Post()
                             post.setPictureURL(pictureURL: (postDict["imageURL"] as! String))
                             post.setContents(contents: (postDict["contents"] as! String))
                             post.setLikes(likes: (postDict["likes"] as! Int))
-                            //                            post.setRepry(repry: (postDict["repry"] as! [String]))
-                            
                             if let repryData  = postDict["repry"]{
                                 let repry = repryData as! Dictionary<String, Any>
-                                
                                 for key in repry.keys{
                                     post.setRepryData(repryData: repry[key] as! Dictionary<String, String>)
                                 }
-                                //                                print((postDict["repry"] as! Dictionary<>))
                             }
-                            
                             post.setStar(star: (postDict["star"] as! Int))
                             post.setUserName(userName: (userDict["name"] as! String))
                             post.setIconURL(iconURL: (userDict["iconURL"] as! String))
@@ -167,11 +131,8 @@ class TimeLineViewController: UIViewController {
                             self.reload()
                             ref.child(friendID).child("userData").removeObserver(withHandle: self.postHandler)
                         })
-                        
                     }
-                    
                     ref.child(friendID).child("post").child(friendGroupName).removeObserver(withHandle: self.friendHandler)
-                    
                 })
             }
             ref.child(Util.getUUID()).child("userData").child("follow").removeObserver(withHandle: self.followHandler)
@@ -190,17 +151,14 @@ class TimeLineViewController: UIViewController {
         getUserContents()
         refreshCtl.endRefreshing()
     }
-   
-    
 }
 
 extension TimeLineViewController: UITableViewDataSource,UITableViewDelegate {
-    //cellの数
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return postArray.count
     }
     
-    //cellの内容
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = timeLineTableView.dequeueReusableCell(withIdentifier: "friendPostTableViewCell", for: indexPath) as! FriendPostTableViewCell
         if indexPath.row < postArray.count{
@@ -208,9 +166,7 @@ extension TimeLineViewController: UITableViewDataSource,UITableViewDelegate {
             cell.setPostModel(post: post)
             cell.setheartImage(imageName: "pinkhearts.png")
             cell.setIndex(indexData: indexPath.row)
-            cell.makeCorner()
         }
-        
         return cell
     }
     
@@ -227,8 +183,8 @@ extension TimeLineViewController: CustomDelegate {
         let elDrawer = self.navigationController?.parent?.parent as! KYDrawerController
         elDrawer.setDrawerState(KYDrawerController.DrawerState.closed, animated: true)
     }
+    
     func toQrcode() {
-        
         let vc = self.tabBarController!.viewControllers![3]
         self.tabBarController!.selectedViewController = vc
         let elDrawer = self.navigationController?.parent?.parent as! KYDrawerController
@@ -240,7 +196,6 @@ extension TimeLineViewController: CustomDelegate {
         elDrawer.setDrawerState(KYDrawerController.DrawerState.closed, animated: true)
         let vc = self.tabBarController!.viewControllers![0]
         self.tabBarController!.selectedViewController = vc
-        print("toSettingViewController")
         performSegue(withIdentifier: "toSettingViewController", sender: nil)
     }
     
@@ -256,23 +211,17 @@ extension TimeLineViewController: CustomDelegate {
         elDrawer.setDrawerState(KYDrawerController.DrawerState.closed, animated: true)
         let vc = self.tabBarController!.viewControllers![0]
         self.tabBarController!.selectedViewController = vc
-        print("toFriendListViewController")
         performSegue(withIdentifier: "toFriendListViewController", sender: nil)
     }
-    
-    
 }
 
 extension TimeLineViewController:UITabBarControllerDelegate{
     // UITabBarDelegate
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        print("Selected item")
-        print(tabBar.tag)
     }
     
     // UITabBarControllerDelegate
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        print("Selected view controller")
         let vc = (viewController as! UINavigationController).visibleViewController!
         if vc.isKind(of: PostContentsViewController.classForCoder()) {
             let postContentsViewController :PostContentsViewController = vc as! PostContentsViewController
@@ -283,20 +232,14 @@ extension TimeLineViewController:UITabBarControllerDelegate{
             }else{
                 chooseImage(vc: postContentsViewController)
             }
-            
         }
     }
     
     func chooseImage(vc:PostContentsViewController)  {
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-            // 写真を選ぶビュー
             let pickerView = UIImagePickerController()
-            // 写真の選択元をカメラロールにする
-            // 「.camera」にすればカメラを起動できる
             pickerView.sourceType = .photoLibrary
-            // デリゲート
             pickerView.delegate = vc
-            // ビューに表示
             self.present(pickerView, animated: true)
         }
     }

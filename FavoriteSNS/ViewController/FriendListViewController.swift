@@ -18,24 +18,22 @@ class FriendListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "list"
+        if FriendListViewController.isFollow{
+             self.navigationItem.title = "フォロー一覧"
+        }else{
+             self.navigationItem.title = "フォロワー一覧"
+        }
+       
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.gray]
         ref = Database.database().reference()
-        
-        // Do any additional setup after loading the view.
-        // Do any additional setup after loading the view.
         friendTableView.dataSource = self
         friendTableView.delegate = self
         setUpSafeArea()
-        
         if FriendListViewController.isFollow {
             childName = "follow"
         }else{
             childName = "follower"
         }
-        
-        print(childName)
-        
         ref.child(Util.getUUID()).child("userData").child(childName).observe(.value, with: {snapshot in
             for followUser in snapshot.children {
                 let followUserDict = (followUser as! DataSnapshot).value as! [String:Any]
@@ -53,12 +51,9 @@ class FriendListViewController: UIViewController {
                     print(friend.group)
                     self.friendTableView.reloadData()
                 })
-                
             }
         })
-        //Identifierを設定する
         friendTableView.register(UINib(nibName: "FriendTableViewCell", bundle: nil), forCellReuseIdentifier: "friendTableViewCell")
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender:
@@ -72,19 +67,14 @@ class FriendListViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
     }
     private func setUpSafeArea(){
-        print("size")
         var topPadding:CGFloat = 0
         var bottomPadding:CGFloat = 0
         var leftPadding:CGFloat = 0
         var rightPadding:CGFloat = 0
-        // 画面の横幅を取得
-        // 以降、Landscape のみを想定
         let screenWidth:CGFloat = view.frame.size.width
         let screenHeight:CGFloat = view.frame.size.height
-        // iPhone X , X以外は0となる
         if #available(iOS 11.0, *) {
             let window = UIApplication.shared.keyWindow
             topPadding = window!.safeAreaInsets.top
@@ -94,35 +84,26 @@ class FriendListViewController: UIViewController {
             print(topPadding)
         }
         topPadding = topPadding + (self.navigationController?.navigationBar.frame.size.height ?? 0)
-        
-        // portrait
         var safeAreaWidth = screenWidth - leftPadding - rightPadding
         var safeAreaHeight = (screenHeight) - topPadding - bottomPadding
-        // landscape
         if(screenWidth > screenHeight){
             safeAreaWidth = screenWidth - leftPadding - rightPadding
             safeAreaHeight = (screenHeight) - topPadding - bottomPadding
         }
-        
         let rect = CGRect(x: leftPadding,
                           y: topPadding,
                           width: safeAreaWidth,
                           height: safeAreaHeight)
-        // frame をCGRectで作った矩形に合わせる
         friendTableView.frame = rect
-        print(rect)
     }
-    
-    
 }
 
 extension FriendListViewController: UITableViewDataSource,UITableViewDelegate {
-    //cellの数
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return friendArray.count
     }
     
-    //cellの内容
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = friendTableView.dequeueReusableCell(withIdentifier: "friendTableViewCell", for: indexPath) as! FriendTableViewCell
         cell.setFriendName(friendName: friendArray[indexPath.row].userName)
@@ -137,5 +118,4 @@ extension FriendListViewController: UITableViewDataSource,UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "toPostViewController", sender: friendArray[indexPath.row].uuid)
     }
-    
 }

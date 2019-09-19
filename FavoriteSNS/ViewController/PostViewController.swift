@@ -13,51 +13,32 @@ import RealmSwift
 class PostViewController: UIViewController {
     
     @IBOutlet weak var postTableView: UITableView!
-    
     let userDefaults = UserDefaults.standard
-    // インスタンス変数
     var DBRef:DatabaseReference!
-    
     var postArray :Array<Post> = Array()
-    
     var ref:DatabaseReference!
-    
     var handler: UInt = 0
     var groupHandler: UInt = 0
-    
     let realm = try! Realm()
-    
     var uuid :String =  Util.getUUID()
-    
     let dateManeger = DateManager()
-    
     fileprivate let refreshCtl = UIRefreshControl()
-
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-         print("mymyPostVieeContoller")
-        
         self.navigationItem.title = "MyPost"
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.gray]
-        //インスタンスを作成
         DBRef = Database.database().reference()
-        // Do any additional setup after loading the view.
-        
-        // Do any additional setup after loading the view.
         postTableView.dataSource = self
         postTableView.delegate = self
         postTableView.refreshControl = refreshCtl
         refreshCtl.addTarget(self, action: #selector(PostViewController.refresh(sender:)), for: .valueChanged)
-        //Identifierを設定する
         self.postTableView.register(UINib(nibName: "PostTableViewCell", bundle: nil), forCellReuseIdentifier: "postTableViewCell")
         setUpSafeArea()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -66,40 +47,31 @@ class PostViewController: UIViewController {
     }
     
     private func setUpSafeArea(){
-        print("PostVieeContoller")
         var topPadding:CGFloat = 0
         var bottomPadding:CGFloat = 0
         var leftPadding:CGFloat = 0
         var rightPadding:CGFloat = 0
-        // 画面の横幅を取得
-        // 以降、Landscape のみを想定
         let screenWidth:CGFloat = view.frame.size.width
         let screenHeight:CGFloat = view.frame.size.height
-        // iPhone X , X以外は0となる
         if #available(iOS 11.0, *) {
             let window = UIApplication.shared.windows[0]
             topPadding = window.safeAreaInsets.top
             bottomPadding = window.safeAreaInsets.bottom
-            leftPadding = window.safeAreaInsets.left + 16
-            rightPadding = window.safeAreaInsets.right + 16
+            leftPadding = window.safeAreaInsets.left
+            rightPadding = window.safeAreaInsets.right
             print(topPadding)
         }
         topPadding = topPadding + (self.navigationController?.navigationBar.frame.size.height ?? 0)
-        
-        // portrait
         var safeAreaWidth = screenWidth - leftPadding - rightPadding
         var safeAreaHeight = (screenHeight) - topPadding - bottomPadding
-        // landscape
         if(screenWidth > screenHeight){
             safeAreaWidth = screenWidth - leftPadding - rightPadding
             safeAreaHeight = (screenHeight) - topPadding - bottomPadding
         }
-        
         let rect = CGRect(x: leftPadding,
                           y: topPadding,
                           width: safeAreaWidth,
                           height: safeAreaHeight)
-        // frame をCGRectで作った矩形に合わせる
         postTableView.frame = rect
         print(rect)
     }
@@ -119,12 +91,9 @@ class PostViewController: UIViewController {
                             post.setPictureURL(pictureURL: (postDict["imageURL"] as! String))
                             post.setContents(contents: (postDict["contents"] as! String))
                             post.setLikes(likes: (postDict["likes"] as! Int))
-                            
-                            
                             if let repryData  = postDict["repry"]{
                                 var tmpRepryData: Array<Dictionary<String, String>> = Array()
                                 let repry = repryData as! Dictionary<String, Any>
-                                
                                 for key in repry.keys{
                                     tmpRepryData.append(repry[key] as! Dictionary<String, String>)
                                 }
@@ -136,9 +105,6 @@ class PostViewController: UIViewController {
                                     post.setRepryData(repryData: repry)
                                 }
                             }
-                            
-                            
-                            
                             post.setStar(star: (postDict["star"] as! Int))
                             post.setUserName(userName: (userDict["name"] as! String))
                             post.setIconURL(iconURL: (userDict["iconURL"] as! String))
@@ -147,21 +113,12 @@ class PostViewController: UIViewController {
                             post.setGroupName(groupName: groupName)
                             post.setAutoID(autoID: (child as! DataSnapshot).key)
                             self.postArray.append(post)
-                            
                             self.reload()
                         })
-                        
                     }
                 })
-                
-                
-                
-//                self.ref.child(self.uuid).child("userData").removeAllObservers()
-//                self.ref.child(self.uuid).child("post").child(groupName).removeObserver(withHandle: self.handler)
-                
             }
         })
-//        ref.child(self.uuid).child("userData").child("group").removeAllObservers()
     }
     
     func reload(){
@@ -176,18 +133,14 @@ class PostViewController: UIViewController {
         getUserContents()
         refreshCtl.endRefreshing()
     }
-    
-    
-   
 }
 extension PostViewController: UITableViewDataSource,UITableViewDelegate {
-    //cellの数
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print(postArray.count)
         return postArray.count
     }
     
-    //cellの内容
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = postTableView.dequeueReusableCell(withIdentifier: "postTableViewCell", for: indexPath) as! PostTableViewCell
         let post = postArray[indexPath.row]
@@ -199,9 +152,8 @@ extension PostViewController: UITableViewDataSource,UITableViewDelegate {
         cell.setLikeLabel(likeData: post.getLikes())
         cell.setStarLabel(starData: post.getStar())
         if post.getRepryData().count != 0 {
-        cell.setRepryTextView(repryData: post.getRepryData()[0]["repry"]!)
+            cell.setRepryTextView(repryData: post.getRepryData()[0]["repry"]!)
         }
-        
         cell.makeCorner()
         cell.repryTableViewCellDelegate = self
         cell.setIndex(indexData: indexPath.row)
@@ -211,8 +163,6 @@ extension PostViewController: UITableViewDataSource,UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 580
     }
-    
-   
 }
 
 
@@ -222,7 +172,7 @@ extension PostViewController: RepryTableViewCellDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         if segue.identifier == "toRepryViewController" {
+        if segue.identifier == "toRepryViewController" {
             let repryViewController = segue.destination as! RepryViewController
             repryViewController.postModel = sender as! Post
         }

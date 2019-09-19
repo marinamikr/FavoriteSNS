@@ -31,12 +31,14 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="gne-q6-SeR" secondAttribute="bottom" constant="8" id="RhF-Y1-2qS"/>
                     <constraint firstItem="gne-q6-SeR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="e2J-nL-BvE"/>
                     <constraint firstItem="gne-q6-SeR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="24" id="o9a-KD-Alm"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <point key="canvasLocation" x="137.68115942028987" y="133.59375"/>
         </tableViewCell>

@@ -12,26 +12,21 @@ import RealmSwift
 
 class ChooseGroupViewController: UIViewController {
     
-    // インスタンス変数
     var DBRef:DatabaseReference!
-    
     var uuid :String! = ""
     var groupName :String! = ""
     var userName:String!
     var userIconURL :String!
-    
     @IBOutlet weak var iconImage: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var groupNameLabel: UILabel!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //インスタンスを作成
         DBRef = Database.database().reference()
         getUserData(uuid: uuid, groupName: groupName)
-    
     }
+    
     func getUserData(uuid: String, groupName: String) {
         DBRef.child(uuid).child("userData").observe(.value, with: {snapshot  in
             let postDict = snapshot.value as! [String : AnyObject]
@@ -54,6 +49,4 @@ class ChooseGroupViewController: UIViewController {
         DBRef.child(uuid).child("userData").child("follower").childByAutoId().setValue(friendData)
         navigationController?.popToRootViewController(animated: true)
     }
-    
-    
 }

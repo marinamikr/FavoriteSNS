@@ -22,8 +22,15 @@
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3f5-gl-WGu">
                         <rect key="frame" x="32" y="0.0" width="256" height="183.66666666666666"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qor-MT-Zyo">
+                                <rect key="frame" x="0.0" y="0.0" width="256" height="16"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="Luv-yR-V4F"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oRy-3u-VQR">
-                                <rect key="frame" x="0.0" y="0.0" width="256" height="128.66666666666666"/>
+                                <rect key="frame" x="0.0" y="16" width="256" height="128.66666666666666"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uvY-dh-2VV">
                                         <rect key="frame" x="63.666666666666671" y="0.0" width="128.66666666666663" height="128.66666666666666"/>
@@ -39,7 +46,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="uvY-dh-2VV" secondAttribute="bottom" id="A7W-g4-Spp"/>
                                     <constraint firstItem="uvY-dh-2VV" firstAttribute="top" secondItem="oRy-3u-VQR" secondAttribute="top" id="HSC-AT-0qt"/>
@@ -49,14 +56,14 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lwA-5z-A5g">
-                                <rect key="frame" x="0.0" y="128.66666666666666" width="256" height="16"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="0.0" y="144.66666666666666" width="256" height="16"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="16" id="Dds-qo-xUv"/>
                                 </constraints>
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="r4Y-hz-drl">
-                                <rect key="frame" x="0.0" y="144.66666666666666" width="256" height="39"/>
+                                <rect key="frame" x="0.0" y="160.66666666666666" width="256" height="23"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -68,6 +75,7 @@
                         </constraints>
                     </stackView>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="3f5-gl-WGu" secondAttribute="bottom" constant="16" id="EWB-sE-4SS"/>
                     <constraint firstItem="3f5-gl-WGu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="32" id="XTP-UV-oy0"/>
@@ -75,6 +83,7 @@
                     <constraint firstItem="3f5-gl-WGu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="nDt-Rj-yI2"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="choosePictureLabel" destination="mgH-T1-aXd" id="GJG-e1-beZ"/>

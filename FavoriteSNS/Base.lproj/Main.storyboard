@@ -563,9 +563,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="Z3T-vf-Wj4">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FDL-Ie-Z3w">
                                 <rect key="frame" x="0.0" y="88" width="375" height="724"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dBr-og-ZJd">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="41"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -581,6 +584,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Z3T-vf-Wj4" secondAttribute="bottom" id="4ar-Vh-lng"/>
+                            <constraint firstItem="Z3T-vf-Wj4" firstAttribute="top" secondItem="Br5-eG-M3e" secondAttribute="top" id="Cys-Kt-KIG"/>
+                            <constraint firstItem="Z3T-vf-Wj4" firstAttribute="leading" secondItem="Br5-eG-M3e" secondAttribute="leading" id="Mwc-nW-3Ju"/>
+                            <constraint firstAttribute="trailing" secondItem="Z3T-vf-Wj4" secondAttribute="trailing" id="RfM-Ht-syu"/>
                             <constraint firstItem="FDL-Ie-Z3w" firstAttribute="top" secondItem="vov-1J-TOB" secondAttribute="top" id="ZDa-gg-wKN"/>
                             <constraint firstItem="FDL-Ie-Z3w" firstAttribute="leading" secondItem="vov-1J-TOB" secondAttribute="leading" id="edK-kh-06I"/>
                             <constraint firstItem="FDL-Ie-Z3w" firstAttribute="trailing" secondItem="vov-1J-TOB" secondAttribute="trailing" id="loZ-ev-aNn"/>
@@ -885,7 +892,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nyB-sg-020" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4766" y="258"/>
+            <point key="canvasLocation" x="6066" y="546"/>
         </scene>
         <!--Make Group View Controller-->
         <scene sceneID="CfF-U1-eYd">
