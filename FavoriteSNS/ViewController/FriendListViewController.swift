@@ -47,8 +47,6 @@ class FriendListViewController: UIViewController {
                     friend.userName = userDict["name"] as! String
                     friend.userIconURL = userDict["iconURL"] as! String
                     self.friendArray.append(friend)
-                    print(friend.userName)
-                    print(friend.group)
                     self.friendTableView.reloadData()
                 })
             }
@@ -81,7 +79,6 @@ class FriendListViewController: UIViewController {
             bottomPadding = window!.safeAreaInsets.bottom
             leftPadding = window!.safeAreaInsets.left + 16
             rightPadding = window!.safeAreaInsets.right + 16
-            print(topPadding)
         }
         topPadding = topPadding + (self.navigationController?.navigationBar.frame.size.height ?? 0)
         var safeAreaWidth = screenWidth - leftPadding - rightPadding

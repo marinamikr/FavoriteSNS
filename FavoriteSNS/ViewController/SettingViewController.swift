@@ -40,7 +40,6 @@ class SettingViewController: UIViewController {
             bottomPadding = window!.safeAreaInsets.bottom
             leftPadding = window!.safeAreaInsets.left + 16
             rightPadding = window!.safeAreaInsets.right + 16
-            print(topPadding)
         }
         topPadding = topPadding + (self.navigationController?.navigationBar.frame.size.height ?? 0)
         var safeAreaWidth = screenWidth - leftPadding - rightPadding
@@ -54,7 +53,6 @@ class SettingViewController: UIViewController {
                           width: safeAreaWidth,
                           height: safeAreaHeight)
         settingTableView.frame = rect
-        print(rect)
     }
 }
 

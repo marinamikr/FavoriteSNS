@@ -56,7 +56,6 @@ class RepryViewController: UIViewController {
             bottomPadding = window!.safeAreaInsets.bottom
             leftPadding = window!.safeAreaInsets.left + 16
             rightPadding = window!.safeAreaInsets.right + 16
-            print(topPadding)
         }
         topPadding = topPadding + (self.navigationController?.navigationBar.frame.size.height ?? 0)
         var safeAreaWidth = screenWidth - leftPadding - rightPadding
@@ -108,7 +107,6 @@ class RepryViewController: UIViewController {
             var tmpRepryData: Array<Dictionary<String, String>> = Array()
             for child in snapshot.children {
                 let repryDict = (child as! DataSnapshot).value as! Dictionary<String, String>
-                print(repryDict)
                 tmpRepryData.append(repryDict)
             }
             self.postModel.deletRepryData()

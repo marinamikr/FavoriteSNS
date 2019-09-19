@@ -70,9 +70,7 @@ class PostContentsViewController: UIViewController {
                 var time = dateManeger.stringFromDate(date: Date())
                 let data = ["contents": self.postTextTableViewCell.textView.text,"imageURL": downloadURL,"likes": 0,"star": self.starIndex,"time": time] as [String : Any]
                 let ref = Database.database().reference()
-                print(self.postGroupItemTableViewCellArray.count)
                 for postGroupItemTableViewCell in self.postGroupItemTableViewCellArray{
-                    print(postGroupItemTableViewCell.groupNameLabel.text)
                     if postGroupItemTableViewCell.chooseGroupSwitch.isOn { ref.child(Util.getUUID()).child("post").child(postGroupItemTableViewCell.groupNameLabel.text!).childByAutoId().setValue(data)
                         self.alert.dismiss(animated: true, completion: nil)
                     }
@@ -122,6 +120,7 @@ class PostContentsViewController: UIViewController {
                 isGroopChoiced = true
             }
         }
+        print(isGroopChoiced)
         if isGroopChoiced && self.starIndex >= 1 && self.postTextTableViewCell.textView.text != "" && self.postTextTableViewCell.pictureImageView.image != nil{
             uploadContents()
         } else if  self.starIndex == 0 && self.postTextTableViewCell.textView.text != "" && self.postTextTableViewCell.pictureImageView.image != nil{

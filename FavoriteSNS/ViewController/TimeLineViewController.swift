@@ -75,7 +75,6 @@ class TimeLineViewController: UIViewController {
             bottomPadding = window.safeAreaInsets.bottom
             leftPadding = window.safeAreaInsets.left
             rightPadding = window.safeAreaInsets.right
-            print(topPadding)
         }
         topPadding = topPadding + (self.navigationController?.navigationBar.frame.size.height ?? 0)
         
@@ -93,7 +92,6 @@ class TimeLineViewController: UIViewController {
                           width: safeAreaWidth,
                           height: safeAreaHeight)
         timeLineTableView.frame = rect
-        print(rect)
     }
     
     func getUserContents(){
@@ -126,7 +124,6 @@ class TimeLineViewController: UIViewController {
                             post.setGroupName(groupName:friendGroupName)
                             post.setAutoID(autoID: (child as! DataSnapshot).key)
                             post.setTime(time: self.dateManeger.dateFromString(string: (postDict["time"] as! String)))
-                            print((child as! DataSnapshot).key)
                             self.postArray.append(post)
                             self.reload()
                             ref.child(friendID).child("userData").removeObserver(withHandle: self.postHandler)

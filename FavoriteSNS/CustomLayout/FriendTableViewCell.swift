@@ -22,7 +22,6 @@ class FriendTableViewCell: UITableViewCell {
     }
     
     func setFriendName(friendName: String) {
-        print(friendName)
         friendNameLabel.text = friendName
     }
     

@@ -59,7 +59,6 @@ class PostViewController: UIViewController {
             bottomPadding = window.safeAreaInsets.bottom
             leftPadding = window.safeAreaInsets.left
             rightPadding = window.safeAreaInsets.right
-            print(topPadding)
         }
         topPadding = topPadding + (self.navigationController?.navigationBar.frame.size.height ?? 0)
         var safeAreaWidth = screenWidth - leftPadding - rightPadding
@@ -73,7 +72,6 @@ class PostViewController: UIViewController {
                           width: safeAreaWidth,
                           height: safeAreaHeight)
         postTableView.frame = rect
-        print(rect)
     }
     
     func getUserContents(){
@@ -137,7 +135,6 @@ class PostViewController: UIViewController {
 extension PostViewController: UITableViewDataSource,UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(postArray.count)
         return postArray.count
     }
     

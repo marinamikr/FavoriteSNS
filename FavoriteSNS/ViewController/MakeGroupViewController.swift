@@ -42,7 +42,6 @@ class MakeGroupViewController: UIViewController {
     }
     
     func uploadGroupName(groupName: String) {
-        print("upload")
         let groupArray = [groupName]
         let ref = Database.database().reference()
         ref.child(Util.getUUID()).child("userData").child("group").setValue(groupArray)

@@ -13,7 +13,6 @@ class DateManager{
     let format = "yyyy/MM/dd/HH/mm/ss"
     
     func dateFromString(string: String) -> Date {
-        print(string)
         let formatter: DateFormatter = DateFormatter()
         formatter.calendar = Calendar(identifier: .gregorian)
         formatter.dateFormat = format
