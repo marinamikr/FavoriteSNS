@@ -77,11 +77,11 @@ class PostViewController: UIViewController {
         let screenHeight:CGFloat = view.frame.size.height
         // iPhone X , X以外は0となる
         if #available(iOS 11.0, *) {
-            let window = UIApplication.shared.keyWindow
-            topPadding = window!.safeAreaInsets.top
-            bottomPadding = window!.safeAreaInsets.bottom
-            leftPadding = window!.safeAreaInsets.left + 16
-            rightPadding = window!.safeAreaInsets.right + 16
+            let window = UIApplication.shared.windows[0]
+            topPadding = window.safeAreaInsets.top
+            bottomPadding = window.safeAreaInsets.bottom
+            leftPadding = window.safeAreaInsets.left + 16
+            rightPadding = window.safeAreaInsets.right + 16
             print(topPadding)
         }
         topPadding = topPadding + (self.navigationController?.navigationBar.frame.size.height ?? 0)
@@ -178,6 +178,7 @@ class PostViewController: UIViewController {
     }
     
     
+   
 }
 extension PostViewController: UITableViewDataSource,UITableViewDelegate {
     //cellの数

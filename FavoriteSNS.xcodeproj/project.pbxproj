@@ -10,6 +10,13 @@
 		1F11E96B22C23AAF006AACA1 /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F11E96922C23AAF006AACA1 /* FriendTableViewCell.swift */; };
 		1F11E96C22C23AAF006AACA1 /* FriendTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F11E96A22C23AAF006AACA1 /* FriendTableViewCell.xib */; };
 		1F11E96E22C23B30006AACA1 /* FriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F11E96D22C23B30006AACA1 /* FriendListViewController.swift */; };
+		1F120D8523338263009F3BB7 /* photo-camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F120D8423338263009F3BB7 /* photo-camera.png */; };
+		1F120D8B23338B89009F3BB7 /* paper-plane.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F120D8623338B89009F3BB7 /* paper-plane.png */; };
+		1F120D8C23338B89009F3BB7 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F120D8723338B89009F3BB7 /* settings.png */; };
+		1F120D8D23338B89009F3BB7 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F120D8823338B89009F3BB7 /* user.png */; };
+		1F120D8E23338B89009F3BB7 /* qr-code.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F120D8923338B89009F3BB7 /* qr-code.png */; };
+		1F120D8F23338B89009F3BB7 /* writing.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F120D8A23338B89009F3BB7 /* writing.png */; };
+		1F120D9123338D2B009F3BB7 /* home 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F120D9023338D2B009F3BB7 /* home 2.png */; };
 		402A625E228AC129002D2DD8 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402A625D228AC129002D2DD8 /* PostViewController.swift */; };
 		402A6260228AC15C002D2DD8 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402A625F228AC15C002D2DD8 /* CameraViewController.swift */; };
 		402A6262228AC16D002D2DD8 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402A6261228AC16D002D2DD8 /* SettingViewController.swift */; };
@@ -101,6 +108,13 @@
 		1F11E96922C23AAF006AACA1 /* FriendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
 		1F11E96A22C23AAF006AACA1 /* FriendTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendTableViewCell.xib; sourceTree = "<group>"; };
 		1F11E96D22C23B30006AACA1 /* FriendListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListViewController.swift; sourceTree = "<group>"; };
+		1F120D8423338263009F3BB7 /* photo-camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo-camera.png"; sourceTree = "<group>"; };
+		1F120D8623338B89009F3BB7 /* paper-plane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "paper-plane.png"; sourceTree = "<group>"; };
+		1F120D8723338B89009F3BB7 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		1F120D8823338B89009F3BB7 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
+		1F120D8923338B89009F3BB7 /* qr-code.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qr-code.png"; sourceTree = "<group>"; };
+		1F120D8A23338B89009F3BB7 /* writing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = writing.png; sourceTree = "<group>"; };
+		1F120D9023338D2B009F3BB7 /* home 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home 2.png"; sourceTree = "<group>"; };
 		2E7ADF7DABFC240C6CA45CAA /* Pods-FavoriteSNS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FavoriteSNS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FavoriteSNS/Pods-FavoriteSNS.debug.xcconfig"; sourceTree = "<group>"; };
 		3DB3D5F8A21BABFE255C0BC8 /* Pods_FavoriteSNS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FavoriteSNS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		402A625D228AC129002D2DD8 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
@@ -364,6 +378,13 @@
 		40BC7F84224C50E2005EC53C /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				1F120D8623338B89009F3BB7 /* paper-plane.png */,
+				1F120D8923338B89009F3BB7 /* qr-code.png */,
+				1F120D8723338B89009F3BB7 /* settings.png */,
+				1F120D9023338D2B009F3BB7 /* home 2.png */,
+				1F120D8823338B89009F3BB7 /* user.png */,
+				1F120D8A23338B89009F3BB7 /* writing.png */,
+				1F120D8423338263009F3BB7 /* photo-camera.png */,
 				40BC7F87224C54E3005EC53C /* pinkhearts.png */,
 				4074E38422A663200027BDD4 /* star.png */,
 				4074E38322A663200027BDD4 /* yellowStar.png */,
@@ -517,18 +538,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				4065DEDE22E6AD5F00EBD8A2 /* azuki.ttf in Resources */,
+				1F120D8F23338B89009F3BB7 /* writing.png in Resources */,
 				4065DED722E6A98000EBD8A2 /* timeline.png in Resources */,
 				40BC7F6C224B15E7005EC53C /* FriendPostTableViewCell.xib in Resources */,
 				4074E39022A6766B0027BDD4 /* CustomCell.xib in Resources */,
 				1F11E96C22C23AAF006AACA1 /* FriendTableViewCell.xib in Resources */,
 				4065DED922E6A98000EBD8A2 /* toukou.png in Resources */,
 				AAF6BCEE224C5EDF007290D0 /* GoogleService-Info.plist in Resources */,
+				1F120D9123338D2B009F3BB7 /* home 2.png in Resources */,
 				4065DEDB22E6A98000EBD8A2 /* setting1.png in Resources */,
 				4065DED422E6A98000EBD8A2 /* camera.png in Resources */,
 				4065DEE422E6B29200EBD8A2 /* timeline2.png in Resources */,
 				4074E38A22A66B6B0027BDD4 /* PostTableViewCell.xib in Resources */,
 				4074E38522A663200027BDD4 /* yellowStar.png in Resources */,
 				4065DEEA22E92FC900EBD8A2 /* RepryTableViewCell.xib in Resources */,
+				1F120D8E23338B89009F3BB7 /* qr-code.png in Resources */,
 				4065DED622E6A98000EBD8A2 /* qrcode.png in Resources */,
 				4058E27022A685F6009553E9 /* AddGroupCustomCell.xib in Resources */,
 				406D519722486FAE0051086E /* LaunchScreen.storyboard in Resources */,
@@ -540,9 +564,13 @@
 				4065DED322E6A98000EBD8A2 /* addFriend.png in Resources */,
 				40BC7F88224C54E4005EC53C /* pinkhearts.png in Resources */,
 				40BC7F7E224B6197005EC53C /* MenuItemTableViewCell.xib in Resources */,
+				1F120D8C23338B89009F3BB7 /* settings.png in Resources */,
 				4065DED222E6A98000EBD8A2 /* makeaccount.png in Resources */,
+				1F120D8D23338B89009F3BB7 /* user.png in Resources */,
+				1F120D8B23338B89009F3BB7 /* paper-plane.png in Resources */,
 				4065DEE022E6AE0500EBD8A2 /* toukou2.png in Resources */,
 				4074E38622A663200027BDD4 /* star.png in Resources */,
+				1F120D8523338263009F3BB7 /* photo-camera.png in Resources */,
 				406D519422486FAE0051086E /* Assets.xcassets in Resources */,
 				406D519222486FAD0051086E /* Main.storyboard in Resources */,
 				4065DEDA22E6A98000EBD8A2 /* myPost.png in Resources */,

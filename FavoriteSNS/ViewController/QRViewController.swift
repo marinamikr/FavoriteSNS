@@ -67,8 +67,8 @@ class QRViewController: UIViewController {
            self.qrImage.image = self.makeQRCodeImage(text: Util.getUUID(), group: self.groupArray[0])
         })
     }
-            
-
+    
+  
 
 }
 

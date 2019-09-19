@@ -37,16 +37,11 @@ class TimeLineViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // タイトルをセット
-        self.navigationItem.title = "TimeLine"
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.gray]
-        
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "+", style: UIBarButtonItem.Style.plain, target: self, action:#selector(self.makeContains))
-        
+     setUpNavigation()
+//
         
         //インスタンスを作成
         DBRef = Database.database().reference()
-        
         userDefaults.register(defaults: ["isFirst":false])
         
         // Do any additional setup after loading the view.
@@ -69,23 +64,23 @@ class TimeLineViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let elDrawer = self.navigationController?.parent as! KYDrawerController
+        let elDrawer = self.navigationController?.parent?.parent as! KYDrawerController
         (elDrawer.drawerViewController as! MenuItemViewController).dalegate = self
-        elDrawer.setDrawerState(KYDrawerController.DrawerState.opened, animated: true)
-        
         isFirst = userDefaults.bool(forKey: "isFirst")
         if !isFirst {
             performSegue(withIdentifier: "toTopViewController",sender: nil)
         }else{
             getUserContents()
         }
-        
-        // ナビゲーションを透明にする処理
-        self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController!.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.tintColor = .gray
-
+    
         setUpSafeArea()
+    }
+    
+    func setUpNavigation() {
+        
+        self.navigationItem.title = "TimeLine"
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.gray]
+
     }
     
     private func setUpSafeArea(){
@@ -100,11 +95,11 @@ class TimeLineViewController: UIViewController {
         let screenHeight:CGFloat = view.frame.size.height
         // iPhone X , X以外は0となる
         if #available(iOS 11.0, *) {
-            let window = UIApplication.shared.keyWindow
-            topPadding = window!.safeAreaInsets.top
-            bottomPadding = window!.safeAreaInsets.bottom
-            leftPadding = window!.safeAreaInsets.left + 16
-            rightPadding = window!.safeAreaInsets.right + 16
+            let window = UIApplication.shared.windows[0]
+            topPadding = window.safeAreaInsets.top
+            bottomPadding = window.safeAreaInsets.bottom
+            leftPadding = window.safeAreaInsets.left
+            rightPadding = window.safeAreaInsets.right
             print(topPadding)
         }
         topPadding = topPadding + (self.navigationController?.navigationBar.frame.size.height ?? 0)
@@ -127,9 +122,7 @@ class TimeLineViewController: UIViewController {
         print(rect)
     }
     
-    @objc func makeContains(){
-        performSegue(withIdentifier: "toContaints", sender: nil)
-    }
+   
     
     func getUserContents(){
         postArray.removeAll()
@@ -197,6 +190,7 @@ class TimeLineViewController: UIViewController {
         getUserContents()
         refreshCtl.endRefreshing()
     }
+   
     
 }
 
@@ -228,30 +222,33 @@ extension TimeLineViewController: UITableViewDataSource,UITableViewDelegate {
 extension TimeLineViewController: CustomDelegate {
     
     func toCamera() {
-        let elDrawer = self.navigationController?.parent as! KYDrawerController
+        let elDrawer = self.navigationController?.parent?.parent as! KYDrawerController
         elDrawer.setDrawerState(KYDrawerController.DrawerState.closed, animated: true)
         performSegue(withIdentifier: "toCameraViewController", sender: nil)
     }
     func toQrcode() {
-        let elDrawer = self.navigationController?.parent as! KYDrawerController
+        
+        let vc = self.tabBarController!.viewControllers![3]
+        self.tabBarController!.selectedViewController = vc
+        let elDrawer = self.navigationController?.parent?.parent as! KYDrawerController
         elDrawer.setDrawerState(KYDrawerController.DrawerState.closed, animated: true)
-        performSegue(withIdentifier: "toQrcodeViewController", sender: nil)
     }
     
     func toSetting() {
-        let elDrawer = self.navigationController?.parent as! KYDrawerController
+        let elDrawer = self.navigationController?.parent?.parent as! KYDrawerController
         elDrawer.setDrawerState(KYDrawerController.DrawerState.closed, animated: true)
         performSegue(withIdentifier: "toSettingViewController", sender: nil)
     }
     
     func toMyPost() {
-        let elDrawer = self.navigationController?.parent as! KYDrawerController
+        let vc = self.tabBarController!.viewControllers![1]
+        self.tabBarController!.selectedViewController = vc
+        let elDrawer = self.navigationController?.parent?.parent as! KYDrawerController
         elDrawer.setDrawerState(KYDrawerController.DrawerState.closed, animated: true)
-        performSegue(withIdentifier: "toPostViewController", sender: nil)
     }
     
     func toFriend() {
-        let elDrawer = self.navigationController?.parent as! KYDrawerController
+        let elDrawer = self.navigationController?.parent?.parent as! KYDrawerController
         elDrawer.setDrawerState(KYDrawerController.DrawerState.closed, animated: true)
         performSegue(withIdentifier: "toFriendListViewController", sender: nil)
     }
