@@ -20,27 +20,43 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3f5-gl-WGu">
-                        <rect key="frame" x="32" y="0.0" width="256" height="199.66666666666666"/>
+                        <rect key="frame" x="32" y="0.0" width="256" height="183.66666666666666"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oRy-3u-VQR">
-                                <rect key="frame" x="0.0" y="0.0" width="256" height="139.66666666666666"/>
+                                <rect key="frame" x="0.0" y="0.0" width="256" height="128.66666666666666"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uvY-dh-2VV">
-                                        <rect key="frame" x="58" y="0.0" width="140" height="139.66666666666666"/>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uvY-dh-2VV">
+                                        <rect key="frame" x="63.666666666666671" y="0.0" width="128.66666666666663" height="128.66666666666666"/>
+                                        <color key="backgroundColor" red="0.7346348762512207" green="0.79809349775314331" blue="0.8902093768119812" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="uvY-dh-2VV" secondAttribute="height" multiplier="1:1" id="a53-7u-EM0"/>
                                         </constraints>
                                     </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="画像を選択" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgH-T1-aXd">
+                                        <rect key="frame" x="84.666666666666657" y="54.000000000000007" width="86.666666666666657" height="20.333333333333336"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="uvY-dh-2VV" secondAttribute="bottom" id="A7W-g4-Spp"/>
                                     <constraint firstItem="uvY-dh-2VV" firstAttribute="top" secondItem="oRy-3u-VQR" secondAttribute="top" id="HSC-AT-0qt"/>
+                                    <constraint firstItem="mgH-T1-aXd" firstAttribute="centerX" secondItem="uvY-dh-2VV" secondAttribute="centerX" id="Wra-VG-1oA"/>
                                     <constraint firstItem="uvY-dh-2VV" firstAttribute="centerX" secondItem="oRy-3u-VQR" secondAttribute="centerX" id="Za3-o4-u6E"/>
+                                    <constraint firstItem="mgH-T1-aXd" firstAttribute="centerY" secondItem="uvY-dh-2VV" secondAttribute="centerY" id="nmw-dL-f6U"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lwA-5z-A5g">
+                                <rect key="frame" x="0.0" y="128.66666666666666" width="256" height="16"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="Dds-qo-xUv"/>
                                 </constraints>
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="r4Y-hz-drl">
-                                <rect key="frame" x="0.0" y="139.66666666666666" width="256" height="60"/>
+                                <rect key="frame" x="0.0" y="144.66666666666666" width="256" height="39"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -53,7 +69,7 @@
                     </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="3f5-gl-WGu" secondAttribute="bottom" id="EWB-sE-4SS"/>
+                    <constraint firstAttribute="bottom" secondItem="3f5-gl-WGu" secondAttribute="bottom" constant="16" id="EWB-sE-4SS"/>
                     <constraint firstItem="3f5-gl-WGu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="32" id="XTP-UV-oy0"/>
                     <constraint firstAttribute="trailing" secondItem="3f5-gl-WGu" secondAttribute="trailing" constant="32" id="hvE-T9-2Wm"/>
                     <constraint firstItem="3f5-gl-WGu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="nDt-Rj-yI2"/>
@@ -61,6 +77,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="choosePictureLabel" destination="mgH-T1-aXd" id="GJG-e1-beZ"/>
                 <outlet property="pictureImageView" destination="uvY-dh-2VV" id="1ze-ca-Rmt"/>
                 <outlet property="textView" destination="r4Y-hz-drl" id="eyK-bW-JXh"/>
             </connections>

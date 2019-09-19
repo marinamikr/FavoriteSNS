@@ -40,10 +40,10 @@ class TimeLineViewController: UIViewController {
         // タイトルをセット
         self.navigationItem.title = "TimeLine"
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.gray]
-       
+        
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "+", style: UIBarButtonItem.Style.plain, target: self, action:#selector(self.makeContains))
         
-    
+        
         //インスタンスを作成
         DBRef = Database.database().reference()
         
@@ -56,24 +56,16 @@ class TimeLineViewController: UIViewController {
         refreshCtl.addTarget(self, action: #selector(TimeLineViewController.refresh(sender:)), for: .valueChanged)
         //Identifierを設定する
         self.timeLineTableView.register(UINib(nibName: "FriendPostTableViewCell", bundle: nil), forCellReuseIdentifier: "friendPostTableViewCell")
-        
-        if #available(iOS 11, *) {
-            let guide = view.safeAreaLayoutGuide
-            NSLayoutConstraint.activate([
-                timeLineTableView.topAnchor.constraint(equalToSystemSpacingBelow: guide.topAnchor, multiplier: 1.0),
-                guide.bottomAnchor.constraint(equalToSystemSpacingBelow: timeLineTableView.bottomAnchor, multiplier: 1.0)
-                ])
-        } else {
-            let standardSpacing: CGFloat = 8.0
-            NSLayoutConstraint.activate([
-                timeLineTableView.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor, constant: standardSpacing),
-                bottomLayoutGuide.topAnchor.constraint(equalTo: timeLineTableView.bottomAnchor, constant: standardSpacing)
-                ])
-        }
-        let frame = timeLineTableView.frame
-        timeLineTableView.frame = CGRect(x:16 , y: frame.origin.y, width:  UIScreen.main.bounds.width - 32, height: frame.size.height)
+    }
+    
+   
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
     }
+
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -92,7 +84,49 @@ class TimeLineViewController: UIViewController {
         self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController!.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.tintColor = .gray
+
+        setUpSafeArea()
     }
+    
+    private func setUpSafeArea(){
+        print("size")
+        var topPadding:CGFloat = 0
+        var bottomPadding:CGFloat = 0
+        var leftPadding:CGFloat = 0
+        var rightPadding:CGFloat = 0
+        // 画面の横幅を取得
+        // 以降、Landscape のみを想定
+        let screenWidth:CGFloat = view.frame.size.width
+        let screenHeight:CGFloat = view.frame.size.height
+        // iPhone X , X以外は0となる
+        if #available(iOS 11.0, *) {
+            let window = UIApplication.shared.keyWindow
+            topPadding = window!.safeAreaInsets.top
+            bottomPadding = window!.safeAreaInsets.bottom
+            leftPadding = window!.safeAreaInsets.left + 16
+            rightPadding = window!.safeAreaInsets.right + 16
+            print(topPadding)
+        }
+        topPadding = topPadding + (self.navigationController?.navigationBar.frame.size.height ?? 0)
+        
+        // portrait
+        var safeAreaWidth = screenWidth - leftPadding - rightPadding
+        var safeAreaHeight = (screenHeight) - topPadding - bottomPadding
+        // landscape
+        if(screenWidth > screenHeight){
+            safeAreaWidth = screenWidth - leftPadding - rightPadding
+            safeAreaHeight = (screenHeight) - topPadding - bottomPadding
+        }
+        
+        let rect = CGRect(x: leftPadding,
+                          y: topPadding,
+                          width: safeAreaWidth,
+                          height: safeAreaHeight)
+        // frame をCGRectで作った矩形に合わせる
+        timeLineTableView.frame = rect
+        print(rect)
+    }
+    
     @objc func makeContains(){
         performSegue(withIdentifier: "toContaints", sender: nil)
     }
@@ -117,7 +151,7 @@ class TimeLineViewController: UIViewController {
                             post.setPictureURL(pictureURL: (postDict["imageURL"] as! String))
                             post.setContents(contents: (postDict["contents"] as! String))
                             post.setLikes(likes: (postDict["likes"] as! Int))
-//                            post.setRepry(repry: (postDict["repry"] as! [String]))
+                            //                            post.setRepry(repry: (postDict["repry"] as! [String]))
                             
                             if let repryData  = postDict["repry"]{
                                 let repry = repryData as! Dictionary<String, Any>
@@ -125,7 +159,7 @@ class TimeLineViewController: UIViewController {
                                 for key in repry.keys{
                                     post.setRepryData(repryData: repry[key] as! Dictionary<String, String>)
                                 }
-//                                print((postDict["repry"] as! Dictionary<>))
+                                //                                print((postDict["repry"] as! Dictionary<>))
                             }
                             
                             post.setStar(star: (postDict["star"] as! Int))
@@ -185,12 +219,14 @@ extension TimeLineViewController: UITableViewDataSource,UITableViewDelegate {
         
         return cell
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 600
+        return 580
     }
+    
 }
 extension TimeLineViewController: CustomDelegate {
-   
+    
     func toCamera() {
         let elDrawer = self.navigationController?.parent as! KYDrawerController
         elDrawer.setDrawerState(KYDrawerController.DrawerState.closed, animated: true)

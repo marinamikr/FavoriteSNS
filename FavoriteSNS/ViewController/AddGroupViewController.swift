@@ -40,7 +40,52 @@ class AddGroupViewController: UIViewController {
 
         //Identifierを設定する
         self.allGroupTableView.register(UINib(nibName: "AddGroupCustomCell", bundle: nil), forCellReuseIdentifier: "addGroupCustomCell")
+        setUpSafeArea()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
+    private func setUpSafeArea(){
+        print("size")
+        var topPadding:CGFloat = 0
+        var bottomPadding:CGFloat = 0
+        var leftPadding:CGFloat = 0
+        var rightPadding:CGFloat = 0
+        // 画面の横幅を取得
+        // 以降、Landscape のみを想定
+        let screenWidth:CGFloat = view.frame.size.width
+        let screenHeight:CGFloat = view.frame.size.height
+        // iPhone X , X以外は0となる
+        if #available(iOS 11.0, *) {
+            let window = UIApplication.shared.keyWindow
+            topPadding = window!.safeAreaInsets.top
+            bottomPadding = window!.safeAreaInsets.bottom
+            leftPadding = window!.safeAreaInsets.left + 16
+            rightPadding = window!.safeAreaInsets.right + 16
+            print(topPadding)
+        }
+        topPadding = topPadding + (self.navigationController?.navigationBar.frame.size.height ?? 0)
+        
+        // portrait
+        var safeAreaWidth = screenWidth - leftPadding - rightPadding
+        var safeAreaHeight = (screenHeight) - topPadding - bottomPadding
+        // landscape
+        if(screenWidth > screenHeight){
+            safeAreaWidth = screenWidth - leftPadding - rightPadding
+            safeAreaHeight = (screenHeight) - topPadding - bottomPadding
+        }
+        
+        let rect = CGRect(x: leftPadding,
+                          y: topPadding,
+                          width: safeAreaWidth,
+                          height: safeAreaHeight)
+        // frame をCGRectで作った矩形に合わせる
+        allGroupTableView.frame = rect
+        print(rect)
+    }
+    
     @objc func addGroup(){
         // テキストフィールド付きアラート表示
         

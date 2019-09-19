@@ -5,7 +5,6 @@
 //  Created by 原田摩利奈 on 2019/03/27.
 //  Copyright © 2019 原田摩利奈. All rights reserved.
 //
-
 import UIKit
 import Firebase
 
@@ -58,7 +57,7 @@ class FriendPostTableViewCell: UITableViewCell {
     
     
     func makeCorner() {
-//        containtsView.layer.cornerRadius = 30
+        //        containtsView.layer.cornerRadius = 30
     }
     
     func setPostModel(post: Post) {
@@ -164,7 +163,7 @@ class FriendPostTableViewCell: UITableViewCell {
     }
     
     func upLoadComment(comment: String) {
-
+        
         let dateManeger = DateManager()
         var time = dateManeger.stringFromDate(date: Date())
         let data = ["uuid": Util.getUUID(),"repry": comment,"time":time] as [String : Any]
@@ -172,4 +171,3 @@ class FriendPostTableViewCell: UITableViewCell {
     }
     
 }
-

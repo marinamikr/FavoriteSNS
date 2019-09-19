@@ -12,7 +12,8 @@ class PostTextTableViewCell: UITableViewCell {
     
     @IBOutlet weak var pictureImageView: UIImageView!
     @IBOutlet weak var textView: UITextView!
-
+    @IBOutlet weak var choosePictureLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

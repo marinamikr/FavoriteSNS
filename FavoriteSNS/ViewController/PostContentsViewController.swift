@@ -32,9 +32,9 @@ class PostContentsViewController: UIViewController {
         super.viewDidLoad()
         self.navigationItem.title = "投稿"
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.gray]
-       
+        
         //インスタンスを作成
-
+        
         DBRef = Database.database().reference()
         
         // Do any additional setup after loading the view.
@@ -72,12 +72,13 @@ class PostContentsViewController: UIViewController {
     
     func uploadContents(){
         makeProgressDialog()
+        print("投稿開始")
         // strageの一番トップのReferenceを指定
         let storage = Storage.storage()
         // let storageRef = storage.reference(forURL: "gs://calender-4a2d3.appspot.com")
         let storageRef = storage.reference(forURL: "gs://favoritesns3.appspot.com/")
         
-         //変数dataにpicをNSDataにしたものを指定
+        //変数dataにpicをNSDataにしたものを指定
         if let data = Util.resizeImage(src: postTextTableViewCell.pictureImageView.image, max: 500)?.jpegData(compressionQuality: 0.8) {
             // トップReferenceの一つ下の固有IDの枝を指定
             let riversRef = storageRef.child(Util.getUUID()).child(String.getRandomStringWithLength(length: 60))
@@ -88,9 +89,11 @@ class PostContentsViewController: UIViewController {
                 var time = dateManeger.stringFromDate(date: Date())
                 let data = ["contents": self.postTextTableViewCell.textView.text,"imageURL": downloadURL,"likes": 0,"star": self.starIndex,"time": time] as [String : Any]
                 let ref = Database.database().reference()
+                print(self.postGroupItemTableViewCellArray.count)
                 for postGroupItemTableViewCell in self.postGroupItemTableViewCellArray{
                     print(postGroupItemTableViewCell.groupNameLabel.text)
                     if postGroupItemTableViewCell.chooseGroupSwitch.isOn { ref.child(Util.getUUID()).child("post").child(postGroupItemTableViewCell.groupNameLabel.text!).childByAutoId().setValue(data)
+                        print("投稿")
                         self.alert.dismiss(animated: true, completion: nil)
                     }
                 }
@@ -140,7 +143,7 @@ class PostContentsViewController: UIViewController {
                 isGroopChoiced = true
             }
         }
-         
+        
         if isGroopChoiced && self.starIndex >= 1 && self.postTextTableViewCell.textView.text != "" && self.postTextTableViewCell.pictureImageView.image != nil{
             uploadContents()
         } else if  self.starIndex == 0 && self.postTextTableViewCell.textView.text != "" && self.postTextTableViewCell.pictureImageView.image != nil{
@@ -156,6 +159,21 @@ class PostContentsViewController: UIViewController {
         
     }
     
+    @objc func pictureImageViewTapped(_ sender: UITapGestureRecognizer) {
+        // カメラロールが利用可能か？
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            // 写真を選ぶビュー
+            let pickerView = UIImagePickerController()
+            // 写真の選択元をカメラロールにする
+            // 「.camera」にすればカメラを起動できる
+            pickerView.sourceType = .photoLibrary
+            // デリゲート
+            pickerView.delegate = self
+            // ビューに表示
+            self.present(pickerView, animated: true)
+        }
+    }
+    
     
 }
 
@@ -167,9 +185,22 @@ extension PostContentsViewController: UITableViewDataSource,UITableViewDelegate 
     
     //cellの内容
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        postGroupItemTableViewCellArray.removeAll()
         if indexPath.row == 0 {
             postTextTableViewCell = postTableView.dequeueReusableCell(withIdentifier: "postTextTableViewCell", for: indexPath) as! PostTextTableViewCell
             postTextTableViewCell.textView.delegate = self
+            postTextTableViewCell.textView.layer.borderColor = UIColor.black.cgColor
+            postTextTableViewCell.textView.layer.borderWidth = 1
+            postTextTableViewCell.pictureImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(PostContentsViewController.pictureImageViewTapped(_:))))
+            
+            if postTextTableViewCell.pictureImageView.image == nil {
+                
+                postTextTableViewCell.choosePictureLabel.isHidden = false
+            } else {
+                postTextTableViewCell.choosePictureLabel.isHidden = true
+            }
+            
+            
             return postTextTableViewCell
         } else if  indexPath.row == 1{
             postLikeTableViewCell = postTableView.dequeueReusableCell(withIdentifier: "postLikeTableViewCell", for: indexPath) as! PostLikeTableViewCell
@@ -203,7 +234,7 @@ extension PostContentsViewController: UITableViewDataSource,UITableViewDelegate 
         }else if indexPath.row == 2 {
             return 50
         }else{
-            return 100
+            return 50
         }
     }
     
@@ -214,7 +245,7 @@ extension PostContentsViewController : UIImagePickerControllerDelegate ,UINaviga
     // 写真を選んだ後に呼ばれる処理
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         selectedImage = info[.originalImage] as! UIImage
-        
+        postTableView.reloadData()
         
         let cropViewController = CropViewController(image: selectedImage)
         cropViewController.setAspectRatioPreset(.presetSquare, animated: true)
@@ -225,6 +256,13 @@ extension PostContentsViewController : UIImagePickerControllerDelegate ,UINaviga
         present(cropViewController,animated: true, completion: nil)
         
     }
+    
+    //画像選択がキャンセルされた時に呼ばれる.
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        postTableView.reloadData()
+        // モーダルビューを閉じる
+        self.dismiss(animated: true, completion: nil)
+    }
 }
 
 extension PostContentsViewController: CropViewControllerDelegate {
@@ -233,6 +271,7 @@ extension PostContentsViewController: CropViewControllerDelegate {
         //加工した画像が取得できる
         // ビューに表示する
         postTextTableViewCell.pictureImageView.image = image
+        postTableView.reloadData()
         cropViewController.dismiss(animated: true, completion: nil)
         
     }
@@ -240,6 +279,7 @@ extension PostContentsViewController: CropViewControllerDelegate {
     func cropViewController(_ cropViewController: CropViewController, didFinishCancelled cancelled: Bool) {
         // キャンセル時
         cropViewController.dismiss(animated: true, completion: nil)
+        postTableView.reloadData()
     }
 }
 
