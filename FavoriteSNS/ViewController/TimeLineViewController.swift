@@ -56,10 +56,16 @@ class TimeLineViewController: UIViewController {
     }
     
     func setUpNavigation() {
-        self.navigationItem.title = "Favns"
+        for familyName:String in UIFont.familyNames {
+            print("Family Name: \(familyName)")
+            for fontName:String in UIFont.fontNames(forFamilyName: familyName) {
+                print("--Font Name: \(fontName)")
+            }
+        }
+        self.navigationItem.title = "TimeLine"
         self.navigationController?.navigationBar.titleTextAttributes =
             [NSAttributedString.Key.foregroundColor: UIColor.gray,
-             NSAttributedString.Key.font: UIFont(name: "azuki_font", size: 21)!]
+             NSAttributedString.Key.font: UIFont(name: "azuki_font", size: 15)!]
     }
     
     private func setUpSafeArea(){
