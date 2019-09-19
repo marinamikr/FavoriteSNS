@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import KYDrawerController
 import CropViewController
 
 class PostContentsViewController: UIViewController {
@@ -32,7 +33,6 @@ class PostContentsViewController: UIViewController {
         super.viewDidLoad()
         self.navigationItem.title = "投稿"
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.gray]
-        
         //インスタンスを作成
         
         DBRef = Database.database().reference()
@@ -48,7 +48,16 @@ class PostContentsViewController: UIViewController {
         self.postTableView.register(UINib(nibName: "PostLikeTableViewCell", bundle: nil), forCellReuseIdentifier: "postLikeTableViewCell")
         self.postTableView.register(UINib(nibName: "PostTextTableViewCell", bundle: nil), forCellReuseIdentifier: "postTextTableViewCell")
         
-        // カメラロールが利用可能か？
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
+    
+    
+    func chooseImage()  {
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
             // 写真を選ぶビュー
             let pickerView = UIImagePickerController()
@@ -61,7 +70,6 @@ class PostContentsViewController: UIViewController {
             self.present(pickerView, animated: true)
         }
     }
-    
     func getUserData() {
         DBRef.child(Util.getUUID()).child("userData").child("group").observe(.value, with: {snapshot  in
             self.groupArray = snapshot.value as! [String]
@@ -97,7 +105,13 @@ class PostContentsViewController: UIViewController {
                         self.alert.dismiss(animated: true, completion: nil)
                     }
                 }
-                self.navigationController?.popToRootViewController(animated: true)
+                self.postTextTableViewCell.pictureImageView.image = nil
+                self.postTextTableViewCell.textView.text = ""
+                
+                let elDrawer = self.navigationController?.parent?.parent as! KYDrawerController
+                elDrawer.setDrawerState(KYDrawerController.DrawerState.closed, animated: true)
+                let vc = self.tabBarController!.viewControllers![0]
+                self.tabBarController!.selectedViewController = vc
             })
         }
     }
@@ -160,20 +174,9 @@ class PostContentsViewController: UIViewController {
     }
     
     @objc func pictureImageViewTapped(_ sender: UITapGestureRecognizer) {
-        // カメラロールが利用可能か？
-        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-            // 写真を選ぶビュー
-            let pickerView = UIImagePickerController()
-            // 写真の選択元をカメラロールにする
-            // 「.camera」にすればカメラを起動できる
-            pickerView.sourceType = .photoLibrary
-            // デリゲート
-            pickerView.delegate = self
-            // ビューに表示
-            self.present(pickerView, animated: true)
-        }
+        chooseImage()
     }
-   
+    
     
 }
 
@@ -234,7 +237,7 @@ extension PostContentsViewController: UITableViewDataSource,UITableViewDelegate 
         }else if indexPath.row == 2 {
             return 50
         }else{
-            return 50
+            return 80
         }
     }
     
@@ -350,3 +353,6 @@ extension PostContentsViewController :UITextViewDelegate {
     }
     
 }
+
+
+

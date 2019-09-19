@@ -92,7 +92,7 @@ class FriendPostTableViewCell: UITableViewCell {
     }
     
     private func setLikeLabel(likeData: Int) {
-        likeLabel.text = String(likeData)
+        likeLabel.text = String(likeData) + "件"
     }
     
     private func setStarLabel(starData: Int) {
@@ -131,7 +131,7 @@ class FriendPostTableViewCell: UITableViewCell {
         
         // テキストフィールド付きアラート表示
         
-        let alert = UIAlertController(title: "タイトル", message: "メッセージ", preferredStyle: .alert)
+        let alert = UIAlertController(title: "コメント入力", message: "コメントを入力して下さい", preferredStyle: .alert)
         
         // OKボタンの設定
         let okAction = UIAlertAction(title: "OK", style: .default, handler: {

@@ -11,7 +11,7 @@ import UIKit
 class SettingViewController: UIViewController {
     
     @IBOutlet weak var settingTableView: UITableView!
-    var labelNameArray = ["グループ編集・追加", "フォロー、フォロワー一覧", "その他",]
+    var labelNameArray = ["グループ編集・追加", "フォロー、フォロワー一覧"]
     
     override func viewDidLoad() {
         super.viewDidLoad()

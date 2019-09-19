@@ -87,7 +87,7 @@ class PostTableViewCell: UITableViewCell {
     }
     
     func setLikeLabel(likeData: Int) {
-        likeLabel.text = String(likeData)
+        likeLabel.text = String(likeData) + "件"
     }
     
     func setStarLabel(starData: Int) {

@@ -17,6 +17,7 @@
 		1F120D8E23338B89009F3BB7 /* qr-code.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F120D8923338B89009F3BB7 /* qr-code.png */; };
 		1F120D8F23338B89009F3BB7 /* writing.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F120D8A23338B89009F3BB7 /* writing.png */; };
 		1F120D9123338D2B009F3BB7 /* home 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F120D9023338D2B009F3BB7 /* home 2.png */; };
+		1F120D932333A0DD009F3BB7 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F120D922333A0DD009F3BB7 /* icon.png */; };
 		402A625E228AC129002D2DD8 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402A625D228AC129002D2DD8 /* PostViewController.swift */; };
 		402A6260228AC15C002D2DD8 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402A625F228AC15C002D2DD8 /* CameraViewController.swift */; };
 		402A6262228AC16D002D2DD8 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402A6261228AC16D002D2DD8 /* SettingViewController.swift */; };
@@ -115,6 +116,7 @@
 		1F120D8923338B89009F3BB7 /* qr-code.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qr-code.png"; sourceTree = "<group>"; };
 		1F120D8A23338B89009F3BB7 /* writing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = writing.png; sourceTree = "<group>"; };
 		1F120D9023338D2B009F3BB7 /* home 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home 2.png"; sourceTree = "<group>"; };
+		1F120D922333A0DD009F3BB7 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		2E7ADF7DABFC240C6CA45CAA /* Pods-FavoriteSNS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FavoriteSNS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FavoriteSNS/Pods-FavoriteSNS.debug.xcconfig"; sourceTree = "<group>"; };
 		3DB3D5F8A21BABFE255C0BC8 /* Pods_FavoriteSNS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FavoriteSNS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		402A625D228AC129002D2DD8 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
@@ -386,6 +388,7 @@
 				1F120D8A23338B89009F3BB7 /* writing.png */,
 				1F120D8423338263009F3BB7 /* photo-camera.png */,
 				40BC7F87224C54E3005EC53C /* pinkhearts.png */,
+				1F120D922333A0DD009F3BB7 /* icon.png */,
 				4074E38422A663200027BDD4 /* star.png */,
 				4074E38322A663200027BDD4 /* yellowStar.png */,
 				4065DEC722E6A97F00EBD8A2 /* addFriend.png */,
@@ -537,6 +540,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F120D932333A0DD009F3BB7 /* icon.png in Resources */,
 				4065DEDE22E6AD5F00EBD8A2 /* azuki.ttf in Resources */,
 				1F120D8F23338B89009F3BB7 /* writing.png in Resources */,
 				4065DED722E6A98000EBD8A2 /* timeline.png in Resources */,

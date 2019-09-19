@@ -21,20 +21,14 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     var userDefaults:UserDefaults = UserDefaults.standard
     let defaults = UserDefaults.standard
     // セッションのインスタンス生成
-    let captureSession = AVCaptureSession()
+    var captureSession :AVCaptureSession!
     var videoLayer: AVCaptureVideoPreviewLayer?
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
         
-        self.navigationItem.title = "camera"
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.gray]
-
-        
-        self.navigationItem.title = "友達追加"
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Mamelon", size: 20)]
-       
+        super.viewWillAppear(animated)
+        captureSession = AVCaptureSession()
         
         let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: AVMediaType.video, position: .back)
         

@@ -36,7 +36,7 @@ class TimeLineViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        (self.navigationController?.parent as? UITabBarController)?.delegate = self
      setUpNavigation()
 //
         
@@ -222,9 +222,10 @@ extension TimeLineViewController: UITableViewDataSource,UITableViewDelegate {
 extension TimeLineViewController: CustomDelegate {
     
     func toCamera() {
+        let vc = self.tabBarController!.viewControllers![4]
+        self.tabBarController!.selectedViewController = vc
         let elDrawer = self.navigationController?.parent?.parent as! KYDrawerController
         elDrawer.setDrawerState(KYDrawerController.DrawerState.closed, animated: true)
-        performSegue(withIdentifier: "toCameraViewController", sender: nil)
     }
     func toQrcode() {
         
@@ -237,6 +238,9 @@ extension TimeLineViewController: CustomDelegate {
     func toSetting() {
         let elDrawer = self.navigationController?.parent?.parent as! KYDrawerController
         elDrawer.setDrawerState(KYDrawerController.DrawerState.closed, animated: true)
+        let vc = self.tabBarController!.viewControllers![0]
+        self.tabBarController!.selectedViewController = vc
+        print("toSettingViewController")
         performSegue(withIdentifier: "toSettingViewController", sender: nil)
     }
     
@@ -250,8 +254,50 @@ extension TimeLineViewController: CustomDelegate {
     func toFriend() {
         let elDrawer = self.navigationController?.parent?.parent as! KYDrawerController
         elDrawer.setDrawerState(KYDrawerController.DrawerState.closed, animated: true)
+        let vc = self.tabBarController!.viewControllers![0]
+        self.tabBarController!.selectedViewController = vc
+        print("toFriendListViewController")
         performSegue(withIdentifier: "toFriendListViewController", sender: nil)
     }
     
     
+}
+
+extension TimeLineViewController:UITabBarControllerDelegate{
+    // UITabBarDelegate
+    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        print("Selected item")
+        print(tabBar.tag)
+    }
+    
+    // UITabBarControllerDelegate
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        print("Selected view controller")
+        let vc = (viewController as! UINavigationController).visibleViewController!
+        if vc.isKind(of: PostContentsViewController.classForCoder()) {
+            let postContentsViewController :PostContentsViewController = vc as! PostContentsViewController
+            if  postContentsViewController.postTextTableViewCell != nil {
+                if postContentsViewController.postTextTableViewCell.pictureImageView.image == nil {
+                    chooseImage(vc: postContentsViewController)
+                }
+            }else{
+                chooseImage(vc: postContentsViewController)
+            }
+            
+        }
+    }
+    
+    func chooseImage(vc:PostContentsViewController)  {
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            // 写真を選ぶビュー
+            let pickerView = UIImagePickerController()
+            // 写真の選択元をカメラロールにする
+            // 「.camera」にすればカメラを起動できる
+            pickerView.sourceType = .photoLibrary
+            // デリゲート
+            pickerView.delegate = vc
+            // ビューに表示
+            self.present(pickerView, animated: true)
+        }
+    }
 }
