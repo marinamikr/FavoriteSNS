@@ -120,7 +120,6 @@ class PostContentsViewController: UIViewController {
                 isGroopChoiced = true
             }
         }
-        print(isGroopChoiced)
         if isGroopChoiced && self.starIndex >= 1 && self.postTextTableViewCell.textView.text != "" && self.postTextTableViewCell.pictureImageView.image != nil{
             uploadContents()
         } else if  self.starIndex == 0 && self.postTextTableViewCell.textView.text != "" && self.postTextTableViewCell.pictureImageView.image != nil{
@@ -147,7 +146,6 @@ extension PostContentsViewController: UITableViewDataSource,UITableViewDelegate 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        postGroupItemTableViewCellArray.removeAll()
         if indexPath.row == 0 {
             postTextTableViewCell = postTableView.dequeueReusableCell(withIdentifier: "postTextTableViewCell", for: indexPath) as! PostTextTableViewCell
             postTextTableViewCell.textView.delegate = self

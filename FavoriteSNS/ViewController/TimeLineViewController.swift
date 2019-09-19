@@ -163,8 +163,6 @@ extension TimeLineViewController: UITableViewDataSource,UITableViewDelegate {
             cell.setPostModel(post: post)
             cell.setheartImage(imageName: "pinkhearts.png")
             cell.setIndex(indexData: indexPath.row)
-            print("@@@@@@@@@@")
-            print(cell.userNameLabel.font.fontName)
         }
         return cell
     }
